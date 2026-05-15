@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function incoming() { return request.resource.data; }
+    
+    function isValidLead(data) {
+      return data.keys().hasAll(['firm', 'email', 'status', 'createdAt']) &&
+             data.keys().size() == 4 &&
+             data.firm is string && data.firm.size() > 0 && data.firm.size() <= 200 &&
+             data.email is string && data.email.size() > 0 && data.email.size() <= 200 &&
+             data.status == 'new' &&
+             data.createdAt == request.time;
+    }
+
+    match /leads/{leadId} {
+      allow create: if isValidLead(incoming());
+      allow read, update, delete: if false;
+    }
+  }
+}

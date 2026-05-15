@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "A live deal review request",
+      "type": "object",
+      "properties": {
+        "firm": {
+          "type": "string",
+          "description": "Firm or Institution"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Corporate Email"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["new", "contacted", "rejected", "closed"],
+          "description": "Deal status"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp"
+        }
+      },
+      "required": ["firm", "email", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/leads/{leadId}": {
+      "schema": {
+        "$ref": "#/entities/Lead"
+      },
+      "description": "Stores deal review requests"
+    }
+  }
+}

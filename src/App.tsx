@@ -52,11 +52,11 @@ export default function App() {
         <nav className="fixed w-full z-40 border-b border-[var(--border-color)] bg-[var(--glass-bg)] backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
             <Link to="/" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
-              <div className="relative flex overflow-hidden h-10 md:h-16 w-24 md:w-36 shrink-0 mt-1 md:mt-2">
+              <div className="relative flex items-center h-12 md:h-16 w-auto shrink-0 overflow-visible">
                 <img 
                   src="/logo.png" 
                   alt="Raven Adversary" 
-                  className="w-[120%] max-w-none h-auto absolute left-1/2 top-[-10%] md:top-[-20%] -translate-x-1/2 hidden dark:block mix-blend-screen contrast-125 brightness-110"
+                  className="h-[140%] max-h-none w-auto object-contain hidden dark:block mix-blend-screen contrast-125 brightness-110 -ml-2"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     const fallback = document.getElementById('logo-fallback');
@@ -67,13 +67,13 @@ export default function App() {
                 <img 
                   src="/logo.png" 
                   alt="Raven Adversary" 
-                  className="w-[120%] max-w-none h-auto absolute left-1/2 top-[-10%] md:top-[-20%] -translate-x-1/2 dark:hidden invert mix-blend-multiply contrast-125 brightness-90"
+                  className="h-[140%] max-h-none w-auto object-contain dark:hidden invert mix-blend-multiply contrast-125 brightness-90 -ml-2"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                   }}
                 />
 
-                <div id="logo-fallback" className="font-bold text-2xl tracking-tight flex-col leading-none hidden relative z-10 p-2">
+                <div id="logo-fallback" className="font-bold text-2xl tracking-tight flex flex-col leading-none hidden relative z-10 p-2">
                   <span>RAVEN</span>
                   <span className="text-[10px] font-medium text-[var(--brand-cyan)] tracking-widest mt-0.5">ADVERSARY</span>
                 </div>
