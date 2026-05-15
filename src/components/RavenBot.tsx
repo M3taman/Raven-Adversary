@@ -20,8 +20,11 @@ export default function RavenBot() {
 
   useEffect(() => {
     try {
-      // @ts-ignore
-      const apiKey = process.env.GEMINI_API_KEY;
+      // Try to get the API key from Vite's import.meta.env first, then fallback to process.env if available (for AI Studio)
+      let apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      if (!apiKey && typeof process !== 'undefined' && process.env) {
+        apiKey = process.env.GEMINI_API_KEY;
+      }
       if (apiKey) {
         const ai = new GoogleGenAI({ apiKey });
         chatRef.current = ai.chats.create({

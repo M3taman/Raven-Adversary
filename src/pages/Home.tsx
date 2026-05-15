@@ -1,8 +1,41 @@
-import React from 'react';
-import { Shield, Brain, Lock, ChevronRight, Activity, Terminal, CheckCircle2, Globe, FileStack, ShieldAlert, GitCompare } from 'lucide-react';
+import React, { useState } from 'react';
+import { Shield, Brain, Lock, ChevronRight, Activity, Terminal, CheckCircle2, Globe, FileStack, ShieldAlert, GitCompare, Loader2 } from 'lucide-react';
 import CaseStudies from '../components/CaseStudies';
 
 export default function Home() {
+  const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormState('submitting');
+    
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/singhabhitanwar07@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        setFormState('success');
+        (e.target as HTMLFormElement).reset();
+        setTimeout(() => setFormState('idle'), 5000);
+      } else {
+        setFormState('error');
+        setTimeout(() => setFormState('idle'), 5000);
+      }
+    } catch (error) {
+      setFormState('error');
+      setTimeout(() => setFormState('idle'), 5000);
+    }
+  };
+
   return (
     <>
       {/* HERO SECTION */}
@@ -208,8 +241,7 @@ export default function Home() {
           </div>
 
           <form 
-            action="https://formsubmit.co/singhabhitanwar07@gmail.com" 
-            method="POST"
+            onSubmit={handleFormSubmit}
             className="max-w-md mx-auto space-y-4 relative z-10" 
           >
             {/* Added config for formsubmit */}
@@ -219,15 +251,38 @@ export default function Home() {
             <div className="space-y-4 text-left">
               <div>
                 <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2">Firm or Institution</label>
-                <input required type="text" name="firm" className="w-full bg-[var(--bg-primary)] border border-[var(--border-color)] rounded px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] transition-colors text-sm" placeholder="Acme Capital" />
+                <input required disabled={formState !== 'idle'} type="text" name="firm" className="w-full bg-[var(--bg-primary)] border border-[var(--border-color)] rounded px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] transition-colors text-sm disabled:opacity-50" placeholder="Acme Capital" />
               </div>
               <div>
                 <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2">Corporate Email</label>
-                <input required type="email" name="email" className="w-full bg-[var(--bg-primary)] border border-[var(--border-color)] rounded px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] transition-colors text-sm" placeholder="analyst@acmecapital.com" />
+                <input required disabled={formState !== 'idle'} type="email" name="email" className="w-full bg-[var(--bg-primary)] border border-[var(--border-color)] rounded px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] transition-colors text-sm disabled:opacity-50" placeholder="analyst@acmecapital.com" />
               </div>
             </div>
-            <button type="submit" className="w-full !mt-8 border border-[var(--text-primary)] bg-[var(--text-primary)] text-[var(--bg-primary)] px-6 py-4 text-sm font-bold uppercase tracking-wider hover:opacity-90 hover:shadow-[0_0_15px_rgba(0,0,0,0.2)] transition-all duration-300">
-              Contact Intelligence Team
+            
+            {formState === 'error' && (
+              <div className="text-sm text-red-500 bg-red-500/10 border border-red-500/20 p-3 rounded text-left">
+                There was a problem submitting your request. Please try again or email us directly.
+              </div>
+            )}
+            
+            {formState === 'success' && (
+              <div className="text-sm text-[var(--brand-cyan)] bg-[var(--brand-cyan)]/10 border border-[var(--brand-cyan)]/20 p-3 rounded text-left flex items-center justify-center gap-2 font-bold uppercase tracking-widest">
+                <CheckCircle2 className="w-4 h-4" /> SECURE TRANSMISSION RECEIVED
+              </div>
+            )}
+
+            <button 
+              type="submit" 
+              disabled={formState !== 'idle'}
+              className="w-full !mt-8 border border-[var(--text-primary)] bg-[var(--text-primary)] text-[var(--bg-primary)] px-6 py-4 text-sm font-bold uppercase tracking-wider hover:opacity-90 hover:shadow-[0_0_15px_rgba(0,0,0,0.2)] transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2"
+            >
+              {formState === 'submitting' ? (
+                <><Loader2 className="w-4 h-4 animate-spin" /> Transmitting...</>
+              ) : formState === 'success' ? (
+                'Request Sent'
+              ) : (
+                'Contact Intelligence Team'
+              )}
             </button>
           </form>
         </div>
