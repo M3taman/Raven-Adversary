@@ -8,10 +8,13 @@ service cloud.firestore {
     function incoming() { return request.resource.data; }
     
     function isValidLead(data) {
-      return data.keys().hasAll(['firm', 'email', 'status', 'createdAt']) &&
-             data.keys().size() == 4 &&
+      return data.keys().hasAll(['firm', 'email', 'cikOrTicker', 'transactionValue', 'additionalDetails', 'status', 'createdAt']) &&
+             data.keys().size() == 7 &&
              data.firm is string && data.firm.size() > 0 && data.firm.size() <= 200 &&
              data.email is string && data.email.size() > 0 && data.email.size() <= 200 &&
+             data.cikOrTicker is string && data.cikOrTicker.size() > 0 && data.cikOrTicker.size() <= 50 &&
+             data.transactionValue is string && data.transactionValue.size() <= 100 &&
+             data.additionalDetails is string && data.additionalDetails.size() <= 2000 &&
              data.status == 'new' &&
              data.createdAt == request.time;
     }

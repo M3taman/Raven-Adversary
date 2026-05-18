@@ -14,6 +14,18 @@
           "format": "email",
           "description": "Corporate Email"
         },
+        "cikOrTicker": {
+          "type": "string",
+          "description": "CIK or Ticker"
+        },
+        "transactionValue": {
+          "type": "string",
+          "description": "Deal Size / Transaction Value"
+        },
+        "additionalDetails": {
+          "type": "string",
+          "description": "Additional Details / Comments"
+        },
         "status": {
           "type": "string",
           "enum": ["new", "contacted", "rejected", "closed"],
@@ -25,7 +37,7 @@
           "description": "Creation timestamp"
         }
       },
-      "required": ["firm", "email", "status", "createdAt"]
+      "required": ["firm", "email", "cikOrTicker", "transactionValue", "additionalDetails", "status", "createdAt"]
     }
   },
   "firestore": {

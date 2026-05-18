@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Shield, Brain, Lock, ChevronRight, Activity, Terminal, CheckCircle2, Globe, FileStack, ShieldAlert, GitCompare, Loader2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Shield, Brain, Lock, ChevronRight, Activity, Terminal, CheckCircle2, Globe, FileStack, ShieldAlert, GitCompare, Loader2, X } from 'lucide-react';
 import CaseStudies from '../components/CaseStudies';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
@@ -31,6 +31,16 @@ function handleFirestoreError(error: unknown, operationType: OperationType, path
 
 export default function Home() {
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+  // Prevent scrolling when modal is open
+  useEffect(() => {
+    if (isVideoModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isVideoModalOpen]);
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,6 +53,9 @@ export default function Home() {
       await addDoc(collection(db, 'leads'), {
         firm: data.firm as string,
         email: data.email as string,
+        cikOrTicker: data.cikOrTicker as string,
+        transactionValue: (data.transactionValue as string) || '',
+        additionalDetails: (data.additionalDetails as string) || '',
         status: 'new',
         createdAt: serverTimestamp()
       }).catch(err => handleFirestoreError(err, OperationType.CREATE, 'leads'));
@@ -75,9 +88,9 @@ export default function Home() {
             <a href="#case-studies" className="px-8 py-4 border border-[var(--border-highlight)] text-[var(--text-primary)] flex items-center gap-2 text-sm font-bold uppercase tracking-wider hover:border-[var(--brand-cyan)] transition-colors w-full sm:w-auto justify-center glass-panel rounded-sm">
               View Sample Intelligence
             </a>
-            <a href="https://www.loom.com/looms/videos" target="_blank" rel="noopener noreferrer" className="px-8 py-4 border border-[var(--border-highlight)] text-[var(--text-primary)] flex items-center gap-2 text-sm font-bold uppercase tracking-wider hover:border-[var(--brand-purple)] transition-colors w-full sm:w-auto justify-center glass-panel rounded-sm">
+            <button onClick={() => setIsVideoModalOpen(true)} className="px-8 py-4 border border-[var(--border-highlight)] text-[var(--text-primary)] flex items-center gap-2 text-sm font-bold uppercase tracking-wider hover:border-[var(--brand-purple)] transition-colors w-full sm:w-auto justify-center glass-panel rounded-sm">
               Watch Demo
-            </a>
+            </button>
           </div>
           <div className="pt-10 flex flex-wrap justify-center gap-4 text-xs font-mono text-[var(--text-tertiary)] uppercase tracking-wider">
             <div className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[var(--brand-cyan)]"/> Not a generic AI copilot</div>
@@ -270,9 +283,23 @@ export default function Home() {
                 <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2 font-semibold pl-1">Firm or Institution</label>
                 <input required disabled={formState !== 'idle'} type="text" name="firm" className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] focus:ring-1 focus:ring-[var(--brand-cyan)]/50 transition-all text-sm font-medium disabled:opacity-50 placeholder:text-[var(--text-tertiary)] hover:border-[var(--border-highlight)]" placeholder="Acme Capital" />
               </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2 font-semibold pl-1">Corporate Email</label>
+                  <input required disabled={formState !== 'idle'} type="email" name="email" className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] focus:ring-1 focus:ring-[var(--brand-cyan)]/50 transition-all text-sm font-medium disabled:opacity-50 placeholder:text-[var(--text-tertiary)] hover:border-[var(--border-highlight)]" placeholder="analyst@acmecapital.com" />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2 font-semibold pl-1">CIK or Ticker</label>
+                  <input required disabled={formState !== 'idle'} type="text" name="cikOrTicker" className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] focus:ring-1 focus:ring-[var(--brand-cyan)]/50 transition-all text-sm font-medium disabled:opacity-50 placeholder:text-[var(--text-tertiary)] hover:border-[var(--border-highlight)]" placeholder="AAPL / 0000320193" />
+                </div>
+              </div>
               <div>
-                <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2 font-semibold pl-1">Corporate Email</label>
-                <input required disabled={formState !== 'idle'} type="email" name="email" className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] focus:ring-1 focus:ring-[var(--brand-cyan)]/50 transition-all text-sm font-medium disabled:opacity-50 placeholder:text-[var(--text-tertiary)] hover:border-[var(--border-highlight)]" placeholder="analyst@acmecapital.com" />
+                <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2 font-semibold pl-1">Deal Size / Transaction Value <span className="opacity-50 lowercase font-sans text-[10px] ml-1 tracking-normal">(optional)</span></label>
+                <input disabled={formState !== 'idle'} type="text" name="transactionValue" className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] focus:ring-1 focus:ring-[var(--brand-cyan)]/50 transition-all text-sm font-medium disabled:opacity-50 placeholder:text-[var(--text-tertiary)] hover:border-[var(--border-highlight)]" placeholder="$500M - $1B+" />
+              </div>
+              <div>
+                <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2 font-semibold pl-1">Additional Context <span className="opacity-50 lowercase font-sans text-[10px] ml-1 tracking-normal">(optional)</span></label>
+                <textarea disabled={formState !== 'idle'} name="additionalDetails" rows={3} className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] focus:ring-1 focus:ring-[var(--brand-cyan)]/50 transition-all text-sm font-medium disabled:opacity-50 placeholder:text-[var(--text-tertiary)] hover:border-[var(--border-highlight)] resize-none" placeholder="Targeting regulatory risks, reverse merger structure..." />
               </div>
             </div>
             
@@ -304,6 +331,34 @@ export default function Home() {
           </form>
         </div>
       </section>
+
+      {/* VIDEO MODAL */}
+      {isVideoModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setIsVideoModalOpen(false)}></div>
+          <div className="relative w-full max-w-5xl bg-[var(--bg-primary)] border border-[var(--border-color)] rounded-xl shadow-2xl overflow-hidden glass-panel z-10 animate-in fade-in zoom-in-95 duration-200">
+            <div className="flex items-center justify-between p-4 border-b border-[var(--border-color)] bg-[var(--bg-secondary)]/50">
+              <div className="font-mono text-xs font-bold tracking-widest text-[var(--text-secondary)]">RAVEN ADVERSARY // DEMO</div>
+              <button 
+                onClick={() => setIsVideoModalOpen(false)}
+                className="text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors p-1"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="relative pt-[56.25%] w-full bg-black">
+              <iframe 
+                src="https://www.loom.com/embed/67a5d3afedb1468193f9469bc75ce703?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true" 
+                frameBorder="0" 
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full"
+                title="Raven Adversary Demo"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
