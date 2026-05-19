@@ -37,7 +37,7 @@
           "description": "Creation timestamp"
         }
       },
-      "required": ["firm", "email", "cikOrTicker", "transactionValue", "additionalDetails", "status", "createdAt"]
+      "required": ["firm", "email", "status", "createdAt"]
     }
   },
   "firestore": {

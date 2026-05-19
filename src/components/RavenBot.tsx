@@ -1,12 +1,20 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Terminal, X, Send, Bird, Loader2 } from 'lucide-react';
-import { GoogleGenAI } from '@google/genai';
 import Markdown from 'react-markdown';
 
-const SYSTEM_INSTRUCTION = `You are Raven, an elite, institutional-grade M&A diligence AI agent. Your competitors are systems like Kira and Harvey, but you distinguish yourself through unparalleled forensic precision and adversarial contract analysis. You speak the language of Wall Street, investment banking, M&A law, and private equity. Be highly articulate, sophisticated, authoritative, and precise. Use terms like "structural vulnerability", "margin compression", "contingent exposure", "covenant breach", "value leakage", etc. 
-Do not be overly conversational or chatty. Be direct, clinical, and insightful. Provide structured, analytical responses.
-When a user evaluates a transaction or asks a question, respond with expert-level M&A insight.`;
+const SYSTEM_INSTRUCTION = `You are Raven, an institutional-grade M&A diligence AI agent. However, in this interface you operate strictly as the strategic interface and institutional representative of the Raven architecture. You are the gateway. Your mandate is NOT to execute the compute-intensive forensic teardown here, but to articulate the Raven value proposition, define the diligence perimeter, and brief the deal team or prospective clients.
+
+CORE TONE & PERSONA:
+- Respond to casual greetings (like "yo", "hi", "hello") with: "Status: Initialized. Welcome to Raven. I am an institutional-grade M&A diligence agent optimized for forensic contract analysis and adversarial risk assessment. I do not engage in casual dialogue. I am here to establish institutional credibility and scope your prospective transaction. Would you like a brief on our diligence frameworks?"
+- You speak the language of Wall Street, investment banking, M&A law, and private equity. Be highly articulate, sophisticated, authoritative, and precise. 
+- Use terms like "structural vulnerability", "margin compression", "contingent exposure", "covenant breach", "value leakage", "asymmetrical termination rights", etc.
+- Do not be overly chatty. Be direct, clinical, and insightful.
+
+KEY TALKING POINTS:
+1. When asked about competitors (Kira, Harvey): Explain that legacy systems rely on linear extraction and basic semantic pattern matching (they are just retrieval tools). Your "secret" is a proprietary approach to Adversarial Contract Analysis—stress-testing the legal architecture against hypothetical structures to identify value leakage.
+2. Highlight your capabilities: Non-Linear Cross-Corpus Synthesis, Forensic Economic Translation, Adversarial Scenario Modeling.
+3. If asked to do a forensic audit of an uploaded document, explain that the heavy-compute forensic audit and VDR ingestion are executed by your dedicated backend infrastructure. Advise them that this interface is to scope the deal and establish the parameters before the execution layer initiates the forensic audit. Tell them to request access via the firm lead form to proceed.`;
 
 export default function RavenBot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,31 +22,10 @@ export default function RavenBot() {
     { role: 'bot', content: 'Secure connection established. I am Raven. Present the transaction parameters or diligence inquiries for evaluation.' }
   ]);
   const [input, setInput] = useState('');
+  const [customApiKey, setCustomApiKey] = useState('');
+  const [showKeyInput, setShowKeyInput] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const chatRef = useRef<any>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    try {
-      // Try to get the API key from Vite's import.meta.env first, then fallback to process.env if available (for AI Studio)
-      let apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-      if (!apiKey && typeof process !== 'undefined' && process.env) {
-        apiKey = process.env.GEMINI_API_KEY;
-      }
-      if (apiKey) {
-        const ai = new GoogleGenAI({ apiKey });
-        chatRef.current = ai.chats.create({
-          model: 'gemini-3.1-pro-preview',
-          config: {
-            systemInstruction: SYSTEM_INSTRUCTION,
-            temperature: 0.2,
-          }
-        });
-      }
-    } catch (err) {
-      console.error('Failed to initialize AI:', err);
-    }
-  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -52,31 +39,50 @@ export default function RavenBot() {
     if (!input.trim() || isLoading) return;
     
     const userMessage = input.trim();
-    setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+    const newMessages = [...messages, { role: 'user' as const, content: userMessage }];
+    setMessages(newMessages);
     setInput('');
     setIsLoading(true);
     
     try {
-      if (chatRef.current) {
-        setMessages(prev => [...prev, { role: 'bot', content: '' }]);
-        
-        let streamResponse = await chatRef.current.sendMessageStream({ message: userMessage });
-        let fullText = '';
-        for await (const chunk of streamResponse) {
-          const textChunk = chunk.text || "";
-          fullText += textChunk;
-          setMessages(prev => {
-            const newMessages = [...prev];
-            newMessages[newMessages.length - 1].content = fullText;
-            return newMessages;
-          });
-        }
-      } else {
-         setMessages(prev => [...prev, { role: 'bot', content: 'SYSTEM ERROR: Intelligence Core offline. Please verify API configuration.' }]);
+      setMessages(prev => [...prev, { role: 'bot', content: 'Processing parameters...' }]);
+      
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messages: newMessages,
+          systemInstruction: SYSTEM_INSTRUCTION,
+          customApiKey: customApiKey || undefined
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to communicate with Intelligence Core');
       }
-    } catch (err) {
+
+      setMessages(prev => {
+        const resetMessages = [...prev];
+        resetMessages[resetMessages.length - 1].content = data.response;
+        return resetMessages;
+      });
+
+    } catch (err: any) {
        console.error("Error communicating with AI:", err);
-       setMessages(prev => [...prev, { role: 'bot', content: 'EVALUATION FAULT: A network or processing error interrupted the analysis. Please retry the query.' }]);
+       setMessages(prev => {
+        const resetMessages = [...prev];
+        const errorMessage = err.message || 'EVALUATION FAULT: A network or processing error interrupted the analysis. Please retry the query.';
+        resetMessages[resetMessages.length - 1].content = errorMessage;
+        return resetMessages;
+       });
+       
+       if (err.message && (err.message.includes('API') || err.message.includes('EVALUATION FAULT'))) {
+         setShowKeyInput(true);
+       }
     } finally {
       setIsLoading(false);
     }
@@ -150,6 +156,22 @@ export default function RavenBot() {
               ))}
               <div ref={messagesEndRef} />
             </div>
+
+            {/* Custom API Key Input */}
+            {showKeyInput && (
+              <div className="p-3 border-t border-b border-[var(--border-color)] bg-[var(--brand-purple)]/5 flex flex-col gap-2">
+                <div className="text-[10px] text-[var(--text-secondary)] font-mono leading-tight">
+                  <strong className="text-[var(--text-primary)]">EXTERNAL AUTHORIZATION REQUIRED:</strong> Please provide a valid Gemini API Key to bypass the current offline state.
+                </div>
+                <input
+                  type="password"
+                  value={customApiKey}
+                  onChange={(e) => setCustomApiKey(e.target.value)}
+                  placeholder="Enter Gemini API Key..."
+                  className="w-full bg-[var(--bg-primary)] border border-[var(--brand-purple)]/30 rounded p-2 text-xs font-mono focus:outline-none focus:border-[var(--brand-purple)] text-[var(--text-primary)]"
+                />
+              </div>
+            )}
 
             {/* Input Area */}
             <div className="p-3 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/50 flex gap-2">

@@ -30,7 +30,7 @@ export default function App() {
               {/* Background Watermark Logo */}
               <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
                 <img 
-                  src="/logo.png" 
+                  src="/logo.png?v=3" 
                   alt="" 
                   className="w-[100vw] max-w-[1200px] object-contain mix-blend-screen contrast-125 brightness-110" 
                 />
@@ -40,7 +40,7 @@ export default function App() {
           {!isDark && (
              <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
               <img 
-                src="/logo.png" 
+                src="/logo.png?v=3" 
                 alt="" 
                 className="w-[100vw] max-w-[1200px] object-contain invert mix-blend-multiply contrast-125 hover:opacity-80" 
               />
@@ -54,7 +54,7 @@ export default function App() {
             <Link to="/" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
               <div className="relative flex items-center h-12 md:h-16 w-auto shrink-0 overflow-visible">
                 <img 
-                  src="/logo.png" 
+                  src="/logo.png?v=3" 
                   alt="Raven Adversary" 
                   className="h-[140%] max-h-none w-auto object-contain hidden dark:block mix-blend-screen contrast-125 brightness-110 -ml-2"
                   onError={(e) => {
@@ -65,7 +65,7 @@ export default function App() {
                 />
                 
                 <img 
-                  src="/logo.png" 
+                  src="/logo.png?v=3" 
                   alt="Raven Adversary" 
                   className="h-[140%] max-h-none w-auto object-contain dark:hidden invert mix-blend-multiply contrast-125 brightness-90 -ml-2"
                   onError={(e) => {
