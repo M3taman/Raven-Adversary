@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Moon, Sun, Linkedin } from 'lucide-react';
-import RavenBot from './components/RavenBot';
+import { Corvus } from './components/Corvus';
 import Home from './pages/Home';
 import IntelligenceFeed from './pages/IntelligenceFeed';
 
@@ -127,7 +127,7 @@ export default function App() {
         </footer>
 
         {/* Interactive Raven Bot */}
-        <RavenBot />
+        <Corvus />
       </div>
     </Router>
   );
