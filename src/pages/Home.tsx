@@ -85,7 +85,7 @@ export default function Home() {
               Request Pressure Event Memo <ChevronRight className="w-4 h-4" />
             </a>
             <button onClick={() => setIsVideoModalOpen(true)} className="px-10 py-5 border border-[var(--border-highlight)] text-[var(--text-primary)] flex items-center gap-2 text-sm font-bold uppercase tracking-wider hover:border-[var(--text-secondary)] transition-colors w-full sm:w-auto justify-center bg-transparent rounded-none">
-              Watch Output
+              Review Sample Memo
             </button>
           </div>
         </div>
@@ -164,6 +164,121 @@ export default function Home() {
 
       {/* SECTION 4: LIVE PRESSURE EVENTS */}
       <CaseStudies />
+
+      {/* SECTION 4.5: DECISION-STATE RECONSTRUCTION */}
+      <section className="py-32 px-6 border-t border-[var(--border-color)] bg-[var(--bg-primary)] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--border-highlight)_1px,transparent_1px)]" style={{ backgroundSize: '40px 40px', opacity: 0.3 }}></div>
+        <div className="max-w-4xl mx-auto space-y-8 text-center relative z-10 glass-panel p-12 md:p-20 border border-[var(--border-color)] shadow-2xl relative">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-[var(--brand-cyan)]/50 to-transparent"></div>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none border border-[var(--text-secondary)]/30 text-[var(--text-secondary)] font-mono text-[10px] uppercase tracking-[0.2em] mb-4 bg-[var(--bg-secondary)]/50">
+            <span className="w-1.5 h-1.5 border border-[var(--text-primary)]"></span>
+            Core Philosophy
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-[var(--text-primary)] leading-tight tracking-tight">
+            Decision-State <br className="hidden md:block"/>Reconstruction
+          </h2>
+          <div className="w-12 h-px bg-[var(--brand-cyan)]/70 mx-auto"></div>
+          <p className="text-xl md:text-2xl text-[var(--text-secondary)] leading-relaxed font-light mx-auto max-w-2xl">
+            Most systems preserve <span className="text-[var(--text-primary)] font-medium">policy-state</span>. Few preserve <span className="text-[var(--brand-cyan)]/90 font-medium">decision-state</span> under consequential uncertainty.
+          </p>
+          <div className="absolute bottom-0 right-0 p-3 font-mono text-[8px] text-[var(--text-tertiary)] uppercase tracking-widest opacity-50">
+            PERSISTENCE_LAYER: ACTIVE
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4.6: EVIDENCE HIERARCHY */}
+      <section className="py-28 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 font-heading tracking-tight">Evidence Discipline</h2>
+              <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+                Cryptographically anchored accountability receipt. Strict compartmentalization of fact, inference, and speculation with visible SEC transaction reference citations.
+              </p>
+            </div>
+            <div className="hidden md:flex flex-col items-end text-right">
+               <div className="text-4xl font-light text-[var(--border-highlight)] font-mono tracking-tighter">04</div>
+               <div className="text-[10px] text-[var(--brand-cyan)] font-mono tracking-widest uppercase mt-2">Confidence Tiers</div>
+            </div>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            {[
+              { level: "Verified Fact", desc: "Explicitly coded in live regulatory or legal filings. Immutable base reality.", color: "rgba(255,255,255,0.8)" },
+              { level: "Structural Inference", desc: "Logical constraint derived mathematically from verified governance facts.", color: "var(--brand-cyan)" },
+              { level: "Adversarial Hypothesis", desc: "Probable vulnerability calculated given counterparty constraints and incentives.", color: "var(--brand-purple)" },
+              { level: "Speculative Vector", desc: "Unverified tail-risk pressure pathway modeled purely for stress-testing.", color: "rgba(239, 68, 68, 0.8)" }
+            ].map((ev, i) => (
+              <div key={i} className="bg-[var(--bg-primary)] p-8 border border-[var(--border-color)] group hover:border-[var(--brand-cyan)]/30 transition-colors relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-8 h-8 bg-[var(--bg-secondary)]/50 border-b border-l border-[var(--border-color)] flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: ev.color }}></div>
+                </div>
+                <div className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-widest mb-6 group-hover:text-[var(--text-secondary)] transition-colors">
+                  Level 0{i + 1}
+                </div>
+                <h3 className="font-bold text-xl font-heading mb-4 leading-tight text-[var(--text-primary)]">{ev.level}</h3>
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{ev.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4.7: METHODOLOGY TRANSPARENCY */}
+      <section className="py-32 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--brand-cyan)_0%,transparent_50%)] opacity-[0.03]"></div>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="mb-20 flex flex-col md:items-center md:text-center items-start text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[10px] uppercase tracking-[0.2em] mb-6">
+              <span className="w-1.5 h-1.5 bg-[var(--brand-cyan)] animate-pulse shadow-[0_0_5px_rgba(0,184,217,0.5)]"></span>
+              System Architecture
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-heading tracking-tight">Trust Architecture</h2>
+            <p className="text-xl text-[var(--text-secondary)] max-w-3xl md:mx-auto leading-relaxed">
+              Our methodology for modeling institutional pressure operates on four unyielding pillars.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {[
+              {
+                title: "Adversarial Debate Logic",
+                desc: "We simulate counter-party friction before it materializes, war-gaming every clause against hostile intent to map precise breaking points."
+              },
+              {
+                title: "Pressure-State Modeling",
+                desc: "Non-linear mapping of how localized governance fractures cascade into systemic proxy battles and structural liquidity instability."
+              },
+              {
+                title: "Commit Layer Mechanics",
+                desc: "Every structural inference is cryptographically anchored. A tamper-evident operational layer ensuring verifiable accountability."
+              },
+              {
+                title: "Evidence Verification Standards",
+                desc: "Strict data compartmentalization. We structurally prevent the blending of verified regulatory facts with adversarial speculative vectors."
+              }
+            ].map((pillar, i) => (
+              <div key={i} className="group relative p-8 md:p-10 bg-[var(--bg-primary)] border border-[var(--border-color)] hover:border-[var(--brand-cyan)]/40 hover:shadow-[0_0_30px_rgba(0,184,217,0.05)] transition-all duration-500">
+                <div className="absolute top-0 right-0 px-2 py-1.5 font-mono text-[9px] text-[var(--text-tertiary)] group-hover:text-[var(--brand-cyan)]/80 transition-colors uppercase tracking-[0.2em] border-b border-l border-[var(--border-color)] group-hover:border-[var(--brand-cyan)]/30 bg-[var(--bg-secondary)]/30">
+                  MODULE 0{i + 1}
+                </div>
+                
+                <div className="w-12 h-12 mb-8 rounded-none border border-[var(--border-highlight)] flex items-center justify-center font-mono text-lg text-[var(--text-secondary)] group-hover:text-[var(--brand-cyan)] group-hover:border-[var(--brand-cyan)]/50 transition-colors bg-[var(--bg-secondary)]/20">
+                  0{i + 1}
+                </div>
+                
+                <h3 className="font-bold text-2xl font-heading mb-4 text-[var(--text-primary)] tracking-wide">{pillar.title}</h3>
+                <p className="text-[var(--text-secondary)] text-sm md:text-base leading-relaxed">{pillar.desc}</p>
+                
+                {/* Decorative Elements */}
+                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[var(--brand-cyan)]/60 group-hover:w-full transition-all duration-700 ease-out"></div>
+                <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[var(--brand-cyan)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 5: DISCLAIMER / POSITIONING */}
       <section className="py-24 px-6 text-center border-t border-[var(--border-color)]">

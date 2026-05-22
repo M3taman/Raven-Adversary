@@ -33,14 +33,20 @@ export function Corvus() {
     if (lower.includes('what is raven') || lower.includes('what do you do') || lower.includes('explain') || lower.includes('how does')) {
       return "Raven maps institutional pressure before it is priced in. We do not offer opinions; we identify structural vulnerabilities in M&A, proxy battles, and regulatory escalations. We find the breaking points.";
     }
-    if (lower.includes('special') || lower.includes('unique') || lower.includes('different') || lower.includes('edge') || lower.includes('advantage')) {
+    if (lower.includes('special') || lower.includes('unique') || lower.includes('edge') || lower.includes('advantage')) {
       return "Raven does not rely on generic financial modeling or sentiment analysis. We synthesize public SEC filings to map the exact structural architecture of a deal, identifying specific pressure pathways—such as termination fee traps or leak-out friction—that threaten execution. Our edge is forensic precision.";
+    }
+    if (lower.includes('traditional') || lower.includes('legacy') || lower.includes('differ') || lower.includes('compare') || lower.includes('kira') || lower.includes('harvey') || lower.includes('competitor') || lower.includes('separate')) {
+      return "Traditional legal AI (like Kira or Harvey) summarizes clauses; they operate on policy-state. Raven reconstructs decision-state under consequential uncertainty. We track leverage migration and governance fractures. The difference is between reading a document and mapping institutional vulnerability.";
+    }
+    if (lower.includes('memo') || lower.includes('report') || lower.includes('request')) {
+      return "A Pressure Event Memo is our primary deliverable. It isolates trigger events, pressure propagation pathways, and leverage migration within a consequential transaction. You may request one via the dashboard.";
+    }
+    if (lower.includes('who uses') || lower.includes('clients') || lower.includes('for who') || lower.includes('audience')) {
+      return "Raven is engineered for event-driven funds, M&A litigators, special situations desks, and boutique restructuring advisors who require deterministic risk quantification, not generic summaries.";
     }
     if (lower.includes('who are you') || lower.includes('corvus')) {
       return "I am Corvus. An introductory terminal. Unlike Raven, which computes high-stakes transactional pressure, my mandate is strictly to qualify your intent and answer basic capability inquiries.";
-    }
-    if (lower.includes('memo') || lower.includes('report') || lower.includes('request')) {
-      return "A Pressure Event Memo is our primary deliverable. It outlines trigger events, pressure pathways, and leverage assessments for a specific transaction. Use the form on the dashboard to request one.";
     }
     if (lower.includes('cost') || lower.includes('price') || lower.includes('fee') || lower.includes('pay') || lower.includes('skydo') || lower.includes('payment')) {
       return "Raven engages under strict advisory parameters. We do not discuss fee structures or payment gateways in unverified channels. If you possess a qualifying transaction, submit a memo request and our human principals will contact you.";
@@ -95,10 +101,15 @@ export function Corvus() {
       {/* Header */}
       <div className="h-12 border-b border-[var(--border-color)] bg-[var(--bg-secondary)]/80 flex items-center justify-between px-4">
         <div className="flex items-center gap-3">
-          <Terminal className="w-4 h-4 text-[var(--text-primary)]" />
-          <span className="font-mono text-[10px] font-bold tracking-widest text-[var(--text-primary)] uppercase">
-            CORVUS // Raven Liaison
-          </span>
+          <Terminal className="w-4 h-4 text-[var(--brand-cyan)]" />
+          <div className="flex flex-col">
+            <span className="font-mono text-[10px] items-center flex gap-2 font-bold tracking-[0.2em] text-[var(--text-primary)] uppercase leading-none">
+              CORVUS_TERM <span className="text-[7px] text-[var(--brand-cyan)] border border-[var(--brand-cyan)]/30 px-1 py-0.5 bg-[var(--brand-cyan)]/10">ACTIVE</span>
+            </span>
+            <span className="font-mono text-[7px] tracking-widest text-[var(--text-tertiary)] uppercase mt-1.5 leading-none">
+              Clearance: UNVERIFIED // Read-Only
+            </span>
+          </div>
         </div>
         <button 
           onClick={() => setIsOpen(false)}

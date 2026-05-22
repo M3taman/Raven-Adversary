@@ -51,8 +51,9 @@ export default function App() {
         {/* Navbar */}
         <nav className="fixed w-full z-40 border-b border-[var(--border-color)] bg-[var(--glass-bg)] backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
-              <div className="relative flex items-center h-12 md:h-16 w-auto shrink-0 overflow-visible">
+            <Link to="/" className="flex items-center gap-4 hover:opacity-100 transition-opacity group/logo relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[var(--brand-cyan)]/10 to-transparent opacity-0 group-hover/logo:opacity-100 blur-xl transition-opacity pointer-events-none"></div>
+              <div className="relative flex items-center h-12 md:h-16 w-auto shrink-0 overflow-visible group">
                 <img 
                   src="/logo.png?v=3" 
                   alt="Raven Adversary" 
@@ -77,9 +78,25 @@ export default function App() {
                   <span>RAVEN</span>
                   <span className="text-[10px] font-medium text-[var(--brand-cyan)] tracking-widest mt-0.5">ADVERSARY</span>
                 </div>
+
+                {/* Focus Mode Add: Small intelligence metadata badge on hover/always near logo */}
+                <div className="absolute -right-20 top-2 opacity-0 group-hover/logo:opacity-100 transition-opacity duration-300 pointer-events-none flex flex-col gap-0.5">
+                  <span className="text-[7px] font-mono tracking-widest uppercase text-[var(--text-tertiary)] border border-[var(--border-color)] bg-[var(--bg-primary)] px-1 py-0.5 leading-none shadow-sm">Sys: ON</span>
+                  <span className="text-[7px] font-mono tracking-widest uppercase text-[var(--brand-cyan)] border border-[var(--border-color)] border-t-0 bg-[var(--bg-primary)] px-1 py-0.5 leading-none shadow-sm">Net: SECURE</span>
+                </div>
               </div>
-              <div className="hidden md:flex ml-4 px-2 py-0.5 rounded border border-[var(--border-color)] font-mono text-[9px] tracking-widest text-[var(--text-secondary)] bg-[var(--bg-secondary)]/50 mt-1">
-                LIVE TRANSACTION INTELLIGENCE
+              
+              <div className="hidden lg:flex flex-col gap-1.5 items-start justify-center ml-2 border-l border-[var(--brand-cyan)]/20 pl-4 py-1">
+                <div className="px-2 py-0.5 rounded-sm border border-[var(--border-color)] font-mono text-[9px] tracking-[0.15em] text-[var(--text-primary)] bg-[var(--bg-secondary)]/50 group-hover/logo:border-[var(--brand-cyan)]/30 transition-colors">
+                  INSTITUTIONAL PRESSURE INTELLIGENCE
+                </div>
+                <div className="px-2 font-mono text-[8px] tracking-[0.2em] text-[var(--text-tertiary)] uppercase flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500/80 animate-pulse shadow-[0_0_5px_rgba(34,197,94,0.5)]"></span>
+                  Node Array Online <span className="text-[var(--border-highlight)]">|</span> Auth: Valid
+                </div>
+                <div className="px-2 font-mono text-[7px] tracking-widest text-[var(--brand-cyan)]/70 uppercase">
+                  SESSION_ID: 0x{Math.random().toString(16).substr(2, 8).toUpperCase()} // ROOT
+                </div>
               </div>
             </Link>
             <div className="flex items-center gap-6">
