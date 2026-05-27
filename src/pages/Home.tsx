@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, Brain, Lock, ChevronRight, Activity, Terminal, CheckCircle2, Globe, FileStack, ShieldAlert, GitCompare, Loader2, X } from 'lucide-react';
 import CaseStudies from '../components/CaseStudies';
+import LivePressureEvents from '../components/LivePressureEvents';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -163,6 +164,9 @@ export default function Home() {
       </section>
 
       {/* SECTION 4: LIVE PRESSURE EVENTS */}
+      <LivePressureEvents />
+
+      {/* SECTION 4.1: INSTITUTIONAL CASE STUDIES */}
       <CaseStudies />
 
       {/* SECTION 4.5: DECISION-STATE RECONSTRUCTION */}
