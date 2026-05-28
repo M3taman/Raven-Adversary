@@ -1,9 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Moon, Sun, Linkedin } from 'lucide-react';
 import { Corvus } from './components/Corvus';
 import Home from './pages/Home';
 import IntelligenceFeed from './pages/IntelligenceFeed';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import Security from './pages/Security';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
@@ -18,6 +31,7 @@ export default function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="relative min-h-screen font-sans bg-[var(--bg-primary)] text-[var(--text-primary)] overflow-x-hidden selection:bg-[var(--brand-cyan)] selection:text-white transition-colors duration-300">
         
         {/* Background Decorators */}
@@ -42,7 +56,8 @@ export default function App() {
               <img 
                 src="/logo.png?v=3" 
                 alt="" 
-                className="w-[100vw] max-w-[1200px] object-contain invert mix-blend-multiply contrast-125 hover:opacity-80" 
+                className="w-[100vw] max-w-[1200px] object-contain mix-blend-multiply hover:opacity-80" 
+                style={{ filter: 'invert(1) contrast(300%) brightness(120%)' }}
               />
             </div>
           )}
@@ -68,7 +83,8 @@ export default function App() {
                 <img 
                   src="/logo.png?v=3" 
                   alt="Raven Adversary" 
-                  className="h-[140%] max-h-none w-auto object-contain dark:hidden invert mix-blend-multiply contrast-125 brightness-90 -ml-2"
+                  className="h-[140%] max-h-none w-auto object-contain dark:hidden mix-blend-multiply -ml-2"
+                  style={{ filter: 'invert(1) contrast(300%) brightness(120%)' }}
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                   }}
@@ -127,18 +143,22 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/intelligence" element={<IntelligenceFeed />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/security" element={<Security />} />
           </Routes>
         </main>
 
         {/* Footer */}
-        <footer className="border-t border-[var(--border-color)] py-8 bg-[var(--bg-secondary)]/30 backdrop-blur-md relative z-10">
-          <div className="max-w-7xl mx-auto px-6 text-center lg:text-left flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-[var(--text-tertiary)] tracking-widest uppercase">
-            <p>&copy; {new Date().getFullYear()} RAVEN ADVERSARY INTEL. ALL RIGHTS RESERVED.</p>
-            <div className="flex gap-4">
-              <a href="https://www.linkedin.com/in/abhishek-tanwar-raven-adversary/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0a66c2] transition-colors flex items-center gap-1"><Linkedin className="w-3 h-3" /> LinkedIn</a>
-              <a href="#" className="hover:text-[var(--text-primary)] transition-colors">Privacy</a>
-              <a href="#" className="hover:text-[var(--text-primary)] transition-colors">Terms</a>
-              <a href="#" className="hover:text-[var(--text-primary)] transition-colors">Security</a>
+        <footer className="border-t border-[var(--border-color)] py-12 bg-[var(--bg-primary)] relative z-10">
+          <div className="max-w-7xl mx-auto px-6 text-center lg:text-left flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-mono text-[var(--text-tertiary)] tracking-[0.2em] uppercase">
+            <p className="opacity-70">&copy; {new Date().getFullYear()} RAVEN ADVERSARY INTEL. ALL RIGHTS RESERVED.</p>
+            <div className="flex gap-6 items-center">
+              <a href="https://www.linkedin.com/in/abhishek-tanwar-raven-adversary/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--brand-cyan)] transition-colors flex items-center gap-2"><Linkedin className="w-3 h-3" /> INTEL_FEED</a>
+              <span className="w-px h-3 bg-[var(--border-color)] hidden md:block"></span>
+              <Link to="/privacy" className="hover:text-[var(--text-primary)] transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-[var(--text-primary)] transition-colors">Terms of Service</Link>
+              <Link to="/security" className="hover:text-[var(--text-primary)] transition-colors">Security & Compliance</Link>
             </div>
           </div>
         </footer>
