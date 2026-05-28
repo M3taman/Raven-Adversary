@@ -142,10 +142,10 @@ export default function IntelligenceFeed() {
         </div>
         <div className="relative z-10 flex flex-col items-center pt-4">
           <div className="inline-block px-3 py-1 bg-[var(--brand-cyan)]/10 text-[var(--brand-cyan)] border border-[var(--brand-cyan)]/20 text-[10px] font-mono tracking-widest uppercase mb-4">Export Hierarchy Access</div>
-          <h3 className="text-3xl font-bold font-heading mb-4 text-[var(--text-primary)]">Request Your Pressure Event Memo</h3>
-          <p className="text-[var(--text-secondary)] mb-8 max-w-xl text-center">Procure the flagship artifact. Examine clear pathways of leverage migration and structural exposure in your targeted ecosystem.</p>
+          <h3 className="text-3xl font-bold font-heading mb-4 text-[var(--text-primary)]">Submit Deal for Pressure Review</h3>
+          <p className="text-[var(--text-secondary)] mb-8 max-w-xl text-center">Formulate an advisory trajectory. Map potential pathways of leverage migration and structural exposure in your targeted ecosystem.</p>
           <Link to="/" className="inline-flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg-primary)] px-8 py-4 text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity rounded-none w-full sm:w-auto justify-center">
-            Review Sample Memo <ChevronRight className="w-4 h-4" />
+            Initiate Institutional Review <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
       </div>

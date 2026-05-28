@@ -352,11 +352,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 6: MEMO STRUCTURE */}
+      {/* SECTION 6: PRESSURE REVIEW HIGHLIGHTS */}
       <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/30">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">Every memo includes:</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">Every Pressure Review includes:</h2>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

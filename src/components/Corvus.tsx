@@ -40,7 +40,7 @@ export function Corvus() {
       return "Traditional legal AI (like Kira or Harvey) summarizes clauses; they operate on policy-state. Raven reconstructs decision-state under consequential uncertainty. We track leverage migration and governance fractures. The difference is between reading a document and mapping institutional vulnerability.";
     }
     if (lower.includes('memo') || lower.includes('report') || lower.includes('request')) {
-      return "A Pressure Event Memo is our primary deliverable. It isolates trigger events, pressure propagation pathways, and leverage migration within a consequential transaction. You may request one via the dashboard.";
+      return "A Pressure Event Memo is our primary deliverable. It isolates trigger events, pressure propagation pathways, and leverage migration within a consequential transaction. You can submit your transaction for pressure review via our clinical intake interface.";
     }
     if (lower.includes('who uses') || lower.includes('clients') || lower.includes('for who') || lower.includes('audience')) {
       return "Raven is engineered for event-driven funds, M&A litigators, special situations desks, and boutique restructuring advisors who require deterministic risk quantification, not generic summaries.";
@@ -49,7 +49,7 @@ export function Corvus() {
       return "I am Corvus. An introductory terminal. Unlike Raven, which computes high-stakes transactional pressure, my mandate is strictly to qualify your intent and answer basic capability inquiries.";
     }
     if (lower.includes('cost') || lower.includes('price') || lower.includes('fee') || lower.includes('pay') || lower.includes('skydo') || lower.includes('payment')) {
-      return "Raven engages under strict advisory parameters. We do not discuss fee structures or payment gateways in unverified channels. If you possess a qualifying transaction, submit a memo request and our human principals will contact you.";
+      return "Raven engages under strict advisory parameters. We do not discuss fee structures or payment gateways in unverified channels. If you possess a qualifying transaction, initiate an institutional review stream on our interface and our principals will coordinate directly.";
     }
     if (lower.includes('demo') || lower.includes('trial') || lower.includes('test')) {
       return "We do not offer 'demos' or 'trials.' This is not SaaS. This is institutional intelligence. Review the Live Pressure Events if you require proof of capability.";
