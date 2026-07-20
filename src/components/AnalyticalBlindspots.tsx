@@ -81,9 +81,9 @@ export default function AnalyticalBlindspots() {
                   <div className="font-mono text-[9px] text-[var(--text-tertiary)] tracking-widest uppercase mb-1">
                     {bs.category}
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold font-heading text-[var(--text-primary)] tracking-tight">
+                  <div className="text-xl md:text-2xl font-bold font-heading text-[var(--text-primary)] tracking-tight">
                     {bs.hazardTitle}
-                  </h3>
+                  </div>
                 </div>
 
                 <div className="space-y-4">

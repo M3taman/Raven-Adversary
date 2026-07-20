@@ -32,6 +32,47 @@ interface DealEvent {
 
 const EVENTS: DealEvent[] = [
   {
+    id: "VYNE",
+    deal: "Vyne / Yarrow",
+    trigger: "Floating Net Cash & contingent financing disconnect.",
+    pathway: "VYN202 clinical hold remediation → dividend erosion → unhedged $100M Pre-Closing Financing detachment → pro forma zeroed-out cash balance.",
+    evidenceState: "HIGH CONFIDENCE",
+    status: "ACTIVE",
+    evolution: [
+      { date: "MAY 15", event: "Definitive proxy statement filed.", status: "VERIFIED" },
+      { date: "JUNE 12", event: "Notice of Effectiveness for Nasdaq listing conditions.", status: "VERIFIED" },
+      { date: "JULY 18", event: "Forensic audit highlights clinical hold remediation costs & dividend leakage.", status: "HIGH CONFIDENCE" },
+      { date: "JULY 20", event: "Review of $100M financing commitment detachment completed.", status: "ACTIVE" }
+    ],
+    source: {
+      filingType: "Form 424B3 / S-4",
+      section: "Section 1.6 / Annex A",
+      page: "Page 34, 173",
+      excerpt: "“The Cash Dividend will be equal in the aggregate to VYNE's reasonable, good faith approximation of the amount by which VYNE's Net Cash is expected to exceed $0... The Yarrow Pre-Closing Financing involves binding securities purchase agreements for $100 million...”",
+      interpretation: "The transaction is economically dependent on a floating Net Cash adjustment that creates a direct zero-sum conflict between legacy shareholder liquidity and final exchange ratios. Because the $100M financing is not a closing condition of the merger itself, the combined company could be forced to operate on a zeroed-out balance sheet if funding is delayed."
+    }
+  },
+  {
+    id: "PSA-NSA",
+    deal: "Public Storage / National Storage",
+    trigger: "OPCO debt shelf structural separation.",
+    pathway: "Distinct subsidiary debt offering → S-4 parent registry → lack of binding intercompany cross-guarantees → capital misallocation risk.",
+    evidenceState: "HIGH CONFIDENCE",
+    status: "ACTIVE",
+    evolution: [
+      { date: "JUNE 12", event: "Form EFFECT declared for S-4 merger registration.", status: "VERIFIED" },
+      { date: "JUNE 25", event: "Reported execution of definitive agreements.", status: "INFERRED" },
+      { date: "JULY 13", event: "Form 424B5 prospectus supplement filed by PSA Operating Co raising debt.", status: "VERIFIED" }
+    ],
+    source: {
+      filingType: "Form 424B5 / 424B3",
+      section: "Use of Proceeds & S-4",
+      page: "Page 12, 45",
+      excerpt: "“PSA Operating Co raises capital under a distinct shelf registration (File No. 333-283556) that lacks a documented, legally binding intercompany guarantee or 'ring-fencing' agreement to apply proceeds to the NSA merger registered under the parent PSA...”",
+      interpretation: "The transaction relies on a structural financing disconnect where the capital-raising entity (Operating Co) is legally insulated from the merger registry (Parent PSA). Without an intercompany agreement or parent-level debt guarantee, the cash is not contractually ring-fenced for the acquisition."
+    }
+  },
+  {
     id: "ENVIRI",
     deal: "Enviri / Veolia",
     trigger: "TSA stranded-cost dependency.",

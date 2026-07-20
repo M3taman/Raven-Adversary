@@ -7,6 +7,12 @@ import IntelligenceFeed from './pages/IntelligenceFeed';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Security from './pages/Security';
+import PressureIntelligencePillar from './pages/PressureIntelligencePillar';
+import MandAService from './pages/MandAService';
+import ActivismService from './pages/ActivismService';
+import GovernanceService from './pages/GovernanceService';
+import RegulatoryService from './pages/RegulatoryService';
+import Methodology from './pages/Methodology';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -45,7 +51,7 @@ export default function App() {
               <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
                 <img 
                   src="/logo.png?v=3" 
-                  alt="" 
+                  alt="Raven Adversary Background Watermark" 
                   className="w-[100vw] max-w-[1200px] object-contain mix-blend-screen contrast-125 brightness-110" 
                 />
               </div>
@@ -55,7 +61,7 @@ export default function App() {
              <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
               <img 
                 src="/logo.png?v=3" 
-                alt="" 
+                alt="Raven Adversary Light Background Watermark" 
                 className="w-[100vw] max-w-[1200px] object-contain mix-blend-multiply hover:opacity-80" 
                 style={{ filter: 'invert(1) contrast(300%) brightness(120%)' }}
               />
@@ -143,6 +149,12 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/intelligence" element={<IntelligenceFeed />} />
+            <Route path="/pressure-intelligence" element={<PressureIntelligencePillar />} />
+            <Route path="/services/m-and-a" element={<MandAService />} />
+            <Route path="/services/activism" element={<ActivismService />} />
+            <Route path="/services/governance" element={<GovernanceService />} />
+            <Route path="/services/regulatory" element={<RegulatoryService />} />
+            <Route path="/methodology" element={<Methodology />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/security" element={<Security />} />
@@ -150,16 +162,116 @@ export default function App() {
         </main>
 
         {/* Footer */}
-        <footer className="border-t border-[var(--border-color)] py-12 bg-[var(--bg-primary)] relative z-10">
-          <div className="max-w-7xl mx-auto px-6 text-center lg:text-left flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-mono text-[var(--text-tertiary)] tracking-[0.2em] uppercase">
-            <p className="opacity-70">&copy; {new Date().getFullYear()} RAVEN ADVERSARY INTEL. ALL RIGHTS RESERVED.</p>
-            <div className="flex gap-6 items-center">
-              <a href="https://www.linkedin.com/in/abhishek-tanwar-raven-adversary/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--brand-cyan)] transition-colors flex items-center gap-2"><Linkedin className="w-3 h-3" /> INTEL_FEED</a>
-              <span className="w-px h-3 bg-[var(--border-color)] hidden md:block"></span>
-              <Link to="/privacy" className="hover:text-[var(--text-primary)] transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="hover:text-[var(--text-primary)] transition-colors">Terms of Service</Link>
-              <Link to="/security" className="hover:text-[var(--text-primary)] transition-colors">Security & Compliance</Link>
+        <footer className="border-t border-[var(--border-color)] bg-[var(--bg-primary)] py-16 relative z-10">
+          <div className="max-w-7xl mx-auto px-6 space-y-12">
+            
+            {/* Multi-column Grid for SEO & Navigation */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-left pb-12 border-b border-[var(--border-color)]/50">
+              
+              {/* Brand Col */}
+              <div className="col-span-2 md:col-span-1 space-y-4">
+                <div className="font-bold text-lg tracking-tight font-heading text-[var(--text-primary)]">
+                  RAVEN ADVERSARY
+                </div>
+                <p className="font-mono text-[8px] tracking-widest leading-relaxed text-[var(--text-tertiary)] uppercase">
+                  Institutional pressure-state intelligence for complex corporate transactions. Operating under absolute informational hygiene.
+                </p>
+              </div>
+
+              {/* Services Col */}
+              <div className="space-y-4">
+                <div className="font-mono text-[9px] font-bold text-[var(--text-primary)] tracking-[0.2em] uppercase">
+                  SERVICES // ENVIRONMENT
+                </div>
+                <ul className="space-y-2 font-mono text-[8px] tracking-widest uppercase">
+                  <li>
+                    <Link to="/services/m-and-a" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                      M&A Transaction Pressure
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/services/activism" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                      Shareholder Activism Risk
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/services/governance" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                      Governance Fracture Detection
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/services/regulatory" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                      Regulatory Threshold Drag
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Resources Col */}
+              <div className="space-y-4">
+                <div className="font-mono text-[9px] font-bold text-[var(--text-primary)] tracking-[0.2em] uppercase">
+                  INTEL // RESOURCES
+                </div>
+                <ul className="space-y-2 font-mono text-[8px] tracking-widest uppercase">
+                  <li>
+                    <Link to="/pressure-intelligence" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                      Pressure Intel Pillar
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/methodology" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                      Operational Methodology
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/intelligence" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                      Intelligence Feed
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Compliance / Legal Col */}
+              <div className="space-y-4">
+                <div className="font-mono text-[9px] font-bold text-[var(--text-primary)] tracking-[0.2em] uppercase">
+                  GOVERNANCE // LEGAL
+                </div>
+                <ul className="space-y-2 font-mono text-[8px] tracking-widest uppercase">
+                  <li>
+                    <Link to="/privacy" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                      Privacy Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/terms" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                      Terms of Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/security" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                      Security & Compliance
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
             </div>
+
+            {/* Bottom copyright row */}
+            <div className="text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-[var(--text-tertiary)] tracking-[0.2em] uppercase">
+              <p className="opacity-70">&copy; {new Date().getFullYear()} RAVEN ADVERSARY INTEL. ALL RIGHTS RESERVED.</p>
+              <div className="flex gap-4 items-center">
+                <a 
+                  href="https://www.linkedin.com/in/abhishek-tanwar-raven-adversary/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-[var(--brand-cyan)] transition-colors flex items-center gap-1.5"
+                >
+                  <Linkedin className="w-3 h-3" /> INTEL_FEED
+                </a>
+              </div>
+            </div>
+
           </div>
         </footer>
 

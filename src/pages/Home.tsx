@@ -74,6 +74,32 @@ export default function Home() {
 
   return (
     <>
+      {/* FAQ Schema for GEO/AI-Search crawling */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Raven Adversary?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Raven Adversary is an institutional pressure intelligence platform that maps how legal obligations, governance conflicts, and regulatory exposures create unpriced risk in M&A transactions. It operates strictly on public SEC filings with complete informational hygiene."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Raven analyze SEC filings?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Raven reconstructs accountability continuity by mapping mathematical dependency graphs between floating parameters—such as Net Cash triggers, stock split exchange ratios, and regulatory thresholds—dissected from S-4 filings and proxies."
+              }
+            }
+          ]
+        })}
+      </script>
+
       {/* HERO SECTION */}
       <section className="min-h-[90vh] flex flex-col justify-center pt-36 pb-24 px-6 md:px-12 xl:px-24 text-center relative">
         <div className="absolute top-24 left-1/2 -translate-x-1/2 flex items-center gap-3 px-4 py-2 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 backdrop-blur-sm shadow-sm">
@@ -85,7 +111,7 @@ export default function Home() {
 
         <div className="max-w-5xl mx-auto space-y-10 flex flex-col items-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] font-heading">
-            Raven maps how <span className="text-[var(--text-secondary)]">institutional pressure</span> propagates through consequential transactions before the market prices it.
+            Reconstructing <span className="text-[var(--brand-cyan)]">Institutional Pressure Intelligence</span> before transaction risk cascades.
           </h1>
           <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl leading-relaxed">
             Pressure-state intelligence for M&A, activism, governance conflict, and regulatory exposure. Operating exclusively under absolute informational hygiene.
@@ -343,12 +369,12 @@ export default function Home() {
       {/* SECTION 5: DISCLAIMER / POSITIONING */}
       <section className="py-24 px-6 text-center border-t border-[var(--border-color)]">
         <div className="max-w-4xl mx-auto space-y-6">
-          <h2 className="text-3xl md:text-5xl font-bold font-heading text-[var(--text-secondary)]">
+          <div className="text-3xl md:text-5xl font-bold font-heading text-[var(--text-secondary)]">
             Raven does not predict markets.
-          </h2>
-          <h2 className="text-3xl md:text-5xl font-bold font-heading text-[var(--text-primary)]">
+          </div>
+          <div className="text-3xl md:text-5xl font-bold font-heading text-[var(--text-primary)]">
             Raven models institutional pressure.
-          </h2>
+          </div>
         </div>
       </section>
 
@@ -356,7 +382,7 @@ export default function Home() {
       <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/30">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">Every Pressure Review includes:</h2>
+            <div className="text-3xl md:text-4xl font-bold mb-4 font-heading text-[var(--text-primary)]">Every Pressure Review includes:</div>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -4,6 +4,24 @@ import { Lock, Server, Cpu } from 'lucide-react';
 export default function Security() {
   return (
     <div className="py-24 px-6 max-w-4xl mx-auto space-y-12 min-h-screen">
+      {/* FAQ Schema */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does Raven Adversary ensure enterprise-grade security?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Raven Adversary utilizes zero-trust principals, role-based access, and ephemeral containerized execution. All data in transit uses TLS 1.3, and data at rest is encrypted with AES-256. Foundational models are contractually barred from training on client inputs."
+              }
+            }
+          ]
+        })}
+      </script>
+
       <div className="space-y-4 mt-8">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[10px] uppercase tracking-[0.2em] mb-4">
           <Lock className="w-3 h-3" /> Operations Auth

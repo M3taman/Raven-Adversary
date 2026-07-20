@@ -142,7 +142,7 @@ export default function EvidentiaryTracer() {
               
               <div className="pl-10 space-y-6 text-justify">
                 <div className="text-[10px] text-[var(--text-tertiary)] tracking-widest">{`[SEC TRANSACT RECORD ENTRY: #${activeExcerpt.id.slice(0, 8)}]`}</div>
-                <h4 className="text-[var(--text-primary)] font-bold uppercase text-sm tracking-wide">{activeExcerpt.excerptTitle}</h4>
+                <div className="text-[var(--text-primary)] font-bold uppercase text-sm tracking-wide">{activeExcerpt.excerptTitle}</div>
                 <p>
                   {(() => {
                     const parts = activeExcerpt.rawText.split(activeExcerpt.highlightedPhrase);

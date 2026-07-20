@@ -123,9 +123,9 @@ export default function CaseStudies() {
                   
                   {/* Trigger */}
                   <div>
-                    <h4 className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
+                    <div className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
                       <AlertTriangle className="w-3 h-3 text-red-500/80" /> Trigger
-                    </h4>
+                    </div>
                     <p className="text-xl md:text-2xl font-bold font-heading text-[var(--text-primary)] leading-tight">
                       {activeCase.trigger}
                     </p>
@@ -133,9 +133,9 @@ export default function CaseStudies() {
 
                   {/* Pressure Pathway Map (Visual) */}
                   <div className="pt-6 border-t border-[var(--border-color)]/50">
-                    <h4 className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+                    <div className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
                       <GitBranch className="w-3 h-3 text-[var(--brand-cyan)]" /> Pressure Pathway
-                    </h4>
+                    </div>
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-0 relative py-4">
                       {/* Desktop connector line */}
                       <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[var(--border-highlight)] hidden sm:block -z-10 -translate-y-1/2"></div>
@@ -165,9 +165,9 @@ export default function CaseStudies() {
 
                   {/* Structural Consequence */}
                   <div className="pt-6 border-t border-[var(--border-color)]/50">
-                    <h4 className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
+                    <div className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
                       <Network className="w-3 h-3 text-[var(--brand-purple)]" /> Structural Consequence
-                    </h4>
+                    </div>
                     <p className="text-base text-[var(--text-primary)] leading-relaxed border-l-2 border-[var(--brand-purple)]/50 pl-4 font-medium">
                       {activeCase.structuralConsequence}
                     </p>
@@ -175,9 +175,9 @@ export default function CaseStudies() {
 
                   {/* Governance Exposure */}
                   <div className="pt-6 border-t border-[var(--border-color)]/50 bg-red-500/5 -mx-8 sm:-mx-10 -mb-10 px-8 sm:px-10 py-8 border-b-4 border-b-red-500/20">
-                    <h4 className="font-mono text-[10px] text-red-500/80 uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
+                    <div className="font-mono text-[10px] text-red-500/80 uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
                       <ShieldAlert className="w-3 h-3 text-red-500" /> Governance Exposure
-                    </h4>
+                    </div>
                     <p className="text-sm font-mono text-[var(--text-primary)] leading-relaxed font-bold">
                       {activeCase.governanceExposure}
                     </p>
