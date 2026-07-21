@@ -3,12 +3,12 @@ import path from 'path';
 
 const distPath = path.join(process.cwd(), 'dist');
 
-console.log('Starting Raven router-aware static page pre-rendering to eliminate SEO blank-page and 404 crawler errors...');
+console.log('Starting Raven router-aware static page pre-rendering to eliminate SEO blank-page and 404 crawler issues...');
 
 const sourceHtmlPath = path.join(distPath, 'index.html');
 
 if (!fs.existsSync(sourceHtmlPath)) {
-  console.error(`Error: Source file ${sourceHtmlPath} does not exist. Run vite build first.`);
+  console.error(`Failed: Source file ${sourceHtmlPath} does not exist. Run vite build first.`);
   process.exit(1);
 }
 
@@ -34,10 +34,10 @@ const templates = {
             Institutional M&A Due Diligence AI
           </div>
           <h1 class="text-4xl md:text-6xl font-bold font-heading tracking-tight text-[var(--text-primary)] leading-[1.1]">
-            Raven maps how institutional pressure propagates through consequential transactions before the market prices it.
+            Reconstructing Institutional Pressure Intelligence before transaction risk cascades.
           </h1>
           <p class="text-xl text-[var(--text-secondary)] leading-relaxed max-w-3xl mx-auto">
-            Pressure-state intelligence for M&A, activism, governance conflict, and regulatory exposure. Operating exclusively under absolute informational hygiene.
+            By reconstructing institutional pressure intelligence before transaction risk cascades, Raven maps dynamic unpriced exposures for M&A, activism, governance conflict, and regulatory exposure under absolute informational hygiene.
           </p>
         </header>
 
@@ -138,7 +138,7 @@ const templates = {
         <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[10px] uppercase tracking-[0.2em] mb-4">
           Note 14.8.2
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold font-heading">Privacy Policy</h1>
+        <h1 class="text-4xl md:text-5xl font-bold font-heading">Raven Adversary Data Privacy Policy & Information Hygiene Guidelines</h1>
         <p class="text-[var(--text-secondary)] font-mono text-sm">LAST UPDATED: CURRENT</p>
       </div>
 
@@ -172,7 +172,7 @@ const templates = {
         <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[10px] uppercase tracking-[0.2em] mb-4">
           Operations Auth
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold font-heading">Security & Compliance</h1>
+        <h1 class="text-4xl md:text-5xl font-bold font-heading">Security, Compliance, & Zero-Trust Information Boundaries</h1>
         <p class="text-[var(--text-secondary)] font-mono text-sm">INFRASTRUCTURE BRIEFING</p>
       </div>
 
@@ -199,7 +199,7 @@ const templates = {
         <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[10px] uppercase tracking-[0.2em] mb-4">
           Contract 01.A
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold font-heading">Terms of Service</h1>
+        <h1 class="text-4xl md:text-5xl font-bold font-heading">Raven Adversary Terms of Service & Institutional Engagement Agreement</h1>
         <p class="text-[var(--text-secondary)] font-mono text-sm">EFFECTIVE: CURRENT</p>
       </div>
 
@@ -369,6 +369,273 @@ const templates = {
   `
 };
 
+const routeMetadata = {
+  'home': {
+    title: 'Raven Adversary | Institutional Pressure Intelligence',
+    description: 'An institutional pressure intelligence surface for M&A. We reconstruct transaction decision-states under consequential uncertainty.',
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "FinancialService",
+          "@id": "https://ravenadversary.com/#service",
+          "name": "Raven Adversary",
+          "url": "https://ravenadversary.com/",
+          "logo": "https://ravenadversary.com/logo.png",
+          "image": "https://ravenadversary.com/logo.png",
+          "description": "Raven is an institutional pressure intelligence surface for M&A. We compress multi-week filing review cycles into evidence-bound, traceable pressure analysis workflows.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Wall Street",
+            "addressLocality": "New York",
+            "addressRegion": "NY",
+            "postalCode": "10005",
+            "addressCountry": "US"
+          },
+          "serviceType": [
+            "M&A Due Diligence",
+            "Institutional Pressure Analysis",
+            "Governance Risk Assessment",
+            "Securities & SEC Proxy Analytics"
+          ],
+          "areaServed": "Global",
+          "sameAs": [
+            "https://www.linkedin.com/in/abhishek-tanwar-raven-adversary/"
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://ravenadversary.com/#website",
+          "url": "https://ravenadversary.com/",
+          "name": "Raven Adversary",
+          "description": "Evidence-bound, traceable M&A pressure analysis and governance exposure tracking."
+        }
+      ]
+    }
+  },
+  'intelligence': {
+    title: 'Adversarial Intelligence Archive | Raven Adversary',
+    description: 'Dissect memos, strategic briefs, and forensic analyses tracking institutional pressure, leverage migration, and unpriced exposure in M&A.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://ravenadversary.com/intelligence/#page",
+      "url": "https://ravenadversary.com/intelligence/",
+      "name": "Adversarial Intelligence Archive | Raven Adversary",
+      "description": "Dissect memos, strategic briefs, and forensic analyses tracking institutional pressure, leverage migration, and unpriced exposure in M&A.",
+      "publisher": {
+        "@type": "FinancialService",
+        "name": "Raven Adversary",
+        "url": "https://ravenadversary.com/"
+      }
+    }
+  },
+  'privacy': {
+    title: 'Information Hygiene & Privacy Policy | Raven Adversary',
+    description: 'Raven Adversary is committed to strict public-domain analysis and data segregation. Review our privacy protocols and zero-MNPI policy.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://ravenadversary.com/privacy/#page",
+      "url": "https://ravenadversary.com/privacy/",
+      "name": "Information Hygiene & Privacy Policy | Raven Adversary",
+      "description": "Raven Adversary is committed to strict public-domain analysis and data segregation. Review our privacy protocols and zero-MNPI policy."
+    }
+  },
+  'security': {
+    title: 'Zero-Trust Security & Compliance Framework | Raven Adversary',
+    description: 'Explore Raven Adversary\'s enterprise-grade zero-trust infrastructure, AES-256 encryption standards, and secure client isolation layers.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://ravenadversary.com/security/#page",
+      "url": "https://ravenadversary.com/security/",
+      "name": "Zero-Trust Security & Compliance Framework | Raven Adversary",
+      "description": "Explore Raven Adversary's enterprise-grade zero-trust infrastructure, AES-256 encryption standards, and secure client isolation layers."
+    }
+  },
+  'terms': {
+    title: 'Terms of Service & Institutional Engagement | Raven Adversary',
+    description: 'Review the terms governing the use of Raven Adversary\'s institutional pressure-state analytics platform and professional services.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://ravenadversary.com/terms/#page",
+      "url": "https://ravenadversary.com/terms/",
+      "name": "Terms of Service & Institutional Engagement | Raven Adversary",
+      "description": "Review the terms governing the use of Raven Adversary's institutional pressure-state analytics platform and professional services."
+    }
+  },
+  'pressure-intelligence': {
+    title: 'What is Institutional Pressure Intelligence? | Raven Adversary',
+    description: 'Learn how Raven Adversary models multi-variable dependency networks, legal covenants, and transaction stress to expose unpriced M&A risks.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://ravenadversary.com/pressure-intelligence/#article",
+      "url": "https://ravenadversary.com/pressure-intelligence/",
+      "name": "What is Institutional Pressure Intelligence? | Raven Adversary",
+      "headline": "What is Institutional Pressure Intelligence?",
+      "description": "Learn how Raven Adversary models multi-variable dependency networks, legal covenants, and transaction stress to expose unpriced M&A risks.",
+      "publisher": {
+        "@type": "FinancialService",
+        "name": "Raven Adversary",
+        "url": "https://ravenadversary.com/"
+      }
+    }
+  },
+  'services/m-and-a': {
+    title: 'M&A Transaction Pressure & TSA Modeling | Raven Adversary',
+    description: 'Model post-close unabsorbed parent corporate overhead, transition services agreement (TSA) timeline drift, and stranded-cost assets.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://ravenadversary.com/services/m-and-a/#service",
+      "name": "M&A Transaction Pressure & TSA Modeling | Raven Adversary",
+      "serviceType": "M&A Due Diligence",
+      "description": "Model post-close unabsorbed parent corporate overhead, transition services agreement (TSA) timeline drift, and stranded-cost assets.",
+      "provider": {
+        "@type": "FinancialService",
+        "name": "Raven Adversary",
+        "url": "https://ravenadversary.com/"
+      }
+    }
+  },
+  'services/activism': {
+    title: 'Shareholder Activism Risk & Proxy Defense | Raven Adversary',
+    description: 'Evaluate proxy language drift, voting blocs, and index fund voting patterns to anticipate and mitigate hostile shareholder campaigns.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://ravenadversary.com/services/activism/#service",
+      "name": "Shareholder Activism Risk & Proxy Defense | Raven Adversary",
+      "serviceType": "Activism Intelligence",
+      "description": "Evaluate proxy language drift, voting blocs, and index fund voting patterns to anticipate and mitigate hostile shareholder campaigns.",
+      "provider": {
+        "@type": "FinancialService",
+        "name": "Raven Adversary",
+        "url": "https://ravenadversary.com/"
+      }
+    }
+  },
+  'services/governance': {
+    title: 'Governance Fracture Detection & Board Stability | Raven Adversary',
+    description: 'Quantify board cohesion, identify isolated directors, and analyze historical voting divergence to predict transaction disruption.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://ravenadversary.com/services/governance/#service",
+      "name": "Governance Fracture Detection & Board Stability | Raven Adversary",
+      "serviceType": "Governance Auditing",
+      "description": "Quantify board cohesion, identify isolated directors, and analyze historical voting divergence to predict transaction disruption.",
+      "provider": {
+        "@type": "FinancialService",
+        "name": "Raven Adversary",
+        "url": "https://ravenadversary.com/"
+      }
+    }
+  },
+  'services/regulatory': {
+    title: 'Regulatory Threshold Pressure & HQLA Drag | Raven Adversary',
+    description: 'Model capital reserves, pro-forma deposit volatility, and Net Interest Margin compression when crossing key Category III asset tiers.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://ravenadversary.com/services/regulatory/#service",
+      "name": "Regulatory Threshold Pressure & HQLA Drag | Raven Adversary",
+      "serviceType": "Regulatory Advisory",
+      "description": "Model capital reserves, pro-forma deposit volatility, and Net Interest Margin compression when crossing key Category III asset tiers.",
+      "provider": {
+        "@type": "FinancialService",
+        "name": "Raven Adversary",
+        "url": "https://ravenadversary.com/"
+      }
+    }
+  },
+  'methodology': {
+    title: 'The Raven Methodology: Verifiable M&A Risk | Raven Adversary',
+    description: 'Discover our four pipeline modules: Adversarial Debate Logic, Pressure-State Modeling, the Commit Layer, and Evidence Verification Standards.',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "@id": "https://ravenadversary.com/methodology/#howto",
+      "name": "The Raven Methodology: Verifiable M&A Risk | Raven Adversary",
+      "description": "Discover our four pipeline modules: Adversarial Debate Logic, Pressure-State Modeling, the Commit Layer, and Evidence Verification Standards.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Adversarial Debate Logic",
+          "text": "Simulating opposing viewpoints to expose systemic blindspots."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Pressure-State Modeling",
+          "text": "Reconstructing dynamic, multi-variable dependency networks."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "The Commit Layer",
+          "text": "Securing data blocks for verifiable transaction evidence."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Evidence Verification",
+          "text": "Strictest cross-referencing against SEC filings and proxies."
+        }
+      ]
+    }
+  }
+};
+
+function injectMetadata(html, key) {
+  const meta = routeMetadata[key] || routeMetadata['home'];
+  let modified = html;
+  
+  // Replace title tag
+  modified = modified.replace(/<title>[^<]*<\/title>/gi, `<title>${meta.title}</title>`);
+  
+  // Replace meta name="title"
+  modified = modified.replace(/<meta\s+name="title"\s+content="[^"]*"\s*\/?>/gi, `<meta name="title" content="${meta.title}" />`);
+  
+  // Replace meta name="description"
+  modified = modified.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/gi, `<meta name="description" content="${meta.description}" />`);
+  
+  // Replace og:title
+  modified = modified.replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:title" content="${meta.title}" />`);
+  
+  // Replace og:description
+  modified = modified.replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/gi, `<meta property="og:description" content="${meta.description}" />`);
+  
+  // Replace twitter:title
+  modified = modified.replace(/<meta\s+property="twitter:title"\s+content="[^"]*"\s*\/?>/gi, `<meta property="twitter:title" content="${meta.title}" />`);
+  modified = modified.replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/gi, `<meta name="twitter:title" content="${meta.title}" />`);
+  
+  // Replace twitter:description
+  modified = modified.replace(/<meta\s+property="twitter:description"\s+content="[^"]*"\s*\/?>/gi, `<meta property="twitter:description" content="${meta.description}" />`);
+  modified = modified.replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/gi, `<meta name="twitter:description" content="${meta.description}" />`);
+  
+  // Inject canonical and geo target metadata and schema markup
+  const canonicalUrl = key === 'home' ? 'https://ravenadversary.com/' : `https://ravenadversary.com/${key}/`;
+  const additionalTags = `
+    <!-- Canonical & Geographical Targeting Metrics -->
+    <link rel="canonical" href="${canonicalUrl}" />
+    <meta name="geo.region" content="US-NY" />
+    <meta name="geo.placename" content="New York" />
+    <meta name="geo.position" content="40.7128;-74.0060" />
+    <meta name="ICBM" content="40.7128, -74.0060" />
+
+    <!-- AI & Search Engine Schema Graph Insertion -->
+    <script type="application/ld+json">
+      ${JSON.stringify(meta.schema || {}, null, 2)}
+    </script>
+  `;
+  
+  modified = modified.replace('</head>', `${additionalTags}\n  </head>`);
+  
+  return modified;
+}
+
 // Helper function to replace <div id="root"></div> in html content with the target pre-rendered code
 function prerenderRoute(originalHtml, routeContent) {
   const replacement = `<div id="root">${routeContent}</div>`;
@@ -376,9 +643,10 @@ function prerenderRoute(originalHtml, routeContent) {
 }
 
 // 1. Rewrite root index.html (Home) with pre-rendered home page
-const homeHtml = prerenderRoute(originalHtml, templates.home);
+const baseHomeHtml = prerenderRoute(originalHtml, templates.home);
+const homeHtml = injectMetadata(baseHomeHtml, 'home');
 fs.writeFileSync(sourceHtmlPath, homeHtml, 'utf8');
-console.log('Successfully pre-rendered home page: dist/index.html');
+console.log('Successfully pre-rendered home page with custom metadata: dist/index.html');
 
 // 2. Pre-render other paths statically for 200 OK indexation without requiring JavaScript
 const routes = [
@@ -401,11 +669,12 @@ routes.forEach(route => {
   }
   
   const content = templates[route];
-  const routeHtml = prerenderRoute(originalHtml, content);
+  const routeHtmlRaw = prerenderRoute(originalHtml, content);
+  const routeHtml = injectMetadata(routeHtmlRaw, route);
   
   const targetHtmlPath = path.join(routeDir, 'index.html');
   fs.writeFileSync(targetHtmlPath, routeHtml, 'utf8');
-  console.log(`Successfully created fully pre-rendered indexable page: /${route}/index.html`);
+  console.log(`Successfully created fully pre-rendered indexable page with metadata: /${route}/index.html`);
 });
 
 // 3. Create standard 404.html fallback

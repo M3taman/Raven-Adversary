@@ -179,25 +179,25 @@ export default function PressureIntelligencePillar() {
           </p>
           
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 pt-4 text-left">
-            <Link to="/services/m-and-a" className="p-4 border border-[var(--border-color)] hover:border-[var(--brand-cyan)] bg-[var(--bg-secondary)]/10 flex flex-col justify-between h-36">
+            <Link to="/services/m-and-a/" className="p-4 border border-[var(--border-color)] hover:border-[var(--brand-cyan)] bg-[var(--bg-secondary)]/10 flex flex-col justify-between h-36">
               <span className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider">Tier 2 Service</span>
               <div className="font-bold text-sm text-[var(--text-primary)]">M&A Transaction Pressure</div>
               <span className="font-mono text-[9px] text-[var(--brand-cyan)] flex items-center gap-1">GO TO SERVICE <ChevronRight className="w-3 h-3" /></span>
             </Link>
 
-            <Link to="/services/activism" className="p-4 border border-[var(--border-color)] hover:border-[var(--brand-cyan)] bg-[var(--bg-secondary)]/10 flex flex-col justify-between h-36">
+            <Link to="/services/activism/" className="p-4 border border-[var(--border-color)] hover:border-[var(--brand-cyan)] bg-[var(--bg-secondary)]/10 flex flex-col justify-between h-36">
               <span className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider">Tier 2 Service</span>
               <div className="font-bold text-sm text-[var(--text-primary)]">Shareholder Activism Risk</div>
               <span className="font-mono text-[9px] text-[var(--brand-cyan)] flex items-center gap-1">GO TO SERVICE <ChevronRight className="w-3 h-3" /></span>
             </Link>
 
-            <Link to="/services/governance" className="p-4 border border-[var(--border-color)] hover:border-[var(--brand-cyan)] bg-[var(--bg-secondary)]/10 flex flex-col justify-between h-36">
+            <Link to="/services/governance/" className="p-4 border border-[var(--border-color)] hover:border-[var(--brand-cyan)] bg-[var(--bg-secondary)]/10 flex flex-col justify-between h-36">
               <span className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider">Tier 2 Service</span>
               <div className="font-bold text-sm text-[var(--text-primary)]">Governance Fracture Detection</div>
               <span className="font-mono text-[9px] text-[var(--brand-cyan)] flex items-center gap-1">GO TO SERVICE <ChevronRight className="w-3 h-3" /></span>
             </Link>
 
-            <Link to="/services/regulatory" className="p-4 border border-[var(--border-color)] hover:border-[var(--brand-cyan)] bg-[var(--bg-secondary)]/10 flex flex-col justify-between h-36">
+            <Link to="/services/regulatory/" className="p-4 border border-[var(--border-color)] hover:border-[var(--brand-cyan)] bg-[var(--bg-secondary)]/10 flex flex-col justify-between h-36">
               <span className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider">Tier 2 Service</span>
               <div className="font-bold text-sm text-[var(--text-primary)]">Regulatory Threshold Drag</div>
               <span className="font-mono text-[9px] text-[var(--brand-cyan)] flex items-center gap-1">GO TO SERVICE <ChevronRight className="w-3 h-3" /></span>

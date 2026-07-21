@@ -14,11 +14,118 @@ import GovernanceService from './pages/GovernanceService';
 import RegulatoryService from './pages/RegulatoryService';
 import Methodology from './pages/Methodology';
 
+const METADATA: Record<string, { title: string; description: string }> = {
+  '/': {
+    title: 'Raven Adversary | Institutional Pressure Intelligence',
+    description: 'An institutional pressure intelligence surface for M&A. We reconstruct transaction decision-states under consequential uncertainty.'
+  },
+  '/intelligence': {
+    title: 'Adversarial Intelligence Archive | Raven Adversary',
+    description: 'Dissect memos, strategic briefs, and forensic analyses tracking institutional pressure, leverage migration, and unpriced exposure in M&A.'
+  },
+  '/intelligence/': {
+    title: 'Adversarial Intelligence Archive | Raven Adversary',
+    description: 'Dissect memos, strategic briefs, and forensic analyses tracking institutional pressure, leverage migration, and unpriced exposure in M&A.'
+  },
+  '/privacy': {
+    title: 'Information Hygiene & Privacy Policy | Raven Adversary',
+    description: 'Raven Adversary is committed to strict public-domain analysis and data segregation. Review our privacy protocols and zero-MNPI policy.'
+  },
+  '/privacy/': {
+    title: 'Information Hygiene & Privacy Policy | Raven Adversary',
+    description: 'Raven Adversary is committed to strict public-domain analysis and data segregation. Review our privacy protocols and zero-MNPI policy.'
+  },
+  '/security': {
+    title: 'Zero-Trust Security & Compliance Framework | Raven Adversary',
+    description: 'Explore Raven Adversary\'s enterprise-grade zero-trust infrastructure, AES-256 encryption standards, and secure client isolation layers.'
+  },
+  '/security/': {
+    title: 'Zero-Trust Security & Compliance Framework | Raven Adversary',
+    description: 'Explore Raven Adversary\'s enterprise-grade zero-trust infrastructure, AES-256 encryption standards, and secure client isolation layers.'
+  },
+  '/terms': {
+    title: 'Terms of Service & Institutional Engagement | Raven Adversary',
+    description: 'Review the terms governing the use of Raven Adversary\'s institutional pressure-state analytics platform and professional services.'
+  },
+  '/terms/': {
+    title: 'Terms of Service & Institutional Engagement | Raven Adversary',
+    description: 'Review the terms governing the use of Raven Adversary\'s institutional pressure-state analytics platform and professional services.'
+  },
+  '/pressure-intelligence': {
+    title: 'What is Institutional Pressure Intelligence? | Raven Adversary',
+    description: 'Learn how Raven Adversary models multi-variable dependency networks, legal covenants, and transaction stress to expose unpriced M&A risks.'
+  },
+  '/pressure-intelligence/': {
+    title: 'What is Institutional Pressure Intelligence? | Raven Adversary',
+    description: 'Learn how Raven Adversary models multi-variable dependency networks, legal covenants, and transaction stress to expose unpriced M&A risks.'
+  },
+  '/services/m-and-a': {
+    title: 'M&A Transaction Pressure & TSA Modeling | Raven Adversary',
+    description: 'Model post-close unabsorbed parent corporate overhead, transition services agreement (TSA) timeline drift, and stranded-cost assets.'
+  },
+  '/services/m-and-a/': {
+    title: 'M&A Transaction Pressure & TSA Modeling | Raven Adversary',
+    description: 'Model post-close unabsorbed parent corporate overhead, transition services agreement (TSA) timeline drift, and stranded-cost assets.'
+  },
+  '/services/activism': {
+    title: 'Shareholder Activism Risk & Proxy Defense | Raven Adversary',
+    description: 'Evaluate proxy language drift, voting blocs, and index fund voting patterns to anticipate and mitigate hostile shareholder campaigns.'
+  },
+  '/services/activism/': {
+    title: 'Shareholder Activism Risk & Proxy Defense | Raven Adversary',
+    description: 'Evaluate proxy language drift, voting blocs, and index fund voting patterns to anticipate and mitigate hostile shareholder campaigns.'
+  },
+  '/services/governance': {
+    title: 'Governance Fracture Detection & Board Stability | Raven Adversary',
+    description: 'Quantify board cohesion, identify isolated directors, and analyze historical voting divergence to predict transaction disruption.'
+  },
+  '/services/governance/': {
+    title: 'Governance Fracture Detection & Board Stability | Raven Adversary',
+    description: 'Quantify board cohesion, identify isolated directors, and analyze historical voting divergence to predict transaction disruption.'
+  },
+  '/services/regulatory': {
+    title: 'Regulatory Threshold Pressure & HQLA Drag | Raven Adversary',
+    description: 'Model capital reserves, pro-forma deposit volatility, and Net Interest Margin compression when crossing key Category III asset tiers.'
+  },
+  '/services/regulatory/': {
+    title: 'Regulatory Threshold Pressure & HQLA Drag | Raven Adversary',
+    description: 'Model capital reserves, pro-forma deposit volatility, and Net Interest Margin compression when crossing key Category III asset tiers.'
+  },
+  '/methodology': {
+    title: 'The Raven Methodology: Verifiable M&A Risk | Raven Adversary',
+    description: 'Discover our four pipeline modules: Adversarial Debate Logic, Pressure-State Modeling, the Commit Layer, and Evidence Verification Standards.'
+  },
+  '/methodology/': {
+    title: 'The Raven Methodology: Verifiable M&A Risk | Raven Adversary',
+    description: 'Discover our four pipeline modules: Adversarial Debate Logic, Pressure-State Modeling, the Commit Layer, and Evidence Verification Standards.'
+  }
+};
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const meta = METADATA[pathname] || METADATA['/'];
+    document.title = meta.title;
+
+    const descMeta = document.querySelector('meta[name="description"]');
+    if (descMeta) {
+      descMeta.setAttribute('content', meta.description);
+    }
+
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', meta.title);
+
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', meta.description);
+
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) twitterTitle.setAttribute('content', meta.title);
+
+    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDesc) twitterDesc.setAttribute('content', meta.description);
   }, [pathname]);
 
   return null;
@@ -122,7 +229,7 @@ export default function App() {
               </div>
             </Link>
             <div className="flex items-center gap-6">
-              <Link to="/intelligence" className="text-xs font-bold uppercase tracking-wider hover:text-[var(--brand-cyan)] transition-colors hidden sm:block">
+              <Link to="/intelligence/" className="text-xs font-bold uppercase tracking-wider hover:text-[var(--brand-cyan)] transition-colors hidden sm:block">
                 Intelligence Feed
               </Link>
               <a 
@@ -185,22 +292,22 @@ export default function App() {
                 </div>
                 <ul className="space-y-2 font-mono text-[8px] tracking-widest uppercase">
                   <li>
-                    <Link to="/services/m-and-a" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                    <Link to="/services/m-and-a/" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
                       M&A Transaction Pressure
                     </Link>
                   </li>
                   <li>
-                    <Link to="/services/activism" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                    <Link to="/services/activism/" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
                       Shareholder Activism Risk
                     </Link>
                   </li>
                   <li>
-                    <Link to="/services/governance" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                    <Link to="/services/governance/" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
                       Governance Fracture Detection
                     </Link>
                   </li>
                   <li>
-                    <Link to="/services/regulatory" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                    <Link to="/services/regulatory/" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
                       Regulatory Threshold Drag
                     </Link>
                   </li>
@@ -214,17 +321,17 @@ export default function App() {
                 </div>
                 <ul className="space-y-2 font-mono text-[8px] tracking-widest uppercase">
                   <li>
-                    <Link to="/pressure-intelligence" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                    <Link to="/pressure-intelligence/" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
                       Pressure Intel Pillar
                     </Link>
                   </li>
                   <li>
-                    <Link to="/methodology" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                    <Link to="/methodology/" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
                       Operational Methodology
                     </Link>
                   </li>
                   <li>
-                    <Link to="/intelligence" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                    <Link to="/intelligence/" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
                       Intelligence Feed
                     </Link>
                   </li>
@@ -238,17 +345,17 @@ export default function App() {
                 </div>
                 <ul className="space-y-2 font-mono text-[8px] tracking-widest uppercase">
                   <li>
-                    <Link to="/privacy" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                    <Link to="/privacy/" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
                       Privacy Policy
                     </Link>
                   </li>
                   <li>
-                    <Link to="/terms" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                    <Link to="/terms/" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
                       Terms of Service
                     </Link>
                   </li>
                   <li>
-                    <Link to="/security" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
+                    <Link to="/security/" className="text-[var(--text-secondary)] hover:text-[var(--brand-cyan)] transition-colors">
                       Security & Compliance
                     </Link>
                   </li>

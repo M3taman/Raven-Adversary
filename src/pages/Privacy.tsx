@@ -26,7 +26,7 @@ export default function Privacy() {
         <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[10px] uppercase tracking-[0.2em] mb-4">
           <Shield className="w-3 h-3" /> Note 14.8.2
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold font-heading">Privacy Policy</h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-heading">Raven Adversary Data Privacy Policy & Information Hygiene Guidelines</h1>
         <p className="text-[var(--text-secondary)] font-mono text-sm">LAST UPDATED: CURRENT</p>
       </div>
 

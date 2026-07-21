@@ -26,7 +26,7 @@ export default function Security() {
         <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[10px] uppercase tracking-[0.2em] mb-4">
           <Lock className="w-3 h-3" /> Operations Auth
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold font-heading">Security & Compliance</h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-heading">Security, Compliance, & Zero-Trust Information Boundaries</h1>
         <p className="text-[var(--text-secondary)] font-mono text-sm">INFRASTRUCTURE BRIEFING</p>
       </div>
 

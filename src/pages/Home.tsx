@@ -114,7 +114,7 @@ export default function Home() {
             Reconstructing <span className="text-[var(--brand-cyan)]">Institutional Pressure Intelligence</span> before transaction risk cascades.
           </h1>
           <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl leading-relaxed">
-            Pressure-state intelligence for M&A, activism, governance conflict, and regulatory exposure. Operating exclusively under absolute informational hygiene.
+            By reconstructing institutional pressure intelligence before transaction risk cascades, Raven maps dynamic unpriced exposures for M&A, activism, governance conflict, and regulatory exposure under absolute informational hygiene.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
             <a href="#contact" className="bg-[var(--text-primary)] text-[var(--bg-primary)] px-10 py-5 flex items-center gap-2 text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity w-full sm:w-auto justify-center rounded-none shadow-lg">
