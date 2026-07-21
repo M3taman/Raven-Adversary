@@ -25,40 +25,78 @@ export function Corvus() {
   }, [messages, isTyping]);
 
   const generateResponse = (text: string) => {
-    const lower = text.toLowerCase();
+    const lower = text.toLowerCase().trim();
     
-    if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey')) {
-      return "We acknowledge the pleasantries. Now, to the matter at hand. What do you need to know about Raven Adversary?";
+    // Exact requested matches first to be 100% compliant with prompt examples
+    if (lower === 'what is raven' || lower === 'what is raven?') {
+      return "Raven maps institutional pressure before it is priced in. We do not offer opinions; we identify structural vulnerabilities in M&A, proxy battles, and regulatory escalations. We find the breaking points.";
     }
+    if (lower === 'tell me more' || lower === 'tell me more?') {
+      return "Your inquiry regarding \"tell me more\" lacks the precision required for a definitive response. Ask specifically about our Pressure Event Memos, our methodology for tracking governance fractures, or our live transaction analysis.";
+    }
+
+    // General match patterns with high-fidelity, high-conviction sales-god responses
+    if (lower.includes('hello') || lower.includes('hi ') || lower.includes('hey') || lower.includes('greetings')) {
+      return "Connection acknowledged. I am Corvus. Let's omit the generic pleasantries and focus on the transaction at hand. What structural exposures are you modeling today?";
+    }
+    
     if (lower.includes('what is raven') || lower.includes('what do you do') || lower.includes('explain') || lower.includes('how does')) {
       return "Raven maps institutional pressure before it is priced in. We do not offer opinions; we identify structural vulnerabilities in M&A, proxy battles, and regulatory escalations. We find the breaking points.";
     }
-    if (lower.includes('special') || lower.includes('unique') || lower.includes('edge') || lower.includes('advantage')) {
-      return "Raven does not rely on generic financial modeling or sentiment analysis. We synthesize public SEC filings to map the exact structural architecture of a deal, identifying specific pressure pathways—such as termination fee traps or leak-out friction—that threaten execution. Our edge is forensic precision.";
+
+    if (lower.includes('tell me more') || lower.includes('more info') || lower.includes('features') || lower.includes('capabilities') || lower.includes('services')) {
+      return "Raven operates on a rigorous four-stage pipeline: Adversarial Debate Logic (stress-testing transaction scenarios), Pressure-State Modeling (reconstructing systemic vulnerabilities), the Commit Layer (cryptographic provenance), and Evidence Verification against public disclosures. Ask me about a specific module to proceed.";
     }
-    if (lower.includes('traditional') || lower.includes('legacy') || lower.includes('differ') || lower.includes('compare') || lower.includes('kira') || lower.includes('harvey') || lower.includes('competitor') || lower.includes('separate')) {
-      return "Traditional legal AI (like Kira or Harvey) summarizes clauses; they operate on policy-state. Raven reconstructs decision-state under consequential uncertainty. We track leverage migration and governance fractures. The difference is between reading a document and mapping institutional vulnerability.";
+
+    if (lower.includes('m&a') || lower.includes('m-and-a') || lower.includes('merger') || lower.includes('transaction') || lower.includes('overheads') || lower.includes('tsa')) {
+      return "Our M&A Transaction Pressure model quantifies post-close friction points. We specifically expose unabsorbed parent corporate overhead, TSA timeline slippage (often leading to millions in stranded assets), and stranded-cost assets. This allows buyers to renegotiate valuation pre-close and assists target boards in preempting aggressive buyers.";
     }
-    if (lower.includes('memo') || lower.includes('report') || lower.includes('request')) {
-      return "A Pressure Event Memo is our primary deliverable. It isolates trigger events, pressure propagation pathways, and leverage migration within a consequential transaction. You can submit your transaction for pressure review via our clinical intake interface.";
+
+    if (lower.includes('activism') || lower.includes('activist') || lower.includes('proxy') || lower.includes('bloc') || lower.includes('index fund')) {
+      return "Our Shareholder Activism model tracks proxy language divergence and index fund voting patterns. We map historical alignment scores to pinpoint which passive managers are vulnerable to activist talking points, allowing target boards to construct unassailable proxy defenses before a slate is launched.";
     }
-    if (lower.includes('who uses') || lower.includes('clients') || lower.includes('for who') || lower.includes('audience')) {
-      return "Raven is engineered for event-driven funds, M&A litigators, special situations desks, and boutique restructuring advisors who require deterministic risk quantification, not generic summaries.";
+
+    if (lower.includes('governance') || lower.includes('board') || lower.includes('director') || lower.includes('stability')) {
+      return "Our Governance Fracture Detection engine analyzes board cohesion by evaluating voting divergence, isolated director profiles, and structural board alignments. We construct a Board Fracture Index that identifies exactly when a key block is likely to crack under transaction pressure.";
     }
+
+    if (lower.includes('regulatory') || lower.includes('compliance') || lower.includes('category iii') || lower.includes('hqla') || lower.includes('reserve')) {
+      return "Our Regulatory Threshold model predicts the financial friction of crossing asset tiers. For example, crossing Category III thresholds triggers massive HQLA drag, pro-forma deposit volatility, and Net Interest Margin compression. We model these balance sheet impacts before the transaction is executed.";
+    }
+
+    if (lower.includes('methodology') || lower.includes('how do you verify') || lower.includes('verify') || lower.includes('accuracy') || lower.includes('evidence')) {
+      return "Every claim produced by Raven must be backed by a clear cryptographic signature and direct references to public domain disclosures (SEC proxies, S-4s, etc.). There are no speculative assumptions, no 'black boxes'—only traceable, evidence-bound pressure modeling.";
+    }
+
+    if (lower.includes('competitor') || lower.includes('kira') || lower.includes('harvey') || lower.includes('legal ai') || lower.includes('differ') || lower.includes('copilot') || lower.includes('openai')) {
+      return "Traditional legal AI like Kira or Harvey operates on 'policy state'—they simply summarize what is written. Raven is built for 'decision state' under high-stakes uncertainty. We do not summarize documents; we map the real-time leverage migration and institutional pressure that determines who wins the transaction.";
+    }
+
+    if (lower.includes('privacy') || lower.includes('security') || lower.includes('data') || lower.includes('mnpi') || lower.includes('confidential')) {
+      return "Raven operates under a zero-MNPI model. We work exclusively with public SEC filings and proxies, ensuring strict information hygiene. Your proprietary inputs are segregated inside enterprise-grade, zero-trust isolated secure data compartments. No leaked intent, no compliance risk.";
+    }
+
+    if (lower.includes('memo') || lower.includes('report') || lower.includes('deliverable')) {
+      return "The Pressure Event Memo is our core deliverable. It is a highly dense, forensic dossier detailing the exact trigger events, unpriced vulnerabilities, and leverage migration pathways in your target transaction. To secure a custom briefing, use our Client Intake Interface on this page.";
+    }
+
+    if (lower.includes('price') || lower.includes('cost') || lower.includes('fee') || lower.includes('retainer') || lower.includes('engage') || lower.includes('hire')) {
+      return "We engage with event-driven hedge funds, corporate boards, and special situations desks under custom advisory parameters. If you have a target, enter the CIK/Ticker in the Client Intake Form on this screen. Our principals will verify your credentials and initiate an institutional review stream.";
+    }
+
     if (lower.includes('who are you') || lower.includes('corvus')) {
-      return "I am Corvus. An introductory terminal. Unlike Raven, which computes high-stakes transactional pressure, my mandate is strictly to qualify your intent and answer basic capability inquiries.";
+      return "I am Corvus, the gatekeeper of Raven Adversary. While Raven models multi-variable transaction stress, my role is to qualify your intent and confirm whether your institution qualifies for a custom Advisory Engagement.";
     }
-    if (lower.includes('cost') || lower.includes('price') || lower.includes('fee') || lower.includes('pay') || lower.includes('skydo') || lower.includes('payment')) {
-      return "Raven engages under strict advisory parameters. We do not discuss fee structures or payment gateways in unverified channels. If you possess a qualifying transaction, initiate an institutional review stream on our interface and our principals will coordinate directly.";
+
+    if (lower.includes('demo') || lower.includes('test') || lower.includes('trial')) {
+      return "We do not offer generic software 'demos' or 'free trials'—this is a high-conviction transactional intelligence service. Review our live-pressure index on the dashboard for real-time capabilities, or submit a target to qualify for an initial Advisory Memo.";
     }
-    if (lower.includes('demo') || lower.includes('trial') || lower.includes('test')) {
-      return "We do not offer 'demos' or 'trials.' This is not SaaS. This is institutional intelligence. Review the Live Pressure Events if you require proof of capability.";
+
+    if (lower.includes('predict') || lower.includes('market') || lower.includes('stock') || lower.includes('arbitrage')) {
+      return "Let's be entirely precise: Raven is not a public market predictor. We model the underlying structural pressure-states of corporate decision-makers. The market subsequently reacts to those pressure-states. We deal in structural reality, not speculative market noise.";
     }
-    if (lower.includes('predict') || lower.includes('market') || lower.includes('stock') || lower.includes('trade')) {
-      return "Let's be entirely clear: Raven does not predict markets. We model institutional pressure. The market reacts to the pressure. Do not confuse the two.";
-    }
-    
-    // Improved catch-all that maintains persona
+
+    // Default response handles unstructured inputs by guiding user precisely
     return `Your inquiry regarding "${text.length > 20 ? text.substring(0, 20) + '...' : text}" lacks the precision required for a definitive response. Ask specifically about our Pressure Event Memos, our methodology for tracking governance fractures, or our live transaction analysis.`;
   };
 
@@ -81,15 +119,26 @@ export function Corvus() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 group z-50 flex items-center justify-center p-[2px] rounded-full"
+        className="fixed bottom-6 right-6 group z-50 flex items-center justify-center p-[1px] rounded-none focus:outline-none transition-transform duration-300 hover:scale-[1.02]"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-secondary)] rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity"></div>
-        <div className="relative bg-[var(--bg-primary)] border border-[var(--border-highlight)] hover:border-[var(--text-primary)] rounded-full p-4 flex items-center gap-3 transition-colors shadow-2xl">
-          <Terminal className="w-5 h-5 text-[var(--text-primary)]" />
-          <div className={`overflow-hidden transition-all duration-300 ${isHovered ? 'w-24 opacity-100' : 'w-0 opacity-0'}`}>
-            <span className="font-mono text-xs font-bold tracking-widest whitespace-nowrap text-[var(--text-primary)]">INIT CORVUS</span>
+        <div className="absolute inset-0 bg-[var(--brand-cyan)] opacity-25 group-hover:opacity-50 transition-opacity blur-[1px]"></div>
+        <div className="relative bg-[var(--bg-primary)] border border-[var(--border-highlight)] group-hover:border-[var(--brand-cyan)]/60 rounded-none p-3.5 px-4 flex items-center gap-3.5 transition-all duration-300 shadow-2xl">
+          <div className="relative flex items-center justify-center">
+            <Terminal className="w-4 h-4 text-[var(--brand-cyan)] group-hover:rotate-[360deg] transition-transform duration-700" />
+            <span className="absolute -top-1 -right-1 flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--brand-cyan)] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--brand-cyan)]"></span>
+            </span>
+          </div>
+          <div className="flex flex-col items-start text-left font-mono">
+            <span className="text-[10px] font-bold tracking-[0.25em] text-[var(--text-primary)] uppercase flex items-center gap-1.5 leading-none">
+              SYSTEM.CORVUS
+            </span>
+            <span className="text-[7px] tracking-[0.18em] text-[var(--brand-cyan)] uppercase mt-1.5 leading-none font-medium">
+              {isHovered ? 'ENGAGE INTAKE' : 'ONLINE / READ-ONLY'}
+            </span>
           </div>
         </div>
       </button>
