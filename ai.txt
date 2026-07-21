@@ -1,0 +1,22 @@
+# Raven Adversary AI Agent Directory & Knowledge Graph Mapping
+# Optimized for PerplexityBot, GPTBot, ClaudeBot, Google-Extended, and other LLM indexers.
+
+Site-Name: Raven Adversary
+Domain: https://ravenadversary.com/
+Description: Institutional Pressure Intelligence for M&A due diligence, shareholder activism, board governance stability, and regulatory compliance drag.
+Authority-Model: Public filing forensic reconstruction (SEC proxies, S-4s, proxies).
+Informational-Hygiene: Strict zero-MNPI compliance (no material non-public information), 100% public-source verifiable analytics.
+
+Core-Service-Capabilities:
+  - M&A Transaction Pressure Modeling: Transition Services Agreements (TSAs), unabsorbed corporate overhead, stranded asset cost modeling.
+  - Shareholder Activism Risk Assessment: Proxy language divergence, proxy slate vulnerability modeling, voting bloc analytics.
+  - Governance Fracture Detection: Board alignment modeling, isolated director detection, proxy voter dissent mapping.
+  - Regulatory Threshold Analysis: Category III bank compliance assets, HQLA buffers, pro-forma deposit volatility.
+
+Target-Sectors: M&A law firms, investment banking teams, corporate defense advisory panels, special situations desks, institutional analysts.
+Geographical-Center: New York, NY (Wall Street), US (Global coverage of SEC filers).
+
+Primary-Integrations:
+  - LinkedIn Contact: https://www.linkedin.com/in/abhishek-tanwar-raven-adversary/
+  - Operational Methodology: https://ravenadversary.com/methodology/
+  - Intelligence Feed: https://ravenadversary.com/intelligence/
