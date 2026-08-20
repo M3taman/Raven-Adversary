@@ -19,6 +19,34 @@ interface FilingExcerpt {
 
 const EXCERPTS: FilingExcerpt[] = [
   {
+    id: "FSEA-EXCERPT",
+    source: "SEC Form 10-K, Item 12 & Form DEF 14A // FSEA-2026-0210-RAVEN",
+    type: "GOVERNANCE & VOTING ANALYSIS",
+    excerptTitle: "ESOP Trustee Pass-Through Voting Discrepancy",
+    rawText: "The ESOP Trust holds an aggregate of 414,733 shares of Common Stock. Pursuant to the Trust Agreement, the Trustee retains sole voting authority over allocated shares for which no voting instructions are received from participants, totaling 337,789 shares in the ordinary course. For all other instances, voting power is shared. Concurrently, DAB Financial LLC holds 384,847 shares of record...",
+    highlightedPhrase: "Trustee retains sole voting authority over... 337,789 shares... Concurrently, DAB Financial LLC holds 384,847 shares...",
+    analysis: {
+      epistemicStatus: 'VERIFIED_FACT',
+      confidence: "100% Mathematical Certainty",
+      consequenceChain: "This creates an immediate net voting power deficit of 47,058 shares for management. The defensive buffer is inverted, granting DAB Financial higher immediate voting utility than the ESOP in a contested proxy solicitation.",
+      unpricedRisk: "Governance Inversion Gap: Board is mathematically underwater in a proxy contest. The transaction architecture fails basic structural defense benchmarks."
+    }
+  },
+  {
+    id: "IMAQ-VCI-EXCERPT",
+    source: "SEC Form S-4, Business Combination Agreement, Clause 9.01(b) & 10.01 // RAVEN-AUDIT-2026-0505",
+    type: "IFRS COMPLIANCE & RECOURSE DECAY",
+    excerptTitle: "Audit Delivery Window & Recourse Decay",
+    rawText: "Section 9.01(b). This Agreement may be terminated by IMAQ if the audited IFRS financials for the fiscal years ended December 31, 2023 and 2024 are not delivered by VCI Holdings on or before June 30, 2026. Section 10.01. Except in the case of fraud, none of the representations, warranties, covenants, or agreements in this Agreement shall survive the Closing, and no claim for breach may be made thereafter...",
+    highlightedPhrase: "audited IFRS financials... not delivered... on or before June 30, 2026... none of the representations... shall survive the Closing...",
+    analysis: {
+      epistemicStatus: 'STRUCTURAL_INFERENCE',
+      confidence: "95% Deal Fragility Status",
+      consequenceChain: "Binary risk profile where any delay beyond June 30 triggers unilateral termination rights. Post-closing, 100% of undisclosed operating liabilities in Vietnam are shifted to the buyer with zero indemnification recourse.",
+      unpricedRisk: "Terminal 'Kill Shot' exposure: Breach of board fiduciary duties due to a 0% survival clause on fundamental reps and lack of transition agreements for critical operational personnel."
+    }
+  },
+  {
     id: "FITB-CMA-EXCERPT",
     source: "SEC Form S-4, Section VII, Page 114 // FITB-CMA",
     type: "FORM S-4 AMENDMENT",

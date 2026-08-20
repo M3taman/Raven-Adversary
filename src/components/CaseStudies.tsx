@@ -1,67 +1,92 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { FileText, AlertTriangle, GitBranch, Network, ShieldAlert, Cpu } from 'lucide-react';
+import { FileText, AlertTriangle, GitBranch, Network, ShieldAlert, Cpu, ArrowRight, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CASE_STUDIES = [
   {
-    id: "FITB-CMA",
-    title: "Threshold Pressure in Regional Bank Consolidation",
-    target: "Fifth Third / Comerica Merger",
-    trigger: "Crossing $250B asset threshold",
-    pathNodes: ["Category III migration", "HQLA expansion", "Liquidity reserve burden", "Integration drag"],
-    structuralConsequence: "15% increase in required liquid asset holdings.",
-    governanceExposure: "Board approved merger economics without equivalent disclosure emphasis on liquidity burden.",
-    classification: "REGULATORY THRESHOLD PRESSURE"
+    id: "nims-gravitics",
+    code: "NIMS-GVTX-2026",
+    title: "Financing Condition Precedent & $41.1M Liquidity Cliff",
+    target: "NIMS / Gravitics Reverse Triangular Merger",
+    secCite: "Form 8-K / Global Deal Memorandum (Sections 2 & 4)",
+    trigger: "Binary pre-closing $40M public equity offering and Nasdaq listing dependency",
+    pathNodes: ["$40M Public Raise", "Sept 30 Outside Date", "$300K Insider Notes", "22% Default Coupon"],
+    structuralConsequence: "Failure to close $40M underwritten offering triggers simultaneous maturity cliff on $300K Frost/Hsiao insider notes and escalates Defender bridge note to 22% default penalty against ~$160K shell cash.",
+    governanceExposure: "63.4% insider voting bloc (Frost/Hsiao) executed approvals via FBCA § 607.0704 consents, but unresolved voting rights on 4.79M earn-out shares obscure post-closing governance stability.",
+    classification: "CONTROL TOPOLOGY & REVERSE RECAPITALIZATION"
   },
   {
-    id: "BOXABL-FG",
-    title: "Liquidity Pressure Propagation in De-SPAC Structures",
-    target: "BOXABL / FG Merger II",
-    trigger: "Stock trades at $12.00 for 20 of 30 days post-closing & transition to full reporting.",
-    pathNodes: ["Accelerated lock-up release", "50% equity float increase", "Compliance-induced liquidity crunch"],
-    structuralConsequence: "$225M contingent dilution & manual control intensity overhead.",
-    governanceExposure: "Aggressive deviation from 12-month standard lock-up creates high-concentration retail liquidation risk.",
-    classification: "DE-SPAC FRAGILITY & FLOAT DYNAMICS"
+    id: "inmed-mentari",
+    code: "INM-MNT-2026",
+    title: "Series A Super-Voting & Mandatory Class Veto Lock",
+    target: "InMed Pharmaceuticals / Mentari Therapeutics",
+    secCite: "Form 8-K (May 19, 2026) & Form S-4 Registration",
+    trigger: "$490M PIPE reverse merger with 3-vote-per-director Series A preferred preference",
+    pathNodes: ["3 Votes Per Seat", "85.7% Board Control", ">=30% Class Veto", "$5.7M Arbitration"],
+    structuralConsequence: "Series A Preferred Directors hold 3 votes each (commanding 6 of 7 active votes / 85.71% control) with mandatory class vetoes, while reps & warranties extinguish entirely at closing with zero indemnity recourse against $5.7M in pending arbitration claims.",
+    governanceExposure: "Fairmount-affiliated designees secure unilateral corporate steering while legacy InMed securityholders are diluted to ~1.15%–1.51% fully diluted equity.",
+    classification: "CONTROL TOPOLOGY & MULTI-VOTE GOVERNANCE"
   },
   {
-    id: "WEX-BANK",
-    title: "Hidden Funding Fragility in Capital Adequacy Structures",
-    target: "WEX Bank Capital Adequacy Audit",
-    trigger: "Loss of Non-Bank Custodian Status.",
-    pathNodes: ["FDIC Prompt Corrective Action", "Minimum capital breach", "Unmitigated deposit flight risk"],
-    structuralConsequence: "Immediate $4,574,000,000 funding shortfall.",
-    governanceExposure: "100% reliant on volatile HSA deposits to maintain operational leverage despite 413 bps above minimum.",
-    classification: "FUNDING FRAGILITY INTELLIGENCE"
+    id: "nextcure-avere",
+    code: "NXTC-AVR-2026",
+    title: "Ceiling Exchange Ratio & $150M Financing Floor",
+    target: "NextCure / Avere Therapeutics",
+    secCite: "Form 8-K (July 14, 2026) & Form 10-Q Item 1A",
+    trigger: "Reverse merger with downward-only Net Cash adjustment and $150M PIPE minimum",
+    pathNodes: ["1.89% Ceiling Split", "$150M PIPE Floor", "100% Board Transition", "Going Concern Cliff"],
+    structuralConsequence: "The 1.89% minority interest functions as a ceiling subject to downward adjustment if Net Cash targets are missed, while the $150M financing floor allows closing even with a $170M (53%) PIPE deficit.",
+    governanceExposure: "Avere captures 100% of the 4-member board while pre-funded warrants decouple economic exposure from 9.99%/19.99% beneficial ownership caps.",
+    classification: "VALUATION MECHANICS & CONTROL SHIFT"
   },
   {
-    id: "COLUMBIA-NORTHFIELD",
-    title: "Regulatory Capital Pressure in Regional Bank M&A",
-    target: "Columbia Financial / Northfield Bancorp",
-    trigger: "Imposition of capital surcharges or growth restrictions by the OCC/Federal Reserve.",
-    pathNodes: ["$419M portfolio exposed", "No walk-away right for Buyer", "Capital integration friction"],
-    structuralConsequence: "Severe impairment of pro forma Return on Equity.",
-    governanceExposure: "Materiality measured against Target standalone instead of Pro Forma combined entity.",
-    classification: "REGULATORY CAPITAL PRESSURE"
+    id: "fbnc-fcbm",
+    code: "FBNC-FCBM-2026",
+    title: "Target Entity Discontinuity & RWA Information Vacuum",
+    target: "First Bancorp / First Carolina Bancshares (Florence, SC)",
+    secCite: "Form 8-K (July 14, 2026) & Form 10-Q Balance Sheet",
+    trigger: "$166M acquisition of unlisted Florence target with missing audited financial records",
+    pathNodes: ["Entity Discontinuity", "Unverified $831M Pool", "41.1% Uninsured Deposits", "6.4% EVE Shock"],
+    structuralConsequence: "Audit record lacked audited 10-Q/10-K filings for the Florence target ($831M assets, $596M loans), while FBNC absorbs unquantified credit marks amidst 41.1% ($4.6B) uninsured deposits and a 6.4% EVE decline under rate stress.",
+    governanceExposure: "Buyer diligence conflated target with unrelated Raleigh entity, creating unquantified pro-forma capital adequacy risks despite a 16.06% RBC ratio.",
+    classification: "ASSET QUALITY & INFORMATION INTEGRITY"
   },
   {
-    id: "Z-SQUARED-BSG",
-    title: "Structural Liquidity Bottlenecks in Post-Merger Equity Unlocks",
-    target: "Z Squared / BSG Series CM Merger",
-    trigger: "10-day VWAP > $16.31.",
-    pathNodes: ["Monthly liquidity allocation", "ADTV bottleneck", "$677.2M structural mismatch"],
-    structuralConsequence: "Volume bottleneck permits only 1/20th of the intended monthly liquidity under standard trading conditions.",
-    governanceExposure: "Misaligned lock-up architecture affecting $677.2M of aggregate equity.",
-    classification: "STRUCTURAL LIQUIDITY ANALYSIS"
+    id: "verifyme-openworld",
+    code: "VRME-OW-2026",
+    title: "Tender Expiration Timeline Collision & Willful Breach Fee",
+    target: "VerifyMe / OpenWorld",
+    secCite: "Form 8-K Filings & Merger Agreement Section 8.5(c)",
+    trigger: "Tender offer expiration on July 20 followed by financing deficit disclosure on July 21",
+    pathNodes: ["July 20 Expiration", "July 21 Deficit Disclosure", "$500K Breach Fee", "$42.7M SAFE Cap"],
+    structuralConsequence: "Tight chronological collision between offer expiration and financing deficit disclosure exposed breaching party to a $500,000 willful breach fee under Section 8.5(c) rather than a no-fault mutual termination.",
+    governanceExposure: "Rushed crypto sector pivot (SIC 6199) following Nasdaq delisting notice resulted in rapid deal collapse and potential damages exposure.",
+    classification: "CHRONOLOGY CONFLICT & BREACH LIABILITY"
   },
   {
-    id: "TWO-CCM",
-    title: "Termination Fee Escalation as Defensive Deal Architecture",
-    target: "TWO / CCM Merger",
-    trigger: "Superior Proposal from UWMC or Material Breach.",
-    pathNodes: ["212% fee increase", "Asymmetric break cost", "Immediate deterrence of alternative bids"],
-    structuralConsequence: "$75,400,000 Total Break Cost (6.36% of market cap).",
-    governanceExposure: "Coercive deal economics (82% above market standard break fee) explicitly designed to force favorable shareholder vote.",
-    classification: "DEFENSIVE DEAL ARCHITECTURE"
+    id: "first-seacoast",
+    code: "FSEA-2026",
+    title: "Governance Inversion & ESOP Trust Voting Gap",
+    target: "First Seacoast Bancorp / Cambridge Financial",
+    secCite: "Schedule 13G (Feb 10, 2026) / Form DEF 14A",
+    trigger: "Contested proxy defense against DAB Financial LLC (8.16% stake)",
+    pathNodes: ["ESOP Fragmentation", "Pass-Through Voting", "47K Share Inversion", "Defense Neutralization"],
+    structuralConsequence: "Management claimed 8.80% defensive ESOP block; statutory trust reconciliation uncovered that 76,944 shares pass through to participants, creating an immediate 47,058-share voting deficit against the activist.",
+    governanceExposure: "Management assumed passive participants would default to trustee discretion, but activist solicitation peeled off 42,000 uninstructed shares.",
+    classification: "GOVERNANCE INVERSION & PROXY DEFENSE"
+  },
+  {
+    id: "imaq-vci",
+    code: "IMAQ-VCI-2026",
+    title: "IFRS Audit Cliff & Zero-Survival Indemnity Collapse",
+    target: "IMAQ / VCI Holdings Business Combination",
+    secCite: "Form S-4 Business Combination Agreement (Exhibit 2.1)",
+    trigger: "Hard June 30, 2026 audit delivery deadline with 0% post-closing indemnity escrow",
+    pathNodes: ["Audit Window Failure", "Article X Non-Survival", "Zero Indemnity", "Sponsor Equity Risk"],
+    structuralConsequence: "Section 9.01(b) created unilateral termination risk, while Article X eliminated 100% of reps and warranties survival upon closing without any indemnity escrow on overseas assets.",
+    governanceExposure: "SPAC sponsor entity faced total liability shift on foreign operating entities with zero post-closing recourse against seller consideration.",
+    classification: "CROSS-BORDER DE-SPAC & INDEMNITY ARCHITECTURE"
   }
 ];
 
@@ -71,123 +96,130 @@ export default function CaseStudies() {
 
   return (
     <section className="py-24 px-6 relative border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/10" id="case-studies">
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[10px] uppercase tracking-[0.2em] mb-4">
-            <FileText className="w-3 h-3" />
-            Section 02
+      <div className="max-w-6xl mx-auto relative z-10 space-y-12">
+        
+        <div className="max-w-3xl space-y-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
+            <FileText className="w-3 h-3 text-[var(--brand-cyan)]" />
+            Section 06 // Forensic Case Archive
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading">Institutional Pressure Archive</h2>
+          <h2 className="text-3xl md:text-5xl font-bold font-heading tracking-tight text-[var(--text-primary)]">
+            Forensic Case Studies
+          </h2>
+          <p className="text-base text-[var(--text-secondary)]">
+            Detailed case studies demonstrating how static contract summaries miss dynamic leverage shifts and latent liabilities.
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Left Selector Column */}
           <div className="lg:col-span-4 flex flex-col gap-3">
             {CASE_STUDIES.map((study) => (
               <button
                 key={study.id}
                 onClick={() => setActiveCaseId(study.id)}
-                className={`text-left p-6 border transition-all duration-300 ${
+                className={`text-left p-6 border transition-all ${
                   activeCaseId === study.id 
-                  ? 'border-[var(--brand-cyan)] bg-[var(--brand-cyan)]/5 shadow-[0_0_15px_rgba(0,184,217,0.1)]' 
-                  : 'bg-[var(--bg-secondary)]/30 border-[var(--border-color)] hover:border-[var(--border-highlight)]'
+                  ? 'border-[var(--brand-cyan)] bg-[var(--brand-cyan)]/5 shadow-md' 
+                  : 'bg-[var(--bg-primary)] border-[var(--border-color)] hover:border-[var(--border-highlight)]'
                 }`}
               >
-                <div className={`font-mono text-[10px] tracking-[0.2em] uppercase mb-2 ${activeCaseId === study.id ? 'text-[var(--brand-cyan)]' : 'text-[var(--text-tertiary)]'}`}>
+                <div className={`font-mono text-[9px] tracking-widest uppercase mb-1.5 font-bold ${activeCaseId === study.id ? 'text-[var(--brand-cyan)]' : 'text-[var(--text-tertiary)]'}`}>
                   {study.target}
                 </div>
-                <div className={`font-bold font-heading text-lg ${activeCaseId === study.id ? 'text-[var(--text-primary)]' : 'text-[var(--text-secondary)]'}`}>
+                <div className={`font-bold font-heading text-base ${activeCaseId === study.id ? 'text-[var(--text-primary)]' : 'text-[var(--text-secondary)]'}`}>
                   {study.title}
+                </div>
+                <div className="mt-2 font-mono text-[9px] text-[var(--text-tertiary)]">
+                  {study.secCite}
                 </div>
               </button>
             ))}
           </div>
 
+          {/* Right Detail Pane */}
           <div className="lg:col-span-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeCaseId}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="bg-[var(--bg-primary)] border border-[var(--border-color)] relative"
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+                className="bg-[var(--bg-primary)] border border-[var(--border-color)] p-8 md:p-10 space-y-8 relative"
               >
-                <div className="absolute top-0 right-0 p-3 bg-[var(--bg-secondary)]/50 border-b border-l border-[var(--border-color)]">
-                  <div className="font-mono text-[8px] text-[var(--text-tertiary)] uppercase tracking-widest flex items-center gap-1">
-                    <Cpu className="w-3 h-3 text-[var(--text-secondary)]" /> 
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border-color)] pb-4">
+                  <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest flex items-center gap-1.5 font-bold">
+                    <Cpu className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> 
                     {activeCase.classification}
                   </div>
+                  <span className="font-mono text-[9px] text-[var(--brand-cyan)] font-bold uppercase">
+                    PROVENANCE: {activeCase.secCite}
+                  </span>
                 </div>
 
-                <div className="p-8 md:p-10 space-y-10 mt-6 md:mt-0">
-                  
-                  {/* Trigger */}
-                  <div>
-                    <div className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
-                      <AlertTriangle className="w-3 h-3 text-red-500/80" /> Trigger
-                    </div>
-                    <p className="text-xl md:text-2xl font-bold font-heading text-[var(--text-primary)] leading-tight">
-                      {activeCase.trigger}
-                    </p>
+                {/* Trigger */}
+                <div className="space-y-2">
+                  <div className="font-mono text-[10px] text-red-400 uppercase tracking-widest flex items-center gap-1.5 font-bold">
+                    <AlertTriangle className="w-3.5 h-3.5 text-red-400" /> Trigger & Context
                   </div>
-
-                  {/* Pressure Pathway Map (Visual) */}
-                  <div className="pt-6 border-t border-[var(--border-color)]/50">
-                    <div className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
-                      <GitBranch className="w-3 h-3 text-[var(--brand-cyan)]" /> Pressure Pathway
-                    </div>
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-0 relative py-4">
-                      {/* Desktop connector line */}
-                      <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[var(--border-highlight)] hidden sm:block -z-10 -translate-y-1/2"></div>
-                      {/* Mobile connector line */}
-                      <div className="absolute top-0 left-[15px] w-[1px] h-full bg-[var(--border-highlight)] sm:hidden -z-10"></div>
-                      
-                      {activeCase.pathNodes.map((node, index) => (
-                        <React.Fragment key={index}>
-                          <div className="relative bg-[var(--bg-primary)] px-4 py-2 border border-[var(--border-color)] z-10 flex-1 min-w-[120px] shadow-sm flex flex-col justify-center text-center group hover:border-[var(--brand-cyan)]/50 transition-colors">
-                            <span className="font-mono text-[9px] text-[var(--brand-cyan)] mb-1 opacity-70">NODE 0{index + 1}</span>
-                            <span className="text-[10px] uppercase tracking-widest font-bold text-[var(--text-primary)]">{node}</span>
-                          </div>
-                          {index < activeCase.pathNodes.length - 1 && (
-                            <div className="hidden sm:flex px-2 text-[var(--text-tertiary)] z-10 bg-[var(--bg-primary)] shrink-0">
-                              →
-                            </div>
-                          )}
-                          {index < activeCase.pathNodes.length - 1 && (
-                            <div className="sm:hidden pl-3 py-1 text-[var(--text-tertiary)] z-10 bg-[var(--bg-primary)]">
-                              ↓
-                            </div>
-                          )}
-                        </React.Fragment>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Structural Consequence */}
-                  <div className="pt-6 border-t border-[var(--border-color)]/50">
-                    <div className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
-                      <Network className="w-3 h-3 text-[var(--brand-purple)]" /> Structural Consequence
-                    </div>
-                    <p className="text-base text-[var(--text-primary)] leading-relaxed border-l-2 border-[var(--brand-purple)]/50 pl-4 font-medium">
-                      {activeCase.structuralConsequence}
-                    </p>
-                  </div>
-
-                  {/* Governance Exposure */}
-                  <div className="pt-6 border-t border-[var(--border-color)]/50 bg-red-500/5 -mx-8 sm:-mx-10 -mb-10 px-8 sm:px-10 py-8 border-b-4 border-b-red-500/20">
-                    <div className="font-mono text-[10px] text-red-500/80 uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
-                      <ShieldAlert className="w-3 h-3 text-red-500" /> Governance Exposure
-                    </div>
-                    <p className="text-sm font-mono text-[var(--text-primary)] leading-relaxed font-bold">
-                      {activeCase.governanceExposure}
-                    </p>
-                  </div>
-
+                  <h3 className="text-xl md:text-2xl font-bold font-heading text-[var(--text-primary)] leading-tight">
+                    {activeCase.trigger}
+                  </h3>
                 </div>
+
+                {/* Pressure Pathway Map */}
+                <div className="space-y-3 pt-4 border-t border-[var(--border-color)]">
+                  <div className="font-mono text-[10px] text-[var(--brand-cyan)] uppercase tracking-widest flex items-center gap-1.5 font-bold">
+                    <GitBranch className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Pressure Cascade
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-[10px]">
+                    {activeCase.pathNodes.map((node, index) => (
+                      <div key={index} className="p-3 bg-[var(--bg-secondary)] border border-[var(--border-color)] text-center space-y-1">
+                        <div className="text-[8px] text-[var(--brand-cyan)] font-bold">NODE 0{index + 1}</div>
+                        <div className="text-[var(--text-primary)] font-bold uppercase">{node}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Structural Consequence */}
+                <div className="space-y-2 pt-4 border-t border-[var(--border-color)]">
+                  <div className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-1.5 font-bold">
+                    <Network className="w-3.5 h-3.5 text-[var(--text-primary)]" /> Structural Consequence
+                  </div>
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-sans">
+                    {activeCase.structuralConsequence}
+                  </p>
+                </div>
+
+                {/* Governance Exposure */}
+                <div className="p-5 border border-amber-500/20 bg-amber-500/5 space-y-1.5">
+                  <div className="font-mono text-[10px] text-amber-400 uppercase tracking-widest flex items-center gap-1.5 font-bold">
+                    <ShieldAlert className="w-3.5 h-3.5 text-amber-400" /> Analytical Blindspot
+                  </div>
+                  <p className="text-xs font-mono text-[var(--text-primary)] leading-relaxed">
+                    {activeCase.governanceExposure}
+                  </p>
+                </div>
+
+                {/* Action Link to Full Dossier */}
+                <div className="pt-2 flex justify-end">
+                  <Link
+                    to={`/case-studies/${activeCase.id}`}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--text-primary)] text-[var(--bg-primary)] hover:opacity-90 font-mono text-xs uppercase font-bold tracking-wider transition-opacity"
+                  >
+                    View Full Forensic Dossier <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+
               </motion.div>
             </AnimatePresence>
           </div>
+
         </div>
+
       </div>
     </section>
   );

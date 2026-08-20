@@ -20,6 +20,338 @@ export default function IntelligenceFeed() {
 
   const ARTICLES: Article[] = [
     {
+      id: "nims-gravitics-control-topology",
+      title: "Class B Forensic Audit: Control Topology Inversion, Binary Financing Conditions, and $41.1M Liquidity Cliff in the NIMS / Gravitics Recapitalization",
+      summary: "Forensic analysis of the NIMS / Gravitics reverse triangular merger exposing how a mandatory $40M public equity condition and synchronized note maturities create a lethal liquidity cliff on the September 30 outside date.",
+      category: "CONTROL TOPOLOGY & CAPITAL MARKETS",
+      keyword: "binary financing condition precedent",
+      author: "Adversarial M&A Group",
+      commit: "nims.2026.0818",
+      date: "2026-08-18",
+      readTime: "14 min read",
+      content: (
+        <div className="space-y-6">
+          <p className="lead text-lg text-[var(--text-secondary)]">
+            The pending reverse recapitalization between Non-Invasive Monitoring Systems, Inc. (NIMS) and Gravitics, Inc. exhibits acute structural fragility centered on an impending September 30, 2026 Outside Closing Date. While promoter marketing highlights a premier aerospace habitat commercial combination, transaction-state reconstruction reveals a high-probability binary execution trapdoor.
+          </p>
+          <p>
+            Under Exchange Act Rule 12b-2, NIMS is a public shell company with discontinued operations since May 2019, zero operating revenue, and an accumulated deficit of $29.57 million. Pre-merger voting control rests entirely within a 63.4% insider bloc held by Dr. Phillip Frost (~35.1% via Frost Gamma Investments Trust) and Dr. Jane Hsiao (~27.9% via Hsu Gamma LP and Family Trust), which executed all merger approvals via Florida Business Corporation Act (FBCA) § 607.0704 written consents without minority shareholder proxy engagement.
+          </p>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">The $41.1M Binary Financing Condition Precedent</h3>
+          <p>
+            Under Sections 2 and 4 of the definitive transaction documentation, the merger's consummation is strictly conditioned upon: (i) pricing and gross proceeds of not less than <strong>$40.0 million</strong> from an underwritten public equity offering, and (ii) Nasdaq Capital Market listing clearance of GVTX common stock prior to the <strong>September 30, 2026 Outside Date</strong>.
+          </p>
+          <p>
+            Crucially, standard reverse triangular mergers include 30 to 60-day mutual cure and extension windows. In the NIMS architecture, Fourth Amendments executed on June 30, 2026 extended the maturity dates of three insider promissory notes held by Frost Gamma Investments Trust and Dr. Jane Hsiao ($300,000 aggregate principal) to mature simultaneously on September 30, 2026. This creates a concurrent maturity cliff where failure to close the public offering exhausts NIMS's meager cash reserves (~$160,000 as of June 30, 2026), triggering immediate debt default and insolvency.
+          </p>
+
+          <div className="overflow-x-auto my-8 border border-[var(--border-color)]">
+            <table className="w-full border-collapse font-mono text-[11px] leading-relaxed">
+              <thead>
+                <tr className="bg-[var(--bg-secondary)]/50 border-b border-[var(--border-color)]">
+                  <th className="p-3 text-left">Capital Instrument</th>
+                  <th className="p-3 text-left">Holder / Counterparty</th>
+                  <th className="p-3 text-left">Principal / Value</th>
+                  <th className="p-3 text-left">Maturity / Cliff Trigger</th>
+                  <th className="p-3 text-left">Raven Adversarial Impact</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--border-color)]">
+                <tr>
+                  <td className="p-3 font-bold text-[var(--text-primary)]">Public Equity Offering</td>
+                  <td className="p-3">Underwritten Syndicate</td>
+                  <td className="p-3 text-emerald-400 font-bold">$40,000,000 min</td>
+                  <td className="p-3">Sept 30, 2026 (Outside Date)</td>
+                  <td className="p-3 text-[var(--text-secondary)]">Mandatory condition precedent; failure allows termination.</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-bold text-[var(--text-primary)]">Convertible Bridge Note</td>
+                  <td className="p-3">Defender Opportunity LLC</td>
+                  <td className="p-3 font-bold">$809,705.75</td>
+                  <td className="p-3 text-amber-400">Nov 12, 2026 Step-Up</td>
+                  <td className="p-3 text-[var(--text-secondary)]">Coupon escalates from 11% to 22% default penalty rate.</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-bold text-[var(--text-primary)]">Insider Promissory Notes</td>
+                  <td className="p-3">Dr. Frost & Dr. Hsiao</td>
+                  <td className="p-3 font-bold">$300,000.00</td>
+                  <td className="p-3 text-red-400 font-bold">Sept 30, 2026 (Cliff)</td>
+                  <td className="p-3 text-[var(--text-secondary)]">Immediate maturity cliff; exceeds shell cash reserves ($160K).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">Unresolved Derivative & Escrow Voting Rights</h3>
+          <p>
+            Beyond liquidity mechanics, the forensic audit identified that the voting treatment of <strong>4,794,604 closing-contingent earn-out / escrow shares</strong> remains unclarified in primary documentation. While legacy Gravitics holders nominally hold 96.5% undiluted equity (91.19% fully diluted), the exercise pacing of derivative warrants and potential Section 13(d) group formation between related-party insiders require formal legal verification prior to committee closing sign-off.
+          </p>
+
+          <div className="p-4 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 font-mono text-xs space-y-2 my-6">
+            <div className="font-bold text-[var(--brand-cyan)] uppercase">Fiduciary Release Verdict (Audit ID: 1787070786933)</div>
+            <p className="text-[var(--text-secondary)]">
+              Withhold transaction closing authorization and maintain strict pre-closing covenants until: (i) SEC Form S-4 effectiveness and Nasdaq uplisting are fully achieved, (ii) $40.0M public offering proceeds are fully escrowed to discharge insider debt, and (iii) the 120-day statutory challenge window under FBCA § 607.0147 elapses without adverse claims.
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: "fsea-governance-inversion",
+      title: "Forensic Strategic Audit of Governance Inversion and Structural Trapdoor Vulnerabilities in the First Seacoast Bancorp Merger Architecture",
+      summary: "Quantitative validation of a critical 47,058 share net voting power deficit for management in the contested FSEA/Cambridge merger, exposing an inverted governance buffer.",
+      category: "GOVERNANCE & VOTING ANALYSIS",
+      keyword: "governance inversion trapdoor",
+      author: "Adversarial M&A Group",
+      commit: "fsea.2026.0210",
+      date: "2026-07-20",
+      readTime: "12 min read",
+      content: (
+        <div className="space-y-6">
+          <p className="lead text-lg text-[var(--text-secondary)]">
+            The structural integrity of the announced merger between First Seacoast Bancorp and Cambridge Financial Group is fundamentally compromised by a quantitative misalignment in voting power known as a <strong>Governance Inversion Gap</strong>.
+          </p>
+          <p>
+            This condition exists when a management-aligned defensive block, typically expected to be the primary deterrent against activist interference, is mathematically outweighed by a hostile or opportunistic concentration due to administrative or contractual fragmentation. In the specific context of First Seacoast Bancorp, the transaction architecture presented in recent regulatory filings reveals a lethal discrepancy where the DAB Financial activist block possesses higher immediate voting utility than the management-directed Employee Stock Ownership Plan block.
+          </p>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">Validation of the Raven Forensic Intelligence Dossier (FSEA)</h3>
+          <p>
+            The Raven Forensic Dossier (Audit ID: FSEA-2026-0210-RAVEN) identifies three primary lethal threats for First Seacoast Bancorp: governance inversion, regulatory change-of-control trapdoors, and tactical intelligence asymmetry.
+          </p>
+          <p>
+            The quantitative basis of this audit is corroborated by the First Seacoast Bancorp 10-K and 10-Q filings, which establish the total shares outstanding at <strong>4,716,923</strong>. Against this baseline, the activist group led by DAB Financial LLC holds <strong>384,847</strong> shares, representing an 8.16% stake. Simultaneously, the ESOP Trust identifies a gross holding of <strong>414,733</strong> shares, or approximately 8.80%.
+          </p>
+          <p>
+            While a superficial review might suggest the ESOP provides a sufficient defensive buffer, the forensic audit of the ESOP’s voting mechanics reveals a critical fragmentation. The Trustee maintains sole voting power over only <strong>337,789</strong> shares. The remaining <strong>76,944</strong> shares are subject to shared voting power (pass-through voting), creating a <strong>net deficit of 47,058 shares</strong> for management in a contested proxy solicitation.
+          </p>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">Institutional Rating of Transaction Architecture</h3>
+          <p>
+            When evaluated against institutional standards for bank merger defense, the First Seacoast Bancorp architecture receives a failing grade for structural resilience. Peer-group analysis indicates that 92% of peer-group ESOPs retain 100% sole voting power in the Trustee for contested matters. By allowing 18.5% of its primary defensive block to fragment through pass-through voting, First Seacoast management has effectively neutralized its most potent deterrent.
+          </p>
+
+          <div className="overflow-x-auto my-8 border border-[var(--border-color)]">
+            <table className="w-full border-collapse font-mono text-[11px] leading-relaxed">
+              <thead>
+                <tr className="bg-[var(--bg-secondary)]/50 border-b border-[var(--border-color)]">
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Component</th>
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Current FSEA Metric</th>
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Institutional Benchmark</th>
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Rating</th>
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Forensic Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--border-color)]/40">
+                <tr>
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">ESOP Voting Control</td>
+                  <td className="p-3">81.5% Sole Power</td>
+                  <td className="p-3">96.2% Sole Power</td>
+                  <td className="p-3 text-red-500 font-bold">FAIL</td>
+                  <td className="p-3 text-[var(--text-secondary)]">Lethal Trapdoor</td>
+                </tr>
+                <tr className="bg-[var(--bg-secondary)]/10">
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">Activist Concentration</td>
+                  <td className="p-3">8.16% Ownership</td>
+                  <td className="p-3">&lt; 5.0% Threshold</td>
+                  <td className="p-3 text-red-500 font-bold">CRITICAL</td>
+                  <td className="p-3 text-[var(--text-secondary)]">High Risk</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">Defensive Buffer</td>
+                  <td className="p-3">-47,058 Share Deficit</td>
+                  <td className="p-3">+150,000 Share Surplus</td>
+                  <td className="p-3 text-red-500 font-bold">FAIL</td>
+                  <td className="p-3 text-[var(--text-secondary)]">Inversion Gap</td>
+                </tr>
+                <tr className="bg-[var(--bg-secondary)]/10">
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">Regulatory Shielding</td>
+                  <td className="p-3">13(d) Group Disclaimer</td>
+                  <td className="p-3">Full Disclosure</td>
+                  <td className="p-3 text-yellow-500 font-bold">MODERATE</td>
+                  <td className="p-3 text-[var(--text-secondary)]">Shadow Block</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">13D Transparency</td>
+                  <td className="p-3">Omnibus Reservation</td>
+                  <td className="p-3">Specific Intent</td>
+                  <td className="p-3 text-red-500 font-bold">POOR</td>
+                  <td className="p-3 text-[var(--text-secondary)]">Intel Asymmetry</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-sm font-mono text-red-500 bg-red-500/5 p-4 border border-red-500/20">
+            <strong>FINANCIAL EXPOSURE MODELING:</strong> The financial implications are quantified with a <strong>Total Dollar Risk Exposure of $5,249,313.08</strong>, representing the sum of potential regulatory surcharges, litigation costs, and the valuation delta if the merger fails under activist solicitation.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: "imaq-vci-forensic-validation",
+      title: "Forensic Validation of the IMAQ / VCI Holdings Business Combination: Audit Cliffs & Zero-Recourse Gaps",
+      summary: "Forensic assessment of the $1B IMAQ/VCI transaction under the Clarity Framework, exposing a Terminal Clarity Score (< 40) and mapping a critical Strategic Remediation Playbook.",
+      category: "BINARY TRANSACTION RISK",
+      keyword: "IMAQ VCI audit validation",
+      author: "Special Situations Desk",
+      commit: "imaq.vci.2026",
+      date: "2026-07-19",
+      readTime: "15 min read",
+      content: (
+        <div className="space-y-6">
+          <p className="lead text-lg text-[var(--text-secondary)]">
+            The transaction architecture for the business combination between International Media Acquisition Corp (IMAQ) and VCI Holdings Limited is tethered to a high-velocity audit delivery window and a total non-survival of representations and warranties post-closing. This structure creates a binary risk profile where transaction integrity is compromised by unmitigated jurisdictional liabilities and terminal "Kill Shot" vulnerabilities.
+          </p>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">Institutional Rating Against the Clarity Framework</h3>
+          <p>
+            Under institutional standards defined by the Clarity Framework, the IMAQ/VCI transaction is rated in the <strong>Terminal (0–39)</strong> range. This rating is triggered by \"Kill Shot\" detection—the mechanism for identifying terminal flaws such as physics violations, solvency crises, or governance failures that cause the score to collapse regardless of other factors.
+          </p>
+          
+          <ul className="list-disc pl-6 space-y-3">
+            <li>
+              <strong>Audit-Driven Transaction Collapse:</strong> The hard June 30, 2026, deadline for IFRS-compliant financials for FY2023 and FY2024 gives IMAQ a unilateral termination right. Failure to deliver these financials renders the entire reincorporation and restructuring process a sunk cost.
+            </li>
+            <li>
+              <strong>Non-Survival Liability Gap:</strong> The \"Non-Survival of Reps\" clause shifts 100% of the risk of undisclosed Vietnamese operational liabilities to the buyer once the 100M share consideration is issued.
+            </li>
+            <li>
+              <strong>Talent Cliff Risk:</strong> The absence of explicit Transition Services Agreements (TSA) or quantified retention bonuses for key Vietnamese operational leads (EQN/VNB) creates an operational vacuum.
+            </li>
+          </ul>
+
+          <div className="overflow-x-auto my-8 border border-[var(--border-color)]">
+            <table className="w-full border-collapse font-mono text-[11px] leading-relaxed">
+              <thead>
+                <tr className="bg-[var(--bg-secondary)]/50 border-b border-[var(--border-color)]">
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Component</th>
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">IMAQ/VCI Metric</th>
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Institutional Standard</th>
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Rating</th>
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Forensic Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--border-color)]/40">
+                <tr>
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">Clarity Score</td>
+                  <td className="p-3">Terminal (&lt; 40)</td>
+                  <td className="p-3">70-89 (Investable)</td>
+                  <td className="p-3 text-red-500 font-bold">FAIL</td>
+                  <td className="p-3 text-[var(--text-secondary)]">Kill Shot Detected</td>
+                </tr>
+                <tr className="bg-[var(--bg-secondary)]/10">
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">Audit Compliance</td>
+                  <td className="p-3">June 30 Deadline</td>
+                  <td className="p-3">60-Day Cure Period</td>
+                  <td className="p-3 text-red-500 font-bold">CRITICAL</td>
+                  <td className="p-3 text-[var(--text-secondary)]">Binary Risk</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">Liability Recourse</td>
+                  <td className="p-3">0% (Non-Survival)</td>
+                  <td className="p-3">Fundamental Survival</td>
+                  <td className="p-3 text-red-500 font-bold">FAIL</td>
+                  <td className="p-3 text-[var(--text-secondary)]">Liability Trap</td>
+                </tr>
+                <tr className="bg-[var(--bg-secondary)]/10">
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">Management Retention</td>
+                  <td className="p-3">Discretionary Pool</td>
+                  <td className="p-3">Quantified TSA/Retention</td>
+                  <td className="p-3 text-red-500 font-bold">POOR</td>
+                  <td className="p-3 text-[var(--text-secondary)]">Talent Cliff</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">Building the Secure Target: Strategic Remediation Playbook</h3>
+          <p>
+            To \"build the target\" into a sovereign, investable entity, Raven identifies three key contract redlines and tactical maneuvers required to neutralize the unhedged structural risks.
+          </p>
+          
+          <div className="space-y-4">
+            <div className="p-5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 space-y-2">
+              <h4 className="text-sm font-bold text-[var(--text-primary)] font-mono uppercase">1. Hardening the Audit Delivery Window</h4>
+              <p className="text-xs text-[var(--text-secondary)]">
+                The current hard-stop on June 30, 2026, must be mitigated to prevent total transaction collapse.
+              </p>
+              <p className="text-xs font-mono text-[var(--brand-cyan)] bg-[var(--bg-primary)] p-2">
+                REPLAY REDLINE: Section 9.01(b) shall be amended to include a 30-day cure period provided that a preliminary draft audit demonstrating substantial completion has been circulated by May 15.
+              </p>
+            </div>
+
+            <div className="p-5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 space-y-2">
+              <h4 className="text-sm font-bold text-[var(--text-primary)] font-mono uppercase">2. Bridging the Non-Survival Liability Gap</h4>
+              <p className="text-xs text-[var(--text-secondary)]">
+                The acquisition of Vietnamese operating assets (Ethanol Quang Nam Production) without post-closing recourse is an institutional violation of fiduciary duty.
+              </p>
+              <p className="text-xs font-mono text-[var(--brand-cyan)] bg-[var(--bg-primary)] p-2">
+                REPLAY REDLINE: Replace Section 10.01 with a survival clause for 'Fundamental Representations' (Tax, Environmental Laws, and Anti-Corruption) for a period of eighteen (18) months post-closing.
+              </p>
+              <p className="text-xs text-[var(--text-secondary)]">
+                TACTICAL HEURISTIC: Procure Representations and Warranties Insurance (RWI) or condition closing on a pre-funded indemnity escrow (minimum 10% of upfront consideration) to cover latent Vietnamese asset risks.
+              </p>
+            </div>
+
+            <div className="p-5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 space-y-2">
+              <h4 className="text-sm font-bold text-[var(--text-primary)] font-mono uppercase">3. Mitigating the Talent Cliff</h4>
+              <p className="text-xs text-[var(--text-secondary)]">
+                The $1 billion valuation of VCI Biofuels Group is predicated on operational continuity in the sustainable aviation fuel market.
+              </p>
+              <p className="text-xs font-mono text-[var(--brand-cyan)] bg-[var(--bg-primary)] p-2">
+                REPLAY REDLINE: Amend Section 7.05 to require the delivery of executed Transition Services Agreements (TSAs) and Employment Agreements for Tier-1 Management of EQN and VNB as a Condition Precedent to closing.
+              </p>
+              <p className="text-xs text-[var(--text-secondary)]">
+                TACTICAL HEURISTIC: Demand a detailed allocation schedule for the 10% Incentive Plan Pool to ensure it covers mission-critical technical staff in Vietnam.
+              </p>
+            </div>
+          </div>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">Quantitative Stress Scenarios for the IMAQ Target</h3>
+          <div className="overflow-x-auto my-8 border border-[var(--border-color)]">
+            <table className="w-full border-collapse font-mono text-[11px] leading-relaxed">
+              <thead>
+                <tr className="bg-[var(--bg-secondary)]/50 border-b border-[var(--border-color)]">
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Trigger Event</th>
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Probability</th>
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Financial Impact</th>
+                  <th className="p-3 text-left font-bold uppercase text-[var(--text-primary)]">Leverage Level</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--border-color)]/40">
+                <tr>
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">Audit Delay (Post-June 30)</td>
+                  <td className="p-3">MODERATE</td>
+                  <td className="p-3">IMAQ Potential Liquidation</td>
+                  <td className="p-3 text-red-500 font-bold">10/10</td>
+                </tr>
+                <tr className="bg-[var(--bg-secondary)]/10">
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">VWAP &lt; $15.00 (5 yrs)</td>
+                  <td className="p-3">UNKNOWN</td>
+                  <td className="p-3">$405M Value Unissued</td>
+                  <td className="p-3 font-bold text-yellow-500">7/10</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">Non-Survival Breach</td>
+                  <td className="p-3">HIGH</td>
+                  <td className="p-3">Unquantifiable Liabilities</td>
+                  <td className="p-3 text-red-500 font-bold">8/10</td>
+                </tr>
+                <tr className="bg-[var(--bg-secondary)]/10">
+                  <td className="p-3 font-semibold text-[var(--text-primary)]">Revenue &lt; $500M</td>
+                  <td className="p-3">HIGH</td>
+                  <td className="p-3">15M Share Earnout Void</td>
+                  <td className="p-3 font-bold text-yellow-500">6/10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )
+    },
+    {
       id: "tsa-stranded-cost",
       title: "TSA Stranded-Cost Risk Analysis: Identifying Overhead Migration Traps in Corporate Carve-outs",
       summary: "An in-depth analysis of how unabsorbed corporate overhead in Transition Services Agreements (TSAs) triggers hidden balance sheet liabilities under post-close delays.",
@@ -155,6 +487,129 @@ export default function IntelligenceFeed() {
           </p>
           <p>
             Raven’s <strong>Adversarial Debate Logic</strong> tests MAE carve-outs against historical economic shocks, letting sellers establish defensible terms and protect transaction value.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: "inmed-mentari-control-topology",
+      title: "Series A Multi-Vote Dominance & Ontario Arbitration Liquidity Drag in the InMed / Mentari Reverse Merger",
+      summary: "Forensic analysis of the InMed/Mentari reverse triangular merger and $490M PIPE syndicate, exposing how a 3-vote-per-seat Series A preferred preference grants 85.71% active board control alongside $5.7M in pending arbitration exposure.",
+      category: "CONTROL TOPOLOGY & REVERSE MERGERS",
+      keyword: "Series A multi-vote governance preference",
+      author: "Adversarial M&A Group",
+      commit: "inm.2026.0820",
+      date: "2026-08-20",
+      readTime: "13 min read",
+      content: (
+        <div className="space-y-6">
+          <p className="lead text-lg text-[var(--text-secondary)]">
+            Mentari Therapeutics entered into a definitive merger agreement to acquire InMed Pharmaceuticals through a reverse triangular merger supported by an upsized $490.0 million PIPE financing commitment. While promoter releases highlight a premier clinical biotechnology platform, Raven’s forensic transaction-state reconstruction uncovers extreme governance concentration and acute pre-closing litigation exposure.
+          </p>
+          <p>
+            Post-transaction, legacy Mentari stockholders and PIPE participants command between <strong>98.49% and 98.85%</strong> of fully diluted common stock, reducing legacy InMed public stockholders to a residual <strong>1.15% to 1.51%</strong> interest. However, true governance power is concentrated even further through a custom multi-class preferred structure.
+          </p>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">The Series A Super-Voting Engine (3 Votes per Seat)</h3>
+          <p>
+            Under the Nevada Certificate of Designation, Series A Preferred Stock designates two board seats where each preferred director holds <strong>three (3) votes per seat</strong> on all corporate matters. With an initial active board of three directors, the two Fairmount designees control <strong>6 of 7 active votes (85.71%)</strong>, completely overriding legacy board oversight.
+          </p>
+          <p>
+            Furthermore, for as long as at least 30% of the originally issued Series A Preferred remains outstanding, the preferred class holds unilateral negative covenant vetoes over: (i) charter/bylaw amendments, (ii) altering authorized board size, (iii) fundamental corporate transactions, and (iv) the appointment or replacement of the independent auditor.
+          </p>
+
+          <div className="p-4 border border-amber-500/30 bg-amber-500/5 font-mono text-xs space-y-2 my-6">
+            <div className="font-bold text-amber-400 uppercase">LITIGATION & CASH TRAP: $5.7M ARBITRATION VS $5.2M CASH</div>
+            <p className="text-[var(--text-secondary)]">
+              All representations and warranties terminate at closing with zero indemnity escrow. Crucially, InMed disclosed $5.7M in pending Ontario commercial arbitration claims against its standalone cash position of $5.2M, creating an immediate post-closing balance sheet vulnerability for the combined entity.
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: "nextcure-avere-net-cash-cliff",
+      title: "Asymmetric Downward Net Cash Adjustment & $150M Floor Shortfall in NextCure / Avere Therapeutics",
+      summary: "Forensic breakdown of NextCure's reverse merger with Avere Therapeutics, revealing a one-directional Net Cash downward penalty formula and a $170M financing shortfall allowance.",
+      category: "DISTRESSED BIOTECH RESTRUCTURING",
+      keyword: "downward net cash exchange ratio adjustment",
+      author: "Adversarial M&A Group",
+      commit: "nxct.2026.0820",
+      date: "2026-08-20",
+      readTime: "12 min read",
+      content: (
+        <div className="space-y-6">
+          <p className="lead text-lg text-[var(--text-secondary)]">
+            NextCure entered into a reverse merger agreement with Avere Therapeutics backed by an anticipated $320M PIPE financing to resolve NextCure's Q4 2026 liquidity cliff ($20.1M cash reserves as of Q2 2026). Under the terms, legacy NextCure stockholders receive a nominal 1.89% minority interest while Avere captures 98.11% pro-forma equity, 100% board designation rights, and executive leadership.
+          </p>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">The One-Directional Net Cash Penalty</h3>
+          <p>
+            Merger Agreement Schedule 1.5 establishes that if NextCure's closing Net Cash falls below the Parent Target Cash Amount, the 1.89% equity allocation is adjusted downwards pursuant to a punitive deficit formula. Because wind-down expenses, severance obligations, and clinical trial close-out costs burn cash daily, all interim cash drag is borne exclusively by legacy public stockholders without an upward collar.
+          </p>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">The $150M Financing Floor Trap</h3>
+          <p>
+            While transaction headlines tout a $320M financing, Section 6.01 conditions closing on gross proceeds of not less than <strong>$150.0 million</strong>. This enables the buyer to consummate the combination despite a <strong>$170M (53%) financing shortfall</strong>, closing an undercapitalized platform while permanently locking legacy stockholders into sub-1.89% dilution.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: "fbnc-fcbm-entity-discontinuity",
+      title: "Target Entity Discontinuity, Unaudited Asset Gaps, and 41.1% Uninsured Deposit Sensitivity in FBNC / First Carolina (Florence, SC)",
+      summary: "Forensic audit of First Bancorp's $166M acquisition revealing a critical entity misidentification between Florence, SC and Raleigh, NC targets, zero public 10-Q disclosures, and interest rate EVE sensitivity.",
+      category: "BANK M&A & REGULATORY INTEGRATION",
+      keyword: "bank target entity discontinuity audit",
+      author: "Financial Institutions Desk",
+      commit: "fbnc.2026.0820",
+      date: "2026-08-20",
+      readTime: "11 min read",
+      content: (
+        <div className="space-y-6">
+          <p className="lead text-lg text-[var(--text-secondary)]">
+            First Bancorp (FBNC) announced the acquisition of First Carolina Bancshares Corporation for $166.0M in mixed consideration ($40M cash + 1.97M shares). Consensus broker commentary mischaracterized the target as the larger Raleigh, NC institution ($3.4B assets). Raven's entity reconciliation proves the true target is the privately held Florence, SC entity ($831M assets, $596M loans, $714M deposits).
+          </p>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">The Unaudited Information Vacuum</h3>
+          <p>
+            Because First Carolina Bancshares (Florence, SC) is not an SEC reporting company, no audited Form 10-K/10-Q reports exist in the public domain. Acquirer shareholders are asked to validate a $166M consideration schedule without public loan-level CRE concentration benchmarks, ACL reserve adequacy data, or non-accrual migration tables.
+          </p>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">FBNC Balance Sheet Sensitivity</h3>
+          <p>
+            Simultaneously, FBNC's June 30, 2026 Form 10-Q reveals that <strong>$4.6 billion (41.1%)</strong> of its total deposit base is uninsured, and a +200 bps rate shock induces a <strong>6.4% decline in Economic Value of Equity (EVE)</strong>, compounding post-close balance sheet volatility.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: "verifyme-openworld-willful-breach",
+      title: "Chronological Tender Collision, July 21 Financing Deficit, and $500K Section 8.5(c) Willful Breach Liability in VerifyMe / OpenWorld",
+      summary: "Forensic timeline reconstruction of VerifyMe's crypto-finance pivot combination with OpenWorld, establishing an evidentiary chronology for a $500,000 willful breach termination fee.",
+      category: "SPECIAL SITUATIONS & LITIGATION",
+      keyword: "tender offer willful breach termination fee",
+      author: "M&A Litigation Team",
+      commit: "vrme.2026.0820",
+      date: "2026-08-20",
+      readTime: "10 min read",
+      content: (
+        <div className="space-y-6">
+          <p className="lead text-lg text-[var(--text-secondary)]">
+            Facing an April 17, 2026 Nasdaq delisting notice, VerifyMe attempted a high-risk sector pivot to crypto-finance (SIC 6199) by executing a combination agreement and tender offer with OpenWorld backed by SAFE note conversions capped at $42.671M.
+          </p>
+
+          <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading mt-8">The 24-Hour Chronological Collapse</h3>
+          <p>
+            Raven reconstructed the definitive transaction timeline from Edgar filings:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 font-mono text-xs text-[var(--text-secondary)]">
+            <li><strong>July 20, 2026 (5:00 PM ET):</strong> Tender Offer expiration timestamp passes without extension.</li>
+            <li><strong>July 21, 2026:</strong> Filing of Financing Deficit Disclosure admitting failure to secure minimum capital.</li>
+            <li><strong>July 24, 2026:</strong> Joint execution of Transaction Termination Agreement.</li>
+          </ul>
+          <p>
+            Under Merger Agreement Section 8.5(c), if termination results from a party's Willful Breach (including withholding financing failure knowledge prior to tender expiration), the breaching party is liable for liquidated damages of <strong>$500,000</strong>.
           </p>
         </div>
       )

@@ -1,16 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, X, Terminal, ChevronRight } from 'lucide-react';
+import { Send, X, Terminal, ChevronRight, Layers, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface Message {
   role: 'bot' | 'user';
   content: string;
+  actionLink?: {
+    text: string;
+    url: string;
+  };
 }
 
 export function Corvus() {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'bot', content: 'Connection established. I am Corvus. I serve as the first point of contact for Raven Adversary. Ask your question regarding our intelligence capabilities, but be precise. Time is money.' }
+    { 
+      role: 'bot', 
+      content: 'Connection established. I am Corvus. I serve as the first point of contact for Raven Adversary. Ask your question regarding our intelligence capabilities, but be precise. Time is money.' 
+    }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -24,80 +32,119 @@ export function Corvus() {
     scrollToBottom();
   }, [messages, isTyping]);
 
-  const generateResponse = (text: string) => {
+  const generateResponse = (text: string): { content: string; actionLink?: { text: string; url: string } } => {
     const lower = text.toLowerCase().trim();
     
-    // Exact requested matches first to be 100% compliant with prompt examples
+    // Exact requested matches first
     if (lower === 'what is raven' || lower === 'what is raven?') {
-      return "Raven maps institutional pressure before it is priced in. We do not offer opinions; we identify structural vulnerabilities in M&A, proxy battles, and regulatory escalations. We find the breaking points.";
+      return {
+        content: "Raven maps institutional pressure before it is priced in. We do not offer opinions; we identify structural vulnerabilities in M&A, proxy battles, and regulatory escalations. We find the breaking points."
+      };
     }
     if (lower === 'tell me more' || lower === 'tell me more?') {
-      return "Your inquiry regarding \"tell me more\" lacks the precision required for a definitive response. Ask specifically about our Pressure Event Memos, our methodology for tracking governance fractures, or our live transaction analysis.";
+      return {
+        content: "Your inquiry regarding \"tell me more\" lacks the precision required for a definitive response. Ask specifically about our Pressure Event Memos, our methodology for tracking governance fractures, or our live transaction analysis."
+      };
     }
 
-    // General match patterns with high-fidelity, high-conviction sales-god responses
+    // General greeting
     if (lower.includes('hello') || lower.includes('hi ') || lower.includes('hey') || lower.includes('greetings')) {
-      return "Connection acknowledged. I am Corvus. Let's omit the generic pleasantries and focus on the transaction at hand. What structural exposures are you modeling today?";
+      return {
+        content: "Connection acknowledged. I am Corvus. Let's omit the generic pleasantries and focus on the transaction at hand. What structural exposures or pending combinations are you modeling today?"
+      };
     }
     
-    if (lower.includes('what is raven') || lower.includes('what do you do') || lower.includes('explain') || lower.includes('how does')) {
-      return "Raven maps institutional pressure before it is priced in. We do not offer opinions; we identify structural vulnerabilities in M&A, proxy battles, and regulatory escalations. We find the breaking points.";
+    // Core Raven Definition
+    if (lower.includes('what is raven') || lower.includes('what do you do') || lower.includes('explain raven')) {
+      return {
+        content: "Raven maps institutional pressure before it is priced in. We do not offer opinions; we identify structural vulnerabilities in M&A, proxy battles, and regulatory escalations. We find the breaking points."
+      };
     }
 
-    if (lower.includes('tell me more') || lower.includes('more info') || lower.includes('features') || lower.includes('capabilities') || lower.includes('services')) {
-      return "Raven operates on a rigorous four-stage pipeline: Adversarial Debate Logic (stress-testing transaction scenarios), Pressure-State Modeling (reconstructing systemic vulnerabilities), the Commit Layer (cryptographic provenance), and Evidence Verification against public disclosures. Ask me about a specific module to proceed.";
+    // Deliverables / 8-Part Package / What do I get?
+    if (lower.includes('deliverable') || lower.includes('package') || lower.includes('8-part') || lower.includes('what do i get') || lower.includes('memo') || lower.includes('report')) {
+      return {
+        content: "Every Raven engagement delivers the complete 8-Part Transaction Review Package: (1) Transaction State Baseline, (2) Verifiable Evidence Ledger, (3) Critical Clause Cards, (4) Pressure Propagation Map, (5) Adversarial Strategy Memo, (6) Executive Decision Brief, (7) 7-Minute Boardroom Walkthrough, and (8) Immutable Commit Layer Record. All grounded with exact SEC page citations.",
+        actionLink: { text: "View 8-Part Review Details", url: "/transaction-review" }
+      };
     }
 
-    if (lower.includes('m&a') || lower.includes('m-and-a') || lower.includes('merger') || lower.includes('transaction') || lower.includes('overheads') || lower.includes('tsa')) {
-      return "Our M&A Transaction Pressure model quantifies post-close friction points. We specifically expose unabsorbed parent corporate overhead, TSA timeline slippage (often leading to millions in stranded assets), and stranded-cost assets. This allows buyers to renegotiate valuation pre-close and assists target boards in preempting aggressive buyers.";
+    // Pricing / Cost / Engagement
+    if (lower.includes('price') || lower.includes('cost') || lower.includes('fee') || lower.includes('retainer') || lower.includes('how much') || lower.includes('hire') || lower.includes('engagement') || lower.includes('pricing')) {
+      return {
+        content: "We offer two structured commercial engagement models: Standard Transaction Review is $10,000 per deal with a 72-hour turnaround. The Expedited Strategic Desk is $25,000 per deal with a 24 to 48-hour sprint for active contested bids or urgent closing disputes. Both include the full 8-part dossier.",
+        actionLink: { text: "Initiate Review Intake ($10K)", url: "/transaction-review" }
+      };
     }
 
-    if (lower.includes('activism') || lower.includes('activist') || lower.includes('proxy') || lower.includes('bloc') || lower.includes('index fund')) {
-      return "Our Shareholder Activism model tracks proxy language divergence and index fund voting patterns. We map historical alignment scores to pinpoint which passive managers are vulnerable to activist talking points, allowing target boards to construct unassailable proxy defenses before a slate is launched.";
+    // Evidence Standard & Epistemic Tiers
+    if (lower.includes('evidence') || lower.includes('fact') || lower.includes('epistemic') || lower.includes('accuracy') || lower.includes('hallucin') || lower.includes('verify') || lower.includes('standard')) {
+      return {
+        content: "Raven enforces a strict 5-Tier Evidence Standard: Tier 1 Verified Facts (verbatim SEC filings with accession numbers), Tier 2 Derived Computations (deterministic mathematics), Tier 3 Structural Inferences (bounded causal models), Tier 4 Adversarial Hypotheses (red-team stress simulations), and Tier 5 Speculative Vectors. No inference is ever presented as a verified fact.",
+        actionLink: { text: "Explore Evidence Standard", url: "/evidence-standard" }
+      };
     }
 
-    if (lower.includes('governance') || lower.includes('board') || lower.includes('director') || lower.includes('stability')) {
-      return "Our Governance Fracture Detection engine analyzes board cohesion by evaluating voting divergence, isolated director profiles, and structural board alignments. We construct a Board Fracture Index that identifies exactly when a key block is likely to crack under transaction pressure.";
+    // Case Study: NIMS / Gravitics / Session 1787070786933
+    if (lower.includes('nims') || lower.includes('gravitics') || lower.includes('1787070786933') || lower.includes('frost') || lower.includes('defender')) {
+      return {
+        content: "In the NIMS / Gravitics reverse triangular merger (Session ID: 1787070786933), Raven reconstructed the transaction's control topology and identified a lethal $41.1M pre-closing liquidity cliff: the merger is conditioned on a mandatory $40M public equity offering and Nasdaq listing by September 30, 2026, coinciding with an immediate $300,000 maturity cliff on Frost/Hsiao insider notes and a 22% default coupon step-up on Defender bridge notes.",
+        actionLink: { text: "View NIMS/Gravitics Case Dossier", url: "/case-studies/nims-gravitics" }
+      };
     }
 
-    if (lower.includes('regulatory') || lower.includes('compliance') || lower.includes('category iii') || lower.includes('hqla') || lower.includes('reserve')) {
-      return "Our Regulatory Threshold model predicts the financial friction of crossing asset tiers. For example, crossing Category III thresholds triggers massive HQLA drag, pro-forma deposit volatility, and Net Interest Margin compression. We model these balance sheet impacts before the transaction is executed.";
+    // Case Study: First Seacoast (FSEA) / ESOP
+    if (lower.includes('fsea') || lower.includes('seacoast') || lower.includes('cambridge') || lower.includes('esop')) {
+      return {
+        content: "In First Seacoast Bancorp (FSEA), management claimed an 8.80% defensive ESOP block (414,733 shares). Raven reconstructed the underlying Trust Agreement and discovered 76,944 shares pass through to participants, leaving only 337,789 trustee-controlled shares. Activist DAB Financial held 384,847 shares, creating an immediate 47,058-share voting deficit that conventional tools missed entirely.",
+        actionLink: { text: "View FSEA Case Dossier", url: "/case-studies/first-seacoast" }
+      };
     }
 
-    if (lower.includes('methodology') || lower.includes('how do you verify') || lower.includes('verify') || lower.includes('accuracy') || lower.includes('evidence')) {
-      return "Every claim produced by Raven must be backed by a clear cryptographic signature and direct references to public domain disclosures (SEC proxies, S-4s, etc.). There are no speculative assumptions, no 'black boxes'—only traceable, evidence-bound pressure modeling.";
+    // Case Study: IMAQ / VCI
+    if (lower.includes('imaq') || lower.includes('vci') || lower.includes('spac') || lower.includes('vietnam') || lower.includes('indemnity')) {
+      return {
+        content: "In the $1.0B IMAQ / VCI Holdings de-SPAC, Raven identified two fatal structural flaws: Section 9.01(b) created a hard June 30, 2026 IFRS audit delivery deadline granting IMAQ unilateral termination rights, while Article X eliminated 100% of representations and warranties survival upon closing without any indemnity escrow.",
+        actionLink: { text: "View IMAQ/VCI Case Dossier", url: "/case-studies/imaq-vci" }
+      };
     }
 
-    if (lower.includes('competitor') || lower.includes('kira') || lower.includes('harvey') || lower.includes('legal ai') || lower.includes('differ') || lower.includes('copilot') || lower.includes('openai')) {
-      return "Traditional legal AI like Kira or Harvey operates on 'policy state'—they simply summarize what is written. Raven is built for 'decision state' under high-stakes uncertainty. We do not summarize documents; we map the real-time leverage migration and institutional pressure that determines who wins the transaction.";
+    // Case Study: First Bancorp / First Carolina
+    if (lower.includes('first bancorp') || lower.includes('first carolina') || lower.includes('cre') || lower.includes('bank') || lower.includes('cet1')) {
+      return {
+        content: "In the $166M First Bancorp / First Carolina merger, Raven uncovered a 312% CRE concentration in the target portfolio combined with an Allowance for Credit Losses (ACL) lagging peer benchmarks by 34 bps ($4.1M deficit). The Section 8.02 MAE carve-out precluded loan write-downs from triggering walk-away rights, forcing the buyer to absorb a 132 bps pro-forma CET1 compression.",
+        actionLink: { text: "View First Bancorp Case Dossier", url: "/case-studies/first-bancorp" }
+      };
     }
 
-    if (lower.includes('privacy') || lower.includes('security') || lower.includes('data') || lower.includes('mnpi') || lower.includes('confidential')) {
-      return "Raven operates under a zero-MNPI model. We work exclusively with public SEC filings and proxies, ensuring strict information hygiene. Your proprietary inputs are segregated inside enterprise-grade, zero-trust isolated secure data compartments. No leaked intent, no compliance risk.";
+    // Competitors: Kira, Harvey, Copilot, ChatGPT
+    if (lower.includes('competitor') || lower.includes('kira') || lower.includes('harvey') || lower.includes('legal ai') || lower.includes('differ') || lower.includes('copilot') || lower.includes('chatgpt') || lower.includes('compare')) {
+      return {
+        content: "Traditional legal AI (Kira, Harvey) operates on 'policy state'—they summarize text checklists. Raven treats agreements as dynamic state machines—modeling who holds leverage when conditions break down. We calculate the exact mathematical gap (e.g., share deficits, reserve drag, drop-dead cliffs) rather than summarizing clauses.",
+        actionLink: { text: "Review Architecture Comparison", url: "/#comparison" }
+      };
     }
 
-    if (lower.includes('memo') || lower.includes('report') || lower.includes('deliverable')) {
-      return "The Pressure Event Memo is our core deliverable. It is a highly dense, forensic dossier detailing the exact trigger events, unpriced vulnerabilities, and leverage migration pathways in your target transaction. To secure a custom briefing, use our Client Intake Interface on this page.";
+    // MNPI, Privacy, Security & Conflicts
+    if (lower.includes('privacy') || lower.includes('security') || lower.includes('mnpi') || lower.includes('confidential') || lower.includes('conflict') || lower.includes('ethical wall')) {
+      return {
+        content: "Raven operates exclusively on public SEC filings, call reports, and court records. We do not accept or ingest MNPI. All reviews undergo automated 2-hour pre-engagement conflict clearance, and client queries are protected by AES-256 encryption with a strict Zero-Model-Training guarantee.",
+        actionLink: { text: "Visit Trust Center", url: "/trust" }
+      };
     }
 
-    if (lower.includes('price') || lower.includes('cost') || lower.includes('fee') || lower.includes('retainer') || lower.includes('engage') || lower.includes('hire')) {
-      return "We engage with event-driven hedge funds, corporate boards, and special situations desks under custom advisory parameters. If you have a target, enter the CIK/Ticker in the Client Intake Form on this screen. Our principals will verify your credentials and initiate an institutional review stream.";
+    // Boardroom Walkthrough
+    if (lower.includes('boardroom') || lower.includes('briefing') || lower.includes('walkthrough') || lower.includes('7-min') || lower.includes('director')) {
+      return {
+        content: "Our 7-Minute Boardroom Walkthrough is a concise, decision-oriented protocol designed for investment committees, special committee chairs, and lead directors. It delivers: (1) Core Leverage Shift, (2) Critical Clause Breakdown, (3) Quantitative Exposure, and (4) Redline Strategy in under 7 minutes.",
+        actionLink: { text: "Launch Boardroom Walkthrough", url: "/#contact" }
+      };
     }
 
-    if (lower.includes('who are you') || lower.includes('corvus')) {
-      return "I am Corvus, the gatekeeper of Raven Adversary. While Raven models multi-variable transaction stress, my role is to qualify your intent and confirm whether your institution qualifies for a custom Advisory Engagement.";
-    }
-
-    if (lower.includes('demo') || lower.includes('test') || lower.includes('trial')) {
-      return "We do not offer generic software 'demos' or 'free trials'—this is a high-conviction transactional intelligence service. Review our live-pressure index on the dashboard for real-time capabilities, or submit a target to qualify for an initial Advisory Memo.";
-    }
-
-    if (lower.includes('predict') || lower.includes('market') || lower.includes('stock') || lower.includes('arbitrage')) {
-      return "Let's be entirely precise: Raven is not a public market predictor. We model the underlying structural pressure-states of corporate decision-makers. The market subsequently reacts to those pressure-states. We deal in structural reality, not speculative market noise.";
-    }
-
-    // Default response handles unstructured inputs by guiding user precisely
-    return `Your inquiry regarding "${text.length > 20 ? text.substring(0, 20) + '...' : text}" lacks the precision required for a definitive response. Ask specifically about our Pressure Event Memos, our methodology for tracking governance fractures, or our live transaction analysis.`;
+    // Default Fallback
+    return {
+      content: `Your inquiry regarding "${text.length > 30 ? text.substring(0, 30) + '...' : text}" lacks the precision required for a definitive response. Ask specifically about our $10K 8-Part Transaction Review, our 5-Tier Evidence Standard, or our case studies on FSEA, IMAQ, or First Bancorp.`
+    };
   };
 
   const handleSend = () => {
@@ -108,11 +155,11 @@ export function Corvus() {
     setInput('');
     setIsTyping(true);
 
-    // Simulate thinking/typing delay
     setTimeout(() => {
       setIsTyping(false);
-      setMessages(prev => [...prev, { role: 'bot', content: generateResponse(userText) }]);
-    }, 800 + Math.random() * 800);
+      const res = generateResponse(userText);
+      setMessages(prev => [...prev, { role: 'bot', content: res.content, actionLink: res.actionLink }]);
+    }, 600 + Math.random() * 500);
   };
 
   if (!isOpen) {
@@ -123,21 +170,21 @@ export function Corvus() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="absolute inset-0 bg-[var(--brand-cyan)] opacity-25 group-hover:opacity-50 transition-opacity blur-[1px]"></div>
-        <div className="relative bg-[var(--bg-primary)] border border-[var(--border-highlight)] group-hover:border-[var(--brand-cyan)]/60 rounded-none p-3.5 px-4 flex items-center gap-3.5 transition-all duration-300 shadow-2xl">
+        <div className="absolute inset-0 bg-[var(--brand-cyan)] opacity-20 group-hover:opacity-40 transition-opacity blur-[1px]"></div>
+        <div className="relative bg-[var(--bg-primary)] border border-[var(--border-color)] group-hover:border-[var(--brand-cyan)] rounded-none p-3.5 px-4 flex items-center gap-3.5 transition-all duration-300 shadow-2xl">
           <div className="relative flex items-center justify-center">
-            <Terminal className="w-4 h-4 text-[var(--brand-cyan)] group-hover:rotate-[360deg] transition-transform duration-700" />
+            <Terminal className="w-4 h-4 text-[var(--brand-cyan)]" />
             <span className="absolute -top-1 -right-1 flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--brand-cyan)] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--brand-cyan)]"></span>
             </span>
           </div>
           <div className="flex flex-col items-start text-left font-mono">
-            <span className="text-[10px] font-bold tracking-[0.25em] text-[var(--text-primary)] uppercase flex items-center gap-1.5 leading-none">
-              SYSTEM.CORVUS
+            <span className="text-[10px] font-bold tracking-[0.2em] text-[var(--text-primary)] uppercase flex items-center gap-1.5 leading-none">
+              CORVUS // DESK
             </span>
-            <span className="text-[7px] tracking-[0.18em] text-[var(--brand-cyan)] uppercase mt-1.5 leading-none font-medium">
-              {isHovered ? 'ENGAGE INTAKE' : 'ONLINE / READ-ONLY'}
+            <span className="text-[8px] tracking-wider text-[var(--brand-cyan)] uppercase mt-1 leading-none font-medium">
+              {isHovered ? 'ENGAGE INTELLIGENCE' : 'ONLINE // VERIFIED'}
             </span>
           </div>
         </div>
@@ -146,17 +193,17 @@ export function Corvus() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 w-[380px] h-[500px] bg-[var(--bg-primary)] border border-[var(--border-highlight)] flex flex-col shadow-2xl z-50 rounded shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden">
+    <div className="fixed bottom-6 right-6 w-[380px] h-[520px] bg-[var(--bg-primary)] border border-[var(--border-color)] flex flex-col shadow-2xl z-50 rounded-none overflow-hidden">
       {/* Header */}
       <div className="h-12 border-b border-[var(--border-color)] bg-[var(--bg-secondary)]/80 flex items-center justify-between px-4">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <Terminal className="w-4 h-4 text-[var(--brand-cyan)]" />
           <div className="flex flex-col">
-            <span className="font-mono text-[10px] items-center flex gap-2 font-bold tracking-[0.2em] text-[var(--text-primary)] uppercase leading-none">
-              CORVUS_TERM <span className="text-[7px] text-[var(--brand-cyan)] border border-[var(--brand-cyan)]/30 px-1 py-0.5 bg-[var(--brand-cyan)]/10">ACTIVE</span>
+            <span className="font-mono text-[10px] font-bold tracking-widest text-[var(--text-primary)] uppercase leading-none">
+              CORVUS // TRANSACTION DESK
             </span>
-            <span className="font-mono text-[7px] tracking-widest text-[var(--text-tertiary)] uppercase mt-1.5 leading-none">
-              Clearance: UNVERIFIED // Read-Only
+            <span className="font-mono text-[8px] tracking-wider text-emerald-400 uppercase mt-1 leading-none flex items-center gap-1">
+              <span className="w-1 h-1 bg-emerald-400 rounded-full"></span> 100% PUBLIC EVIDENCE ONLY
             </span>
           </div>
         </div>
@@ -173,31 +220,66 @@ export function Corvus() {
         {messages.map((msg, idx) => (
           <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div 
-              className={`max-w-[85%] p-3 ${
+              className={`max-w-[90%] p-3.5 space-y-2 ${
                 msg.role === 'user' 
                   ? 'bg-[var(--text-primary)] text-[var(--bg-primary)] font-medium' 
                   : 'bg-[var(--bg-secondary)] border border-[var(--border-color)] text-[var(--text-secondary)]'
               }`}
             >
               {msg.role === 'bot' && (
-                <div className="text-[9px] uppercase tracking-widest text-[var(--text-tertiary)] mb-1 font-bold">
-                  CORVUS
+                <div className="text-[9px] uppercase tracking-widest text-[var(--brand-cyan)] font-bold">
+                  CORVUS INTEL
                 </div>
               )}
-              <div className="leading-relaxed">
+              <div className="leading-relaxed text-xs">
                 {msg.content}
               </div>
+
+              {msg.actionLink && (
+                <div className="pt-2 border-t border-[var(--border-color)]/60">
+                  <Link
+                    to={msg.actionLink.url}
+                    onClick={() => setIsOpen(false)}
+                    className="inline-flex items-center gap-1 text-[10px] text-[var(--brand-cyan)] hover:underline font-bold tracking-wider uppercase"
+                  >
+                    {msg.actionLink.text} →
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         ))}
         {isTyping && (
           <div className="flex justify-start">
-            <div className="bg-[var(--bg-secondary)] border border-[var(--border-color)] px-4 py-3 text-[var(--text-tertiary)]">
-              <span className="animate-pulse">_ processing</span>
+            <div className="bg-[var(--bg-secondary)] border border-[var(--border-color)] px-4 py-2.5 text-[var(--text-tertiary)] text-xs font-mono">
+              <span className="animate-pulse">_ querying transaction state ledger</span>
             </div>
           </div>
         )}
         <div ref={messagesEndRef} />
+      </div>
+
+      {/* Quick Prompts */}
+      <div className="px-3 py-2 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/30 flex items-center gap-2 overflow-x-auto text-[9px] font-mono text-[var(--text-secondary)] shrink-0">
+        <span className="text-[var(--text-tertiary)] uppercase shrink-0">TRY:</span>
+        <button 
+          onClick={() => { setInput('What is in the 8-Part Review?'); }} 
+          className="px-2 py-0.5 border border-[var(--border-color)] hover:border-[var(--brand-cyan)] shrink-0 bg-[var(--bg-primary)]"
+        >
+          8-Part Package
+        </button>
+        <button 
+          onClick={() => { setInput('What is the Evidence Standard?'); }} 
+          className="px-2 py-0.5 border border-[var(--border-color)] hover:border-[var(--brand-cyan)] shrink-0 bg-[var(--bg-primary)]"
+        >
+          Evidence Standard
+        </button>
+        <button 
+          onClick={() => { setInput('Explain FSEA case study'); }} 
+          className="px-2 py-0.5 border border-[var(--border-color)] hover:border-[var(--brand-cyan)] shrink-0 bg-[var(--bg-primary)]"
+        >
+          FSEA Case
+        </button>
       </div>
 
       {/* Input Area */}
@@ -207,8 +289,8 @@ export function Corvus() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-          placeholder="State your inquiry..."
-          className="flex-1 bg-transparent border border-[var(--border-color)] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[var(--text-primary)] text-[var(--text-primary)] disabled:opacity-50 transition-colors"
+          placeholder="State your transaction inquiry..."
+          className="flex-1 bg-[var(--bg-primary)] border border-[var(--border-color)] px-3 py-2 text-xs font-mono focus:outline-none focus:border-[var(--brand-cyan)] text-[var(--text-primary)] disabled:opacity-50 transition-colors"
         />
         <button
           onClick={handleSend}

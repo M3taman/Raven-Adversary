@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Brain, Lock, ChevronRight, Activity, Terminal, CheckCircle2, Globe, FileStack, ShieldAlert, GitCompare, Loader2, X } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Shield, Brain, Lock, ChevronRight, Activity, Terminal, CheckCircle2, Globe, FileStack, ShieldAlert, GitCompare, Loader2, X, Play, FileText, ArrowRight, Check } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import CaseStudies from '../components/CaseStudies';
 import LivePressureEvents from '../components/LivePressureEvents';
 import EvidentiaryTracer from '../components/EvidentiaryTracer';
 import AnalyticalBlindspots from '../components/AnalyticalBlindspots';
+import { PressurePropagationInteractive } from '../components/PressurePropagationInteractive';
+import { EvidenceStandardMatrix } from '../components/EvidenceStandardMatrix';
+import { InstitutionalDeliverables } from '../components/InstitutionalDeliverables';
+import { ComparisonTable } from '../components/ComparisonTable';
+import { InstitutionalBuyerProfiles } from '../components/InstitutionalBuyerProfiles';
+import { InteractiveBoardroomBriefing } from '../components/InteractiveBoardroomBriefing';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -35,15 +43,17 @@ function handleFirestoreError(error: unknown, operationType: OperationType, path
 export default function Home() {
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isBriefingModalOpen, setIsBriefingModalOpen] = useState(false);
+  const [referenceId, setReferenceId] = useState('');
 
-  // Prevent scrolling when modal is open
+  // Prevent scrolling when modals are open
   useEffect(() => {
-    if (isVideoModalOpen) {
+    if (isVideoModalOpen || isBriefingModalOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [isVideoModalOpen]);
+  }, [isVideoModalOpen, isBriefingModalOpen]);
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,6 +61,8 @@ export default function Home() {
     
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
+    const generatedRef = `RAV-${Math.floor(100000 + Math.random() * 900000)}`;
+    setReferenceId(generatedRef);
 
     try {
       await addDoc(collection(db, 'leads'), {
@@ -59,13 +71,13 @@ export default function Home() {
         cikOrTicker: data.cikOrTicker as string,
         transactionValue: (data.transactionValue as string) || '',
         additionalDetails: (data.additionalDetails as string) || '',
+        referenceId: generatedRef,
         status: 'new',
         createdAt: serverTimestamp()
       }).catch(err => handleFirestoreError(err, OperationType.CREATE, 'leads'));
 
       setFormState('success');
       (e.target as HTMLFormElement).reset();
-      setTimeout(() => setFormState('idle'), 5000);
     } catch (error) {
       setFormState('error');
       setTimeout(() => setFormState('idle'), 5000);
@@ -85,15 +97,23 @@ export default function Home() {
               "name": "What is Raven Adversary?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Raven Adversary is an institutional pressure intelligence platform that maps how legal obligations, governance conflicts, and regulatory exposures create unpriced risk in M&A transactions. It operates strictly on public SEC filings with complete informational hygiene."
+                "text": "Raven Adversary is an institutional transaction-state intelligence desk for M&A and corporate transactions. Rather than summarizing contract text, Raven reconstructs dynamic transaction state machines to map how contractual leverage, governance fractures, and regulatory thresholds shift under stress."
               }
             },
             {
               "@type": "Question",
-              "name": "How does Raven analyze SEC filings?",
+              "name": "What is the Raven Evidence Standard?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Raven reconstructs accountability continuity by mapping mathematical dependency graphs between floating parameters—such as Net Cash triggers, stock split exchange ratios, and regulatory thresholds—dissected from S-4 filings and proxies."
+                "text": "Raven enforces a 5-Tier Epistemic Standard separating Verified Facts (verbatim SEC citations), Derived Computations (deterministic mathematics), Structural Inferences (causal consequence models), and Adversarial Hypotheses (red-team stress simulations)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the 8-Part Transaction Review Package?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A comprehensive $10,000 / $25,000 commercial forensic audit delivered within 48 to 72 hours, including a Transaction State Baseline, Evidence Ledger, Critical Clause Cards, Pressure Propagation Map, Adversarial Strategy Memo, Executive Decision Brief, 7-Minute Boardroom Walkthrough, and Commit Layer Artifact."
               }
             }
           ]
@@ -102,91 +122,132 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <section className="min-h-[90vh] flex flex-col justify-center pt-36 pb-24 px-6 md:px-12 xl:px-24 text-center relative">
-        <div className="absolute top-24 left-1/2 -translate-x-1/2 flex items-center gap-3 px-4 py-2 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 backdrop-blur-sm shadow-sm">
-          <span className="w-1.5 h-1.5 bg-green-500 rounded-none animate-pulse"></span>
-          <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-[var(--text-tertiary)]">
-            SYSTEM STATUS: OBSERVED_RUNNING // AUDIT LEVEL 04_CAPACITY // ID: 14.8P
-          </span>
-        </div>
+        <div className="max-w-5xl mx-auto space-y-8 flex flex-col items-center">
+          
+          <div className="inline-flex items-center gap-2 px-3 py-1 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
+            <Shield className="w-3 h-3 text-[var(--brand-cyan)]" />
+            INSTITUTIONAL TRANSACTION-STATE INTELLIGENCE
+          </div>
 
-        <div className="max-w-5xl mx-auto space-y-10 flex flex-col items-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] font-heading">
-            Reconstructing <span className="text-[var(--brand-cyan)]">Institutional Pressure Intelligence</span> before transaction risk cascades.
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] font-heading text-[var(--text-primary)]">
+            We Reconstruct <span className="text-[var(--brand-cyan)]">Transaction Leverage</span> Before Conditions Deteriorate.
           </h1>
-          <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl leading-relaxed">
-            By reconstructing institutional pressure intelligence before transaction risk cascades, Raven maps dynamic unpriced exposures for M&A, activism, governance conflict, and regulatory exposure under absolute informational hygiene.
+          
+          <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-3xl leading-relaxed">
+            Unlike legal AI tools that summarize contracts, Raven models M&A agreements as dynamic state machines. We audit who actually holds leverage when assumptions break down—grounded 100% in public SEC filings.
           </p>
+
           <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
-            <a href="#contact" className="bg-[var(--text-primary)] text-[var(--bg-primary)] px-10 py-5 flex items-center gap-2 text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity w-full sm:w-auto justify-center rounded-none shadow-lg">
-              Initiate Institutional Review <ChevronRight className="w-4 h-4" />
+            <a 
+              href="#contact" 
+              className="bg-[var(--text-primary)] text-[var(--bg-primary)] px-8 py-4 flex items-center gap-2 text-xs font-bold font-mono uppercase tracking-wider hover:opacity-90 transition-opacity w-full sm:w-auto justify-center rounded-none shadow-lg"
+            >
+              Order Transaction Review ($10K) <ArrowRight className="w-4 h-4" />
             </a>
-            <button onClick={() => setIsVideoModalOpen(true)} className="px-10 py-5 border border-[var(--border-highlight)] text-[var(--text-primary)] flex items-center gap-2 text-sm font-bold uppercase tracking-wider hover:border-[var(--text-secondary)] transition-colors w-full sm:w-auto justify-center bg-transparent rounded-none shadow-sm">
-              Review Operational Briefing
+            
+            <button 
+              onClick={() => setIsBriefingModalOpen(true)} 
+              className="px-8 py-4 border border-[var(--brand-cyan)] text-[var(--brand-cyan)] hover:bg-[var(--brand-cyan)]/10 flex items-center gap-2 text-xs font-bold font-mono uppercase tracking-wider transition-colors w-full sm:w-auto justify-center bg-transparent rounded-none"
+            >
+              <Play className="w-3.5 h-3.5" /> Launch 7-Min Boardroom Briefing
+            </button>
+
+            <button 
+              onClick={() => setIsVideoModalOpen(true)} 
+              className="px-6 py-4 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-highlight)] flex items-center gap-2 text-xs font-mono uppercase tracking-wider transition-colors w-full sm:w-auto justify-center bg-transparent rounded-none"
+            >
+              Watch Video Briefing
             </button>
           </div>
+
+          {/* Quick Metrics Bar */}
+          <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl border-t border-[var(--border-color)] text-left">
+            <div>
+              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">PROVENANCE</div>
+              <div className="text-sm font-bold font-heading text-[var(--text-primary)] mt-0.5">100% Public SEC Filings</div>
+            </div>
+            <div>
+              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">EPISTEMIC DISCIPLINE</div>
+              <div className="text-sm font-bold font-heading text-[var(--text-primary)] mt-0.5">5-Tier Claim Adjudication</div>
+            </div>
+            <div>
+              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">DELIVERY SPRINT</div>
+              <div className="text-sm font-bold font-heading text-[var(--text-primary)] mt-0.5">48 - 72 Hour Turnaround</div>
+            </div>
+            <div>
+              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">INFORMATION HYGIENE</div>
+              <div className="text-sm font-bold font-heading text-emerald-400 mt-0.5">Zero MNPI / Strict Walls</div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* SECTION 2: OPERATIONAL INTEGRITY & BOUNDARIES (We Do vs We Do Not) */}
+      {/* SECTION 2: OPERATIONAL INTEGRITY & BOUNDARIES */}
       <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/10">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[10px] uppercase tracking-[0.2em] mb-4">
+        <div className="max-w-6xl mx-auto space-y-12">
+          <div className="max-w-3xl space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
               Section 01 // Epistemic Boundaries
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold font-heading tracking-tight">Operational Bounds</h2>
+            <h2 className="text-3xl md:text-5xl font-bold font-heading tracking-tight text-[var(--text-primary)]">
+              Operational Boundaries & Disciplinary Limits
+            </h2>
+            <p className="text-base text-[var(--text-secondary)]">
+              We define our value just as strictly by what we refuse to do as by what we execute.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-stretch">
+          <div className="grid md:grid-cols-2 gap-8 items-stretch">
             {/* Left Box: We Do Not */}
             <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-6">
-              <div className="font-mono text-[10px] text-red-500 uppercase tracking-widest flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-red-500 rounded-none"></span>
+              <div className="font-mono text-[10px] text-red-400 uppercase tracking-widest font-bold flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-red-400 rounded-none"></span>
                 RAVEN DOES NOT
               </div>
-              <ul className="space-y-4 text-sm text-[var(--text-secondary)]">
+              <ul className="space-y-4 text-xs text-[var(--text-secondary)] leading-relaxed font-mono">
                 <li className="flex items-start gap-3">
-                  <span className="font-mono text-red-500 select-none">[×]</span>
-                  <span><strong>Summarize documents:</strong> We reject low-context, generic LLM summarization.</span>
+                  <span className="text-red-500 font-bold select-none">[×]</span>
+                  <span><strong>Summarize documents:</strong> We reject passive, low-context text indexing.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="font-mono text-red-500 select-none">[×]</span>
-                  <span><strong>Provide standard AI diligence:</strong> We do not rely on speculative hallucinated benchmarks.</span>
+                  <span className="text-red-500 font-bold select-none">[×]</span>
+                  <span><strong>Offer market or price predictions:</strong> We model structural pressure and contractual leverage.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="font-mono text-red-500 select-none">[×]</span>
-                  <span><strong>Accept MNPI:</strong> We operate strictly on public SEC filings, S-4 statements, and filings.</span>
+                  <span className="text-red-500 font-bold select-none">[×]</span>
+                  <span><strong>Accept MNPI:</strong> We operate exclusively on public SEC filings, Call Reports, and court dockets.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="font-mono text-red-500 select-none">[×]</span>
-                  <span><strong>Automate legal boilerplate:</strong> We preserve analytical expertise rather than bulk drafts.</span>
+                  <span className="text-red-500 font-bold select-none">[×]</span>
+                  <span><strong>Blend inference with fact:</strong> No analytical inference is ever presented as a verified fact.</span>
                 </li>
               </ul>
             </div>
 
             {/* Right Box: We Do */}
-            <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[radial-gradient(ellipse_at_top_right,var(--brand-cyan)_0%,transparent_60%)] opacity-10"></div>
-              <div className="font-mono text-[10px] text-[var(--brand-cyan)] uppercase tracking-widest flex items-center gap-2">
+            <div className="p-8 border border-[var(--brand-cyan)]/40 bg-[var(--bg-primary)] space-y-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,var(--brand-cyan)_0%,transparent_60%)] opacity-10 pointer-events-none"></div>
+              <div className="font-mono text-[10px] text-[var(--brand-cyan)] uppercase tracking-widest font-bold flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-[var(--brand-cyan)] rounded-none"></span>
                 RAVEN DOES
               </div>
-              <ul className="space-y-4 text-sm text-[var(--text-secondary)]">
+              <ul className="space-y-4 text-xs text-[var(--text-secondary)] leading-relaxed font-mono">
                 <li className="flex items-start gap-3">
-                  <span className="font-mono text-[var(--brand-cyan)] select-none">[✓]</span>
-                  <span><strong>Reconstruct pressure pathways:</strong> Map cascades from single-point exposure.</span>
+                  <span className="text-[var(--brand-cyan)] font-bold select-none">[✓]</span>
+                  <span><strong>Reconstruct dynamic transaction states:</strong> Map how covenants, walk-away rights, and break fees actually behave.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="font-mono text-[var(--brand-cyan)] select-none">[✓]</span>
-                  <span><strong>Detect governance fracture:</strong> Unmask voting structural vulnerabilities in S-4 schedules.</span>
+                  <span className="text-[var(--brand-cyan)] font-bold select-none">[✓]</span>
+                  <span><strong>Detect governance fractures:</strong> Uncover voting blocks, trust pass-throughs, and activist attack vectors.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="font-mono text-[var(--brand-cyan)] select-none">[✓]</span>
-                  <span><strong>Map timing compression:</strong> Isolate closing bottlenecks, daily LCR transitions, and pre-closing delays.</span>
+                  <span className="text-[var(--brand-cyan)] font-bold select-none">[✓]</span>
+                  <span><strong>Deliver 8-part forensic dossiers:</strong> Provide board-ready deliverables with complete SEC accession citations.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="font-mono text-[var(--brand-cyan)] select-none">[✓]</span>
-                  <span><strong>Preserve decision-state:</strong> Guarantee evidentiary trace audits across unpriced risk matrices.</span>
+                  <span className="text-[var(--brand-cyan)] font-bold select-none">[✓]</span>
+                  <span><strong>Maintain immutable commit ledgers:</strong> Cryptographically anchor claim records as of analysis timestamps.</span>
                 </li>
               </ul>
             </div>
@@ -194,294 +255,193 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 3: PRESSURE PROPAGATION MAP */}
-      <section className="py-24 px-6 border-t border-[var(--border-color)] overflow-hidden relative">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--brand-purple)]/30 bg-[var(--brand-purple)]/5 text-[var(--brand-purple)] font-mono text-[11px] uppercase tracking-widest mb-6">
-              Interactive
+      {/* SECTION 3: INTERACTIVE PRESSURE PROPAGATION TOPOLOGY */}
+      <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-primary)]">
+        <div className="max-w-6xl mx-auto space-y-12">
+          <div className="max-w-3xl space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
+              Section 02 // Interactive State Engine
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-heading leading-tight">Pressure Propagation Map</h2>
-            <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-              We visually map the chain reaction of single-point vulnerabilities. A liquidity crunch triggers a covenant breach, which cascades into counterparty leverage and forced renegotiation.
+            <h2 className="text-3xl md:text-5xl font-bold font-heading tracking-tight text-[var(--text-primary)]">
+              Multi-Variable Pressure Propagation
+            </h2>
+            <p className="text-base text-[var(--text-secondary)]">
+              Explore how localized balance sheet vulnerabilities, statutory trust terms, or regulatory thresholds cascade into systemic deal disruption. Click any node to inspect primary source SEC evidence.
             </p>
           </div>
-          
-          <div className="relative h-[400px] w-full border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 rounded-lg p-6 glass-panel flexitems-center justify-center group cursor-crosshair">
-            {/* Minimal SVG Graph representation */}
-            <svg viewBox="0 0 400 400" className="w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-700">
-              {/* Lines */}
-              <path d="M100 200 L200 100 L300 150 L250 250 L150 280 Z" fill="none" stroke="var(--border-highlight)" strokeWidth="1" strokeDasharray="4 4" className="animate-[spin_60s_linear_infinite] origin-center" />
-              <path d="M200 100 L250 250 M100 200 L300 150" fill="none" stroke="var(--border-highlight)" strokeWidth="1" opacity="0.5" />
-              
-              {/* Nodes */}
-              <circle cx="100" cy="200" r="4" fill="var(--brand-cyan)" className="animate-pulse" />
-              <text x="80" y="220" fill="var(--text-secondary)" fontSize="10" fontFamily="monospace">Liquidity Crunch</text>
-              
-              <circle cx="200" cy="100" r="6" fill="var(--text-primary)" />
-              <text x="180" y="85" fill="var(--text-secondary)" fontSize="10" fontFamily="monospace">Covenant Breach</text>
-              
-              <circle cx="300" cy="150" r="5" fill="var(--brand-purple)" />
-              <text x="310" y="155" fill="var(--text-secondary)" fontSize="10" fontFamily="monospace">Counterparty Leverage</text>
-              
-              <circle cx="250" cy="250" r="8" fill="var(--text-primary)" className="animate-pulse" style={{ animationDelay: '1s' }}/>
-              <text x="260" y="265" fill="var(--text-primary)" fontSize="10" fontFamily="monospace" fontWeight="bold">Forced Renegotiation</text>
-              
-              <circle cx="150" cy="280" r="4" fill="var(--border-highlight)" />
-              
-              {/* Propagation Waves */}
-              <circle cx="250" cy="250" r="20" fill="none" stroke="var(--text-primary)" strokeWidth="0.5" className="animate-ping" opacity="0.3" />
-            </svg>
-            <div className="absolute top-4 left-4 font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">
-              Live Topology Mapping // Raven Graph Engine
-            </div>
-          </div>
+
+          <PressurePropagationInteractive />
         </div>
       </section>
 
-      {/* SECTION 4: LIVE PRESSURE EVENTS */}
+      {/* SECTION 4: THE RAVEN EVIDENCE STANDARD */}
+      <EvidenceStandardMatrix />
+
+      {/* SECTION 5: THE 8-PART TRANSACTION REVIEW PACKAGE */}
+      <InstitutionalDeliverables />
+
+      {/* SECTION 6: ARCHITECTURAL COMPARISON */}
+      <ComparisonTable />
+
+      {/* SECTION 7: LIVE PRESSURE ENVIRONMENTS */}
       <LivePressureEvents />
 
-      {/* SECTION 4.2: COST OF ANALYTICAL BLINDSPOTS */}
+      {/* SECTION 8: COST OF ANALYTICAL BLINDSPOTS */}
       <AnalyticalBlindspots />
 
-      {/* SECTION 4.1: INSTITUTIONAL CASE STUDIES */}
-      <CaseStudies />
-
-      {/* SECTION 4.3: EVIDENTIARY TRACEABILITY */}
+      {/* SECTION 9: EVIDENTIARY TRACEABILITY */}
       <EvidentiaryTracer />
 
-      {/* SECTION 4.5: DECISION-STATE RECONSTRUCTION */}
-      <section className="py-32 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--border-highlight)_1px,transparent_1px)]" style={{ backgroundSize: '40px 40px', opacity: 0.2 }}></div>
-        <div className="max-w-4xl mx-auto space-y-8 text-center relative z-10 glass-panel p-12 md:p-20 border border-[var(--border-color)] shadow-2xl">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-[var(--brand-cyan)]/50 to-transparent"></div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none border border-[var(--brand-cyan)]/30 text-[var(--brand-cyan)] font-mono text-[10px] uppercase tracking-[0.2em] mb-4 bg-[var(--brand-cyan)]/5">
-            <span className="w-1.5 h-1.5 bg-[var(--brand-cyan)] animate-pulse"></span>
-            Core Philosophy
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold font-heading text-[var(--text-primary)] leading-tight tracking-tight">
-            Decision-State <br className="hidden md:block"/>Reconstruction
-          </h2>
-          <div className="w-12 h-px bg-[var(--brand-cyan)]/70 mx-auto"></div>
-          <p className="text-xl md:text-2xl text-[var(--text-secondary)] leading-relaxed font-light mx-auto max-w-2xl">
-            Most systems preserve <span className="text-[var(--text-primary)] font-medium">policy-state</span>. Few preserve <span className="text-[var(--brand-cyan)]/90 font-medium whitespace-nowrap">decision-state</span> under consequential uncertainty.
-          </p>
-          <div className="absolute bottom-0 right-0 p-3 font-mono text-[8px] text-[var(--text-tertiary)] uppercase tracking-[0.2em] opacity-50">
-            PERSISTENCE_LAYER: ACTIVE
-          </div>
-        </div>
-      </section>
+      {/* SECTION 10: INSTITUTIONAL BUYER PROFILES (5 ICPs) */}
+      <InstitutionalBuyerProfiles />
 
-      {/* SECTION 4.6: EVIDENCE HIERARCHY */}
-      <section className="py-28 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/10">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 font-heading tracking-tight">Evidence Discipline</h2>
-              <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-                Cryptographically anchored accountability receipt. Strict compartmentalization of fact, inference, and speculation with visible SEC transaction reference citations.
+      {/* SECTION 11: FORENSIC CASE STUDIES */}
+      <CaseStudies />
+
+      {/* SECTION 12: INITIATE REVIEW / CONTACT PORTAL */}
+      <section id="contact" className="py-32 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/10">
+        <div className="max-w-3xl mx-auto space-y-10 border border-[var(--border-color)] bg-[var(--bg-primary)] p-8 md:p-14 shadow-2xl relative overflow-hidden">
+          
+          <div className="space-y-4 text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[var(--brand-cyan)]/10 text-[var(--brand-cyan)] border border-[var(--brand-cyan)]/30 text-[9px] font-mono tracking-widest uppercase font-bold">
+              SELECTIVE ENGAGEMENT DESK // CONFLICT SCREENING
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-[var(--text-primary)]">
+              Initiate Transaction Intelligence Review
+            </h2>
+            <p className="text-sm text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed">
+              Submit target transaction identifiers. Our desk conducts pre-engagement conflict verification and confirms filing coverage within 2 hours.
+            </p>
+          </div>
+
+          {formState === 'success' ? (
+            <div className="p-8 border border-emerald-500/30 bg-emerald-500/5 space-y-4 text-center">
+              <div className="w-12 h-12 bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
+                <CheckCircle2 className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading">
+                Transaction Intake Received
+              </h3>
+              <p className="text-xs text-[var(--text-secondary)] max-w-md mx-auto leading-relaxed">
+                Conflict check and scope confirmation will be delivered to your corporate email within 2 hours.
               </p>
-            </div>
-            <div className="hidden md:flex flex-col items-end text-right">
-               <div className="text-4xl font-light text-[var(--border-highlight)] font-mono tracking-tighter">04</div>
-               <div className="text-[10px] text-[var(--brand-cyan)] font-mono tracking-widest uppercase mt-2">Confidence Tiers</div>
-            </div>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-            {[
-              { level: "Verified Fact", desc: "Explicitly coded in live regulatory or legal filings. Immutable base reality.", color: "rgba(255,255,255,0.8)" },
-              { level: "Structural Inference", desc: "Logical constraint derived mathematically from verified governance facts.", color: "var(--brand-cyan)" },
-              { level: "Adversarial Hypothesis", desc: "Probable vulnerability calculated given counterparty constraints and incentives.", color: "var(--brand-purple)" },
-              { level: "Speculative Vector", desc: "Unverified tail-risk pressure pathway modeled purely for stress-testing.", color: "rgba(239, 68, 68, 0.8)" }
-            ].map((ev, i) => (
-              <div key={i} className="bg-[var(--bg-primary)] p-8 border border-[var(--border-color)] group hover:border-[var(--brand-cyan)]/30 transition-colors relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-8 h-8 bg-[var(--bg-secondary)]/50 border-b border-l border-[var(--border-color)] flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: ev.color }}></div>
-                </div>
-                <div className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-widest mb-6 group-hover:text-[var(--text-secondary)] transition-colors">
-                  Level 0{i + 1}
-                </div>
-                <h3 className="font-bold text-xl font-heading mb-4 leading-tight text-[var(--text-primary)]">{ev.level}</h3>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{ev.desc}</p>
+              <div className="p-3 border border-[var(--border-color)] bg-[var(--bg-primary)] inline-block font-mono text-xs text-[var(--brand-cyan)]">
+                AUDIT REFERENCE CODE: {referenceId}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4.7: METHODOLOGY TRANSPARENCY */}
-      <section className="py-32 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--brand-cyan)_0%,transparent_50%)] opacity-[0.03]"></div>
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="mb-20 flex flex-col md:items-center md:text-center items-start text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[10px] uppercase tracking-[0.2em] mb-6">
-              <span className="w-1.5 h-1.5 bg-[var(--brand-cyan)] animate-pulse shadow-[0_0_5px_rgba(0,184,217,0.5)]"></span>
-              System Architecture
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-heading tracking-tight">Trust Architecture</h2>
-            <p className="text-xl text-[var(--text-secondary)] max-w-3xl md:mx-auto leading-relaxed">
-              Our methodology for modeling institutional pressure operates on four unyielding pillars.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {[
-              {
-                title: "Adversarial Debate Logic",
-                desc: "We simulate counter-party friction before it materializes, war-gaming every clause against hostile intent to map precise breaking points."
-              },
-              {
-                title: "Pressure-State Modeling",
-                desc: "Non-linear mapping of how localized governance fractures cascade into systemic proxy battles and structural liquidity instability."
-              },
-              {
-                title: "Commit Layer Mechanics",
-                desc: "Every structural inference is cryptographically anchored. A tamper-evident operational layer ensuring verifiable accountability."
-              },
-              {
-                title: "Evidence Verification Standards",
-                desc: "Strict data compartmentalization. We structurally prevent the blending of verified regulatory facts with adversarial speculative vectors."
-              }
-            ].map((pillar, i) => (
-              <div key={i} className="group relative p-8 md:p-10 bg-[var(--bg-primary)] border border-[var(--border-color)] hover:border-[var(--brand-cyan)]/40 hover:shadow-[0_0_30px_rgba(0,184,217,0.05)] transition-all duration-500">
-                <div className="absolute top-0 right-0 px-2 py-1.5 font-mono text-[9px] text-[var(--text-tertiary)] group-hover:text-[var(--brand-cyan)]/80 transition-colors uppercase tracking-[0.2em] border-b border-l border-[var(--border-color)] group-hover:border-[var(--brand-cyan)]/30 bg-[var(--bg-secondary)]/30">
-                  MODULE 0{i + 1}
-                </div>
-                
-                <div className="w-12 h-12 mb-8 rounded-none border border-[var(--border-highlight)] flex items-center justify-center font-mono text-lg text-[var(--text-secondary)] group-hover:text-[var(--brand-cyan)] group-hover:border-[var(--brand-cyan)]/50 transition-colors bg-[var(--bg-secondary)]/20">
-                  0{i + 1}
-                </div>
-                
-                <h3 className="font-bold text-2xl font-heading mb-4 text-[var(--text-primary)] tracking-wide">{pillar.title}</h3>
-                <p className="text-[var(--text-secondary)] text-sm md:text-base leading-relaxed">{pillar.desc}</p>
-                
-                {/* Decorative Elements */}
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[var(--brand-cyan)]/60 group-hover:w-full transition-all duration-700 ease-out"></div>
-                <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[var(--brand-cyan)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 5: DISCLAIMER / POSITIONING */}
-      <section className="py-24 px-6 text-center border-t border-[var(--border-color)]">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <div className="text-3xl md:text-5xl font-bold font-heading text-[var(--text-secondary)]">
-            Raven does not predict markets.
-          </div>
-          <div className="text-3xl md:text-5xl font-bold font-heading text-[var(--text-primary)]">
-            Raven models institutional pressure.
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: PRESSURE REVIEW HIGHLIGHTS */}
-      <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 text-center">
-            <div className="text-3xl md:text-4xl font-bold mb-4 font-heading text-[var(--text-primary)]">Every Pressure Review includes:</div>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              "Trigger Event",
-              "Pressure Pathway",
-              "Negotiation Sequence",
-              "Redline Proposals",
-              "Disputed Claims Matrix",
-              "Leverage Assessment"
-            ].map((item, i) => (
-              <div key={i} className="glass-card p-8 border border-[var(--border-color)] flex items-center justify-center text-center">
-                <span className="font-mono text-sm tracking-widest uppercase font-bold text-[var(--text-primary)]">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-            {/* CTA SECTION */}
-      <section id="contact" className="py-32 px-6">
-        <div className="max-w-2xl mx-auto text-center space-y-10 border border-[var(--border-highlight)] p-10 md:p-14 rounded-none relative overflow-hidden">
-          
-          <div className="space-y-4 relative z-10">
-            <div className="inline-block px-3 py-1 bg-[var(--brand-cyan)]/10 text-[var(--brand-cyan)] border border-[var(--brand-cyan)]/20 text-[10px] font-mono tracking-widest uppercase mb-2">
-              Selective Engagement Portal // Capacity Restraint
-            </div>
-            <h2 className="text-4xl font-bold font-heading">Initiate Institutional Review</h2>
-            <p className="text-[var(--text-secondary)] text-lg max-w-xl mx-auto">
-              Raven operates under strict conflict-of-interest filters. Engagement capacity is intentionally limited due to direct transaction monitoring constraints.
-            </p>
-          </div>
-
-          <form 
-            onSubmit={handleFormSubmit}
-            className="max-w-md mx-auto space-y-6 relative z-10" 
-          >
-            <div className="space-y-5 text-left">
-              <div>
-                <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2 font-semibold pl-1">Firm or Institution</label>
-                <input required disabled={formState !== 'idle'} type="text" name="firm" className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-none px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] transition-all text-sm font-medium disabled:opacity-50 placeholder:text-[var(--text-tertiary)] hover:border-[var(--border-highlight)]" placeholder="Acme Capital" />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          ) : (
+            <form onSubmit={handleFormSubmit} className="space-y-5">
+              <div className="space-y-4">
                 <div>
-                  <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2 font-semibold pl-1">Corporate Email</label>
-                  <input required disabled={formState !== 'idle'} type="email" name="email" className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-none px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] transition-all text-sm font-medium disabled:opacity-50 placeholder:text-[var(--text-tertiary)] hover:border-[var(--border-highlight)]" placeholder="analyst@acmecapital.com" />
+                  <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-1.5 font-bold">
+                    Firm / Institution *
+                  </label>
+                  <input 
+                    required 
+                    disabled={formState !== 'idle'} 
+                    type="text" 
+                    name="firm" 
+                    className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] text-xs font-mono" 
+                    placeholder="e.g. Citadel, Morgan Stanley, Wachtell Lipton" 
+                  />
                 </div>
-                <div>
-                  <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2 font-semibold pl-1">CIK or Ticker <span className="opacity-50 lowercase font-sans text-[10px] ml-1 tracking-normal">(optional)</span></label>
-                  <input disabled={formState !== 'idle'} type="text" name="cikOrTicker" className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-none px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] transition-all text-sm font-medium disabled:opacity-50 placeholder:text-[var(--text-tertiary)] hover:border-[var(--border-highlight)]" placeholder="AAPL / 0000320193" />
-                </div>
-              </div>
-              <div>
-                <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2 font-semibold pl-1">Deal Size / Transaction Value <span className="opacity-50 lowercase font-sans text-[10px] ml-1 tracking-normal">(optional)</span></label>
-                <input disabled={formState !== 'idle'} type="text" name="transactionValue" className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-none px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] transition-all text-sm font-medium disabled:opacity-50 placeholder:text-[var(--text-tertiary)] hover:border-[var(--border-highlight)]" placeholder="$500M - $1B+" />
-              </div>
-              <div>
-                <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-2 font-semibold pl-1">Additional Context <span className="opacity-50 lowercase font-sans text-[10px] ml-1 tracking-normal">(optional)</span></label>
-                <textarea disabled={formState !== 'idle'} name="additionalDetails" rows={3} className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-none px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] transition-all text-sm font-medium disabled:opacity-50 placeholder:text-[var(--text-tertiary)] hover:border-[var(--border-highlight)] resize-none" placeholder="Targeting regulatory risks, reverse merger structure..." />
-              </div>
-            </div>
-            
-            {formState === 'error' && (
-              <div className="text-sm text-red-500 bg-red-500/10 border border-red-500/20 p-4 rounded-none text-left shadow-sm">
-                There was a problem submitting your request. Please try again or email us directly.
-              </div>
-            )}
-            
-            {formState === 'success' && (
-              <div className="text-sm text-[var(--brand-cyan)] bg-[var(--brand-cyan)]/10 border border-[var(--brand-cyan)]/20 p-4 rounded-none text-left flex items-center justify-center gap-2 font-mono text-[10px] font-bold uppercase tracking-widest shadow-sm">
-                <CheckCircle2 className="w-4 h-4 animate-pulse" /> SECURE TRANSMISSION RECEIVED. COGNITIVE AUDIT ASSIGNED.
-              </div>
-            )}
 
-            <button 
-              type="submit" 
-              disabled={formState !== 'idle'}
-              className="w-full !mt-10 bg-[var(--text-primary)] text-[var(--bg-primary)] px-6 py-5 text-sm font-bold uppercase tracking-widest hover:opacity-90 transition-opacity duration-300 disabled:opacity-50 flex items-center justify-center gap-2 rounded-none"
-            >
-              {formState === 'submitting' ? (
-                <><Loader2 className="w-5 h-5 animate-spin" /> ESTABLISHING SECURE TRANSACTION LEDGER...</>
-              ) : formState === 'success' ? (
-                'TRANSMISSION COMPLETED'
-              ) : (
-                'Submit Deal Ticker for Review'
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-1.5 font-bold">
+                      Institutional Work Email *
+                    </label>
+                    <input 
+                      required 
+                      disabled={formState !== 'idle'} 
+                      type="email" 
+                      name="email" 
+                      className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] text-xs font-mono" 
+                      placeholder="analyst@firm.com" 
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-1.5 font-bold">
+                      Target Ticker / CIK / Transaction Name *
+                    </label>
+                    <input 
+                      required
+                      disabled={formState !== 'idle'} 
+                      type="text" 
+                      name="cikOrTicker" 
+                      className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] text-xs font-mono" 
+                      placeholder="e.g. FSEA, IMAQ, or First Bancorp" 
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-1.5 font-bold">
+                    Deal Size / Transaction Value (Optional)
+                  </label>
+                  <input 
+                    disabled={formState !== 'idle'} 
+                    type="text" 
+                    name="transactionValue" 
+                    className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] text-xs font-mono" 
+                    placeholder="e.g. $100M - $1B+" 
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-1.5 font-bold">
+                    Strategic Focus Areas (Optional)
+                  </label>
+                  <textarea 
+                    disabled={formState !== 'idle'} 
+                    name="additionalDetails" 
+                    rows={3} 
+                    className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] text-xs font-mono resize-none" 
+                    placeholder="e.g. MAE carveout analysis, proxy voting pass-through, regulatory capital threshold drag..." 
+                  />
+                </div>
+              </div>
+
+              {formState === 'error' && (
+                <div className="text-xs text-red-500 bg-red-500/10 border border-red-500/20 p-3 font-mono">
+                  There was an error submitting your intake. Please try again.
+                </div>
               )}
-            </button>
-          </form>
-          <div className="text-[10px] font-mono text-[var(--text-tertiary)] mt-4">
-            * Average intake audit validation cycle: 2-4 business hours. No MNPI dependence.
+
+              {/* Zero MNPI notice */}
+              <div className="p-3 bg-[var(--bg-secondary)] border border-[var(--border-color)] flex items-center gap-2 text-[10px] font-mono text-[var(--text-tertiary)]">
+                <Lock className="w-3.5 h-3.5 text-[var(--brand-cyan)] shrink-0" />
+                <span>Zero MNPI Policy: Operating exclusively on public SEC filings, Call Reports, and court dockets.</span>
+              </div>
+
+              <button 
+                type="submit" 
+                disabled={formState !== 'idle'}
+                className="w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-xs font-mono font-bold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {formState === 'submitting' ? (
+                  <><Loader2 className="w-4 h-4 animate-spin" /> Verifying Coverage & Conflict Screen...</>
+                ) : (
+                  'Submit Transaction for Conflict Clearance & Review ($10K)'
+                )}
+              </button>
+            </form>
+          )}
+
+          <div className="text-center font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider">
+            Standard turnaround: 72 hours ($10,000) • Expedited priority desk: 24-48 hours ($25,000)
           </div>
+
         </div>
-      </section>  </section>
+      </section>
 
       {/* VIDEO MODAL */}
       {isVideoModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setIsVideoModalOpen(false)}></div>
-          <div className="relative w-full max-w-5xl bg-[var(--bg-primary)] border border-[var(--border-color)] rounded-xl shadow-2xl overflow-hidden glass-panel z-10 animate-in fade-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-5xl bg-[var(--bg-primary)] border border-[var(--border-color)] shadow-2xl overflow-hidden glass-panel z-10 animate-in fade-in zoom-in-95 duration-200">
             <div className="flex items-center justify-between p-4 border-b border-[var(--border-color)] bg-[var(--bg-secondary)]/50">
-              <div className="font-mono text-xs font-bold tracking-widest text-[var(--text-secondary)]">RAVEN ADVERSARY // DEMO</div>
+              <div className="font-mono text-xs font-bold tracking-widest text-[var(--text-secondary)]">RAVEN ADVERSARY // OPERATIONAL BRIEFING</div>
               <button 
                 onClick={() => setIsVideoModalOpen(false)}
                 className="text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors p-1"
@@ -502,6 +462,12 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* INTERACTIVE BOARDROOM BRIEFING MODAL */}
+      <InteractiveBoardroomBriefing
+        isOpen={isBriefingModalOpen}
+        onClose={() => setIsBriefingModalOpen(false)}
+      />
     </>
   );
 }
