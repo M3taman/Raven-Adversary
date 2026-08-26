@@ -24,11 +24,21 @@ import DealIntelligenceArchive from './pages/DealIntelligenceArchive';
 import DealIntelligenceDetail from './pages/DealIntelligenceDetail';
 import RequestAssessment from './pages/RequestAssessment';
 import ComparisonPage from './pages/Comparison';
+import Governance from './pages/Governance';
+import Lexicon from './pages/Lexicon';
 
 const METADATA: Record<string, { title: string; description: string }> = {
   '/': {
     title: 'Raven Adversary | Institutional Pressure Intelligence for Complex Transactions',
     description: 'We reconstruct dynamic M&A transaction state machines from public evidence, adversarially test claims, and map where contractual and governance leverage migrate.'
+  },
+  '/governance': {
+    title: 'Governance Center & Challenge Protocol | Raven Adversary',
+    description: 'Public-source operating model, zero-MNPI hygiene, conflict management, model governance, and formal evidentiary challenge protocol.'
+  },
+  '/lexicon': {
+    title: 'Institutional Epistemic Lexicon & Canonical Taxonomy | Raven Adversary',
+    description: 'Formal definitions and specifications for Institutional Pressure Intelligence, Decision-State Reconstruction, the 5-Tier Epistemic Standard, and Contractual State Machines.'
   },
   '/comparison': {
     title: 'Architectural Comparison // Due Diligence Landscape | Raven Adversary',
@@ -244,8 +254,16 @@ export default function App() {
                 <BookOpen className="w-3 h-3" /> The Standard
               </Link>
 
+              <Link to="/lexicon" className="hover:text-[var(--brand-cyan)] transition-colors py-2 flex items-center gap-1.5">
+                <FileText className="w-3 h-3" /> Lexicon
+              </Link>
+
+              <Link to="/governance" className="hover:text-[var(--brand-cyan)] transition-colors py-2 flex items-center gap-1.5">
+                <Shield className="w-3 h-3 text-emerald-400" /> Governance
+              </Link>
+
               <Link to="/institutional-use" className="hover:text-[var(--brand-cyan)] transition-colors py-2 flex items-center gap-1.5">
-                <Users className="w-3 h-3" /> Institutional Use
+                <Users className="w-3 h-3" /> Profiles
               </Link>
 
               {/* Trust & Standards Dropdown */}
@@ -255,6 +273,15 @@ export default function App() {
                 </button>
                 <div className="absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 w-72 bg-[var(--bg-primary)] border border-[var(--border-color)] shadow-2xl p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-auto">
                   <div className="space-y-1">
+                    <Link to="/governance" className="block p-2 hover:bg-[var(--bg-secondary)] text-[10px] font-bold text-[var(--text-primary)]">
+                      Governance Center & Challenge Protocol
+                    </Link>
+                    <Link to="/lexicon" className="block p-2 hover:bg-[var(--bg-secondary)] text-[10px] font-bold text-[var(--text-primary)]">
+                      Epistemic Lexicon & Taxonomy
+                    </Link>
+                    <Link to="/comparison" className="block p-2 hover:bg-[var(--bg-secondary)] text-[10px] font-bold text-[var(--text-primary)]">
+                      Architectural Matrix vs. Generic AI
+                    </Link>
                     <Link to="/evidence-standard" className="block p-2 hover:bg-[var(--bg-secondary)] text-[10px] font-bold text-[var(--text-primary)]">
                       5-Tier Evidence Matrix
                     </Link>
@@ -386,6 +413,8 @@ export default function App() {
             <Route path="/deal-intelligence/:id" element={<DealIntelligenceDetail />} />
             <Route path="/methodology" element={<Methodology />} />
             <Route path="/comparison" element={<ComparisonPage />} />
+            <Route path="/governance" element={<Governance />} />
+            <Route path="/lexicon" element={<Lexicon />} />
             <Route path="/request-assessment" element={<RequestAssessment />} />
             
             {/* Legacy & Specialized Routes for Backward-Compatibility & Deep Links */}

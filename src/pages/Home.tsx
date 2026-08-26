@@ -201,15 +201,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION: 60-SECOND INSTITUTIONAL MATRIX (5 Core Questions) */}
+      {/* SECTION 1: 60-SECOND INSTITUTIONAL MATRIX (5 Core Institutional Questions) */}
       <section className="py-20 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/30">
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="max-w-3xl space-y-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
-              INSTITUTIONAL CLARITY // 60-SECOND BRIEFING
+              INSTITUTIONAL CLARITY // 60-SECOND EXECUTIVE BRIEFING
             </div>
             <h2 className="text-3xl md:text-4xl font-bold font-heading tracking-tight text-[var(--text-primary)]">
-              What Institutional Buyers Need to Know in 60 Seconds
+              Core Principles for Institutional Decision-Makers
             </h2>
           </div>
 
@@ -221,66 +221,69 @@ export default function Home() {
                 01 // DEFINITION
               </div>
               <h3 className="text-base font-bold font-heading text-[var(--text-primary)]">
-                What exactly is Raven?
+                What is Institutional Pressure Intelligence?
               </h3>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Raven is an institutional pressure intelligence firm for complex transactions. We model public M&A agreements as dynamic state machines rather than static text documents.
+                The discipline of modeling complex corporate transactions as dynamic state machines. Rather than treating contracts as static text, Raven maps how contractual leverage and governance shift under operational variance.
               </p>
             </div>
 
             {/* Q2 */}
             <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-3">
               <div className="font-mono text-[10px] text-[var(--brand-cyan)] font-bold uppercase tracking-wider">
-                02 // FUNCTION
+                02 // SUBSTRATE & HYGIENE
               </div>
               <h3 className="text-base font-bold font-heading text-[var(--text-primary)]">
-                What does the Raven Engine do?
+                What evidence does Raven analyze?
               </h3>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                It extracts interlocked covenants, runs multi-agent adversarial debate (Buyer vs. Seller), executes falsification gates, and reconstructs who holds true leverage under stress.
+                100% public regulatory filings, SEC EDGAR disclosures (S-4s, 8-Ks, 10-Ks, Proxies), bank Call Reports, and court dockets. Standard assessments require zero MNPI or confidential deal materials.
               </p>
             </div>
 
             {/* Q3 */}
             <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-3">
               <div className="font-mono text-[10px] text-[var(--brand-cyan)] font-bold uppercase tracking-wider">
-                03 // DIFFERENTIATION
+                03 // ARCHITECTURAL DIFFERENCE
               </div>
               <h3 className="text-base font-bold font-heading text-[var(--text-primary)]">
                 Why isn't this another LLM wrap?
               </h3>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                LLMs summarize text and invent answers. Raven uses a 9-stage deterministic pipeline with automated falsification gates, mathematical proofs, and cryptographic commit hashing.
+                Probabilistic LLMs seek narrative consensus. Raven uses a 9-stage deterministic pipeline featuring multi-agent adversarial debate (Buyer vs. Seller), automated falsification gates, and SHA-256 commit tracking.
               </p>
             </div>
 
             {/* Q4 */}
             <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-3">
               <div className="font-mono text-[10px] text-[var(--brand-cyan)] font-bold uppercase tracking-wider">
-                04 // VERIFIABILITY
+                04 // VERIFIABILITY & PROVENANCE
               </div>
               <h3 className="text-base font-bold font-heading text-[var(--text-primary)]">
-                Can I verify what it tells me?
+                Can deal teams verify every conclusion?
               </h3>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Yes. Every single fact, number, and clause citation binds directly to line-numbered SEC EDGAR filings and regulatory Call Reports under our 5-Tier Epistemic Standard.
+                Yes. Every assertion is classified into 5 strict epistemic tiers (E1 Facts to E4 Hypotheses) with exact line-numbered SEC accession citations and verifiable mathematical formulas.
               </p>
             </div>
 
             {/* Q5 */}
             <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-3 md:col-span-2 lg:col-span-2">
               <div className="font-mono text-[10px] text-emerald-400 font-bold uppercase tracking-wider">
-                05 // LIVE ENGAGEMENT
+                05 // COMMERCIAL ENGAGEMENT
               </div>
               <h3 className="text-base font-bold font-heading text-[var(--text-primary)]">
-                What happens if I give Raven a live transaction?
+                How is Raven engaged on a live transaction?
               </h3>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Our forensic desk conduct pre-engagement conflict verification and delivers an 8-Part Transaction Review Package (including Decision Memo, Evidence Ledger, Adversarial Brief, and 7-Minute Boardroom Walkthrough) within 48 to 72 hours under zero-MNPI protocols.
+                We deliver an 8-Part Transaction Review Package—including One-Page Decision Memo, Evidence Ledger, Adversarial Strategy Memo, Pressure Propagation Map, and 7-Minute Boardroom Walkthrough—within 48 to 72 hours for a $10,000 flat fee.
               </p>
-              <div className="pt-2">
+              <div className="pt-2 flex items-center gap-4">
                 <Link to="/request-assessment" className="font-mono text-xs text-[var(--brand-cyan)] font-bold hover:underline inline-flex items-center gap-1.5">
                   Initiate Assessment Request <ArrowRight className="w-3 h-3" />
+                </Link>
+                <Link to="/governance" className="font-mono text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] inline-flex items-center gap-1.5">
+                  View Governance Center <ChevronRight className="w-3 h-3" />
                 </Link>
               </div>
             </div>
@@ -289,19 +292,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION: ARCHITECTURAL COMPARISON MATRIX */}
+      {/* SECTION 2: PROOF - INTERACTIVE PRESSURE PROPAGATION */}
       <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-primary)]">
+        <div className="max-w-6xl mx-auto space-y-12">
+          <div className="max-w-3xl space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
+              Layer 02 // Flagship Live Case Dissection
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold font-heading tracking-tight text-[var(--text-primary)]">
+              Multi-Variable Pressure Propagation
+            </h2>
+            <p className="text-base text-[var(--text-secondary)]">
+              Explore how localized balance sheet variances, statutory trust terms, or regulatory capital thresholds cascade into systemic transaction leverage shifts. Click any node to inspect primary source SEC evidence.
+            </p>
+          </div>
+
+          <PressurePropagationInteractive />
+        </div>
+      </section>
+
+      {/* SECTION 3: ARCHITECTURAL COMPARISON MATRIX */}
+      <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/10">
         <div className="max-w-6xl mx-auto">
           <ArchitecturalComparison />
         </div>
       </section>
 
-      {/* SECTION 2: OPERATIONAL INTEGRITY & BOUNDARIES */}
-      <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/10">
+      {/* SECTION 4: OPERATIONAL INTEGRITY & BOUNDARIES */}
+      <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-primary)]">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="max-w-3xl space-y-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
-              Section 01 // Epistemic Boundaries
+              Institutional Discipline // Operating Rules
             </div>
             <h2 className="text-3xl md:text-5xl font-bold font-heading tracking-tight text-[var(--text-primary)]">
               Operational Boundaries & Disciplinary Limits
@@ -313,7 +335,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8 items-stretch">
             {/* Left Box: We Do Not */}
-            <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-6">
+            <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 space-y-6">
               <div className="font-mono text-[10px] text-red-400 uppercase tracking-widest font-bold flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-red-400 rounded-none"></span>
                 RAVEN DOES NOT
@@ -360,7 +382,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-[var(--brand-cyan)] font-bold select-none">[✓]</span>
-                  <span><strong>Maintain immutable commit ledgers:</strong> Cryptographically anchor claim records as of analysis timestamps.</span>
+                  <span><strong>Maintain tamper-evident commit records:</strong> Cryptographically anchor claim records as of analysis timestamps.</span>
                 </li>
               </ul>
             </div>
@@ -368,35 +390,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 3: INTERACTIVE PRESSURE PROPAGATION TOPOLOGY */}
-      <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-primary)]">
-        <div className="max-w-6xl mx-auto space-y-12">
-          <div className="max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
-              Section 02 // Interactive State Engine
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold font-heading tracking-tight text-[var(--text-primary)]">
-              Multi-Variable Pressure Propagation
-            </h2>
-            <p className="text-base text-[var(--text-secondary)]">
-              Explore how localized balance sheet vulnerabilities, statutory trust terms, or regulatory thresholds cascade into systemic deal disruption. Click any node to inspect primary source SEC evidence.
-            </p>
-          </div>
-
-          <PressurePropagationInteractive />
-        </div>
-      </section>
-
-      {/* SECTION 4: THE RAVEN EVIDENCE STANDARD */}
+      {/* SECTION 5: THE RAVEN EVIDENCE STANDARD */}
       <EvidenceStandardMatrix />
 
-      {/* SECTION 5: THE 8-PART TRANSACTION REVIEW PACKAGE */}
+      {/* SECTION 6: THE 8-PART TRANSACTION REVIEW PACKAGE */}
       <InstitutionalDeliverables />
 
-      {/* SECTION 6: ARCHITECTURAL COMPARISON */}
-      <ComparisonTable />
-
-      {/* SECTION 7: LIVE PRESSURE ENVIRONMENTS */}
+      {/* SECTION 7: LIVE PRESSURE ENVIRONMENTS & 100+ TRANSACTIONS */}
       <LivePressureEvents />
 
       {/* SECTION 8: COST OF ANALYTICAL BLINDSPOTS */}

@@ -28,25 +28,25 @@ const COMPARISON_DATA: ComparisonDimension[] = [
     category: "Analytical Paradigm",
     genericAI: "Passive text summarization & probabilistic chat generation",
     traditionalVDR: "Static document hosting & keyword/regex pattern indexing",
-    legacyAdvisory: "Manual checklist review & qualitative memo drafting",
+    legacyAdvisory: "Manual checklist review & qualitative narrative drafting",
     ravenEngine: "Deterministic State Machine Modeling across cross-covenant mechanics",
-    institutionalImpact: "Eliminates narrative drift and models real-time contractual state transitions under stress."
+    institutionalImpact: "Eliminates narrative ambiguity and models prospective contractual state transitions under stress."
   },
   {
     category: "Dialectical Methodology",
     genericAI: "Consensus-seeking output averaging conflicting clauses",
     traditionalVDR: "None (Raw unweighted document retrieval)",
-    legacyAdvisory: "Subjective human alignment often incentivized by deal closing",
+    legacyAdvisory: "Review deliverables structured around deal milestone support",
     ravenEngine: "Multi-Agent Adversarial Debate (Seller Advocate vs. Adversarial Buyer)",
-    institutionalImpact: "Systematically exposes hidden structural dilution, hold-up points, and litigation cash drag."
+    institutionalImpact: "Systematically exposes latent structural dilution, hold-up points, and litigation cash drag."
   },
   {
     category: "Epistemic Discipline",
-    genericAI: "Uncalibrated confidence prone to narrative hallucinations",
+    genericAI: "Probabilistic generation prone to unsupported assertions unless independently verified",
     traditionalVDR: "Uncategorized data dumps with zero analytical hierarchy",
-    legacyAdvisory: "Variable partner/associate consistency across deal teams",
-    ravenEngine: "5-Tier Epistemic Standard (Fact, Computation, Inference, Hypothesis, Unresolved)",
-    institutionalImpact: "Strictly separates line-numbered SEC facts from derivative mathematical consequences."
+    legacyAdvisory: "Variable associate/partner consistency across multi-firm deal teams",
+    ravenEngine: "5-Tier Epistemic Standard (E1 Fact, E2 Computation, E3 Inference, E4 Hypothesis, E5 Unresolved)",
+    institutionalImpact: "Strictly segregates line-numbered SEC facts from derivative mathematical consequences."
   },
   {
     category: "Downside Stress & Pressure Propagation",
@@ -60,21 +60,21 @@ const COMPARISON_DATA: ComparisonDimension[] = [
     category: "Falsification & De-Biasing Gates",
     genericAI: "Accepts management claims and optimistic synergy projections",
     traditionalVDR: "Neutral data silo; no cognitive validation",
-    legacyAdvisory: "Fairness opinions frequently conditioned on management estimates",
-    ravenEngine: "Automated Falsification Gates (Temporal Collapse Prevention, Entity Verification)",
-    institutionalImpact: "Rejects uncollateralized CVR payouts, entity discontinuities, and unbacked synergy puffery."
+    legacyAdvisory: "Review scope frequently conditioned on management assumptions",
+    ravenEngine: "Automated Falsification Gates (Temporal Collapse Prevention, Entity Discontinuity Eradication)",
+    institutionalImpact: "Excludes uncollateralized CVR payouts, entity discontinuities, and unbacked synergy puffery."
   },
   {
     category: "Provenance & Fiduciary Accountability",
     genericAI: "Probabilistic token prediction with non-repeatable traces",
     traditionalVDR: "Basic user access and document download audit logs",
-    legacyAdvisory: "Working papers subject to retrospective narrative reframing",
+    legacyAdvisory: "Working papers subject to retrospective narrative interpretation",
     ravenEngine: "Cryptographic Commit Layer (SHA-256 state hashes frozen prior to deal outcomes)",
-    institutionalImpact: "Creates an unalterable, time-stamped evidentiary paper trail protecting board fiduciaries."
+    institutionalImpact: "Creates a tamper-evident, timestamped record of the analytical state available at assessment."
   },
   {
     category: "Execution Sprint & Cost Structure",
-    genericAI: "Instant text outputs ($50–$300/user/mo SaaS) with zero guarantees",
+    genericAI: "Instant unstructured text ($50–$300/user/mo SaaS) without transaction grounding",
     traditionalVDR: "Volume data room fees ($20K–$100K+/deal) requiring hundreds of associate hours",
     legacyAdvisory: "3 to 6 weeks review cycle ($150K–$1M+ in billable hours)",
     ravenEngine: "48 to 72 Hour Delivery ($10,000 Flat Fee / $25,000 Complex Sprint)",

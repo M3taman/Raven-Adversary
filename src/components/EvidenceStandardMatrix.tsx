@@ -51,82 +51,101 @@ export function EvidenceStandardMatrix() {
           </Link>
         </div>
 
-        {/* Epistemic Tiers Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Epistemic Tiers Grid (E1 to E5) */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
           
           {/* TIER 1: VERIFIED FACT */}
-          <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 flex flex-col justify-between space-y-6">
-            <div className="space-y-3">
+          <div className="p-5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 flex flex-col justify-between space-y-4">
+            <div className="space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[9px] font-bold text-emerald-400 uppercase tracking-widest">TIER 01</span>
-                <span className="px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-[8px] font-mono font-bold uppercase">
+                <span className="font-mono text-[9px] font-bold text-emerald-400 uppercase tracking-widest">TIER E1</span>
+                <span className="px-1.5 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-[8px] font-mono font-bold uppercase">
                   100% PROVENANCE
                 </span>
               </div>
-              <h3 className="text-xl font-bold font-heading text-[var(--text-primary)]">Verified Fact</h3>
-              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Direct verbatim extract or exact numerical value from a primary SEC filing (10-K, 10-Q, 8-K, S-4, DEFM14A, 13D/G) with accession number and page coordinates.
+              <h3 className="text-lg font-bold font-heading text-[var(--text-primary)]">Verified Fact</h3>
+              <p className="text-[11px] text-[var(--text-secondary)] leading-relaxed">
+                Direct verbatim extract or exact numerical figure from a primary SEC filing (10-K, 8-K, S-4, DEFM14A) with accession number coordinates.
               </p>
             </div>
-            <div className="pt-4 border-t border-[var(--border-color)]/60 text-[9px] font-mono text-[var(--text-tertiary)]">
+            <div className="pt-3 border-t border-[var(--border-color)]/60 text-[9px] font-mono text-[var(--text-tertiary)]">
               EXAMPLE: ESOP share count: 414,733 shares (Schedule 13G).
             </div>
           </div>
 
           {/* TIER 2: DERIVED COMPUTATION */}
-          <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 flex flex-col justify-between space-y-6">
-            <div className="space-y-3">
+          <div className="p-5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 flex flex-col justify-between space-y-4">
+            <div className="space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[9px] font-bold text-cyan-400 uppercase tracking-widest">TIER 02</span>
-                <span className="px-2 py-0.5 border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-[8px] font-mono font-bold uppercase">
+                <span className="font-mono text-[9px] font-bold text-cyan-400 uppercase tracking-widest">TIER E2</span>
+                <span className="px-1.5 py-0.5 border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-[8px] font-mono font-bold uppercase">
                   DETERMINISTIC
                 </span>
               </div>
-              <h3 className="text-xl font-bold font-heading text-[var(--text-primary)]">Derived Computation</h3>
-              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Deterministic mathematical calculation produced by combining two or more verified public facts without subjective weighting or probabilistic assumptions.
+              <h3 className="text-lg font-bold font-heading text-[var(--text-primary)]">Derived Computation</h3>
+              <p className="text-[11px] text-[var(--text-secondary)] leading-relaxed">
+                Deterministic mathematical calculation produced by combining verified public facts without subjective weighting or probabilistic assumptions.
               </p>
             </div>
-            <div className="pt-4 border-t border-[var(--border-color)]/60 text-[9px] font-mono text-[var(--text-tertiary)]">
-              EXAMPLE: 414,733 ESOP shares - 76,944 passed-through = 337,789 trustee vote.
+            <div className="pt-3 border-t border-[var(--border-color)]/60 text-[9px] font-mono text-[var(--text-tertiary)]">
+              EXAMPLE: 414,733 shares - 76,944 passed-through = 337,789 trustee vote.
             </div>
           </div>
 
           {/* TIER 3: STRUCTURAL INFERENCE */}
-          <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 flex flex-col justify-between space-y-6">
-            <div className="space-y-3">
+          <div className="p-5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 flex flex-col justify-between space-y-4">
+            <div className="space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[9px] font-bold text-purple-400 uppercase tracking-widest">TIER 03</span>
-                <span className="px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 text-[8px] font-mono font-bold uppercase">
+                <span className="font-mono text-[9px] font-bold text-purple-400 uppercase tracking-widest">TIER E3</span>
+                <span className="px-1.5 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-400 text-[8px] font-mono font-bold uppercase">
                   BOUNDED LOGIC
                 </span>
               </div>
-              <h3 className="text-xl font-bold font-heading text-[var(--text-primary)]">Structural Inference</h3>
-              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Consequence model linking contractual covenants, regulatory thresholds, or balance sheet constraints to transaction friction under specific stress conditions.
+              <h3 className="text-lg font-bold font-heading text-[var(--text-primary)]">Structural Inference</h3>
+              <p className="text-[11px] text-[var(--text-secondary)] leading-relaxed">
+                Consequence model linking contractual covenants, regulatory thresholds, or balance sheet constraints to transaction friction.
               </p>
             </div>
-            <div className="pt-4 border-t border-[var(--border-color)]/60 text-[9px] font-mono text-[var(--text-tertiary)]">
+            <div className="pt-3 border-t border-[var(--border-color)]/60 text-[9px] font-mono text-[var(--text-tertiary)]">
               EXAMPLE: MAE carveout forces buyer to absorb $14M credit markdown post-close.
             </div>
           </div>
 
           {/* TIER 4: ADVERSARIAL HYPOTHESIS */}
-          <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 flex flex-col justify-between space-y-6">
-            <div className="space-y-3">
+          <div className="p-5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 flex flex-col justify-between space-y-4">
+            <div className="space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[9px] font-bold text-amber-400 uppercase tracking-widest">TIER 04</span>
-                <span className="px-2 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 text-[8px] font-mono font-bold uppercase">
+                <span className="font-mono text-[9px] font-bold text-amber-400 uppercase tracking-widest">TIER E4</span>
+                <span className="px-1.5 py-0.5 border border-amber-500/30 bg-amber-500/10 text-amber-400 text-[8px] font-mono font-bold uppercase">
                   COUNTER-TACTIC
                 </span>
               </div>
-              <h3 className="text-xl font-bold font-heading text-[var(--text-primary)]">Adversarial Hypothesis</h3>
-              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Stress-tested tactical scenario modeling how an hostile counterparty, activist hedge fund, or aggressive counter-bidder would exploit identified contractual fissures.
+              <h3 className="text-lg font-bold font-heading text-[var(--text-primary)]">Adversarial Hypothesis</h3>
+              <p className="text-[11px] text-[var(--text-secondary)] leading-relaxed">
+                Stress-tested tactical scenario modeling how a counterparty, activist fund, or competing bidder could exploit identified fissures.
               </p>
             </div>
-            <div className="pt-4 border-t border-[var(--border-color)]/60 text-[9px] font-mono text-[var(--text-tertiary)]">
-              EXAMPLE: Activist leverages pass-through gap to demand board seat concessions.
+            <div className="pt-3 border-t border-[var(--border-color)]/60 text-[9px] font-mono text-[var(--text-tertiary)]">
+              EXAMPLE: Activist leverages pass-through gap to demand board concessions.
+            </div>
+          </div>
+
+          {/* TIER 5: UNRESOLVED INFORMATION GAP */}
+          <div className="p-5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 flex flex-col justify-between space-y-4">
+            <div className="space-y-2.5">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[9px] font-bold text-rose-400 uppercase tracking-widest">TIER E5</span>
+                <span className="px-1.5 py-0.5 border border-rose-500/30 bg-rose-500/10 text-rose-400 text-[8px] font-mono font-bold uppercase">
+                  EXPLICIT GAP
+                </span>
+              </div>
+              <h3 className="text-lg font-bold font-heading text-[var(--text-primary)]">Information Gap</h3>
+              <p className="text-[11px] text-[var(--text-secondary)] leading-relaxed">
+                Explicitly flagged data vacuum or unindexed schedule (e.g. omitted disclosure schedules, pending regulatory approvals) requiring post-signing monitoring.
+              </p>
+            </div>
+            <div className="pt-3 border-t border-[var(--border-color)]/60 text-[9px] font-mono text-[var(--text-tertiary)]">
+              EXAMPLE: Target Section 3.14 litigation schedule omitted from public S-4.
             </div>
           </div>
 
