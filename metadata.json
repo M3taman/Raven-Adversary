@@ -1,6 +1,6 @@
 {
   "name": "Raven Adversary",
-  "description": "Institutional-grade adversarial intelligence for complex transactions.",
+  "description": "Institutional pressure intelligence for complex transactions. Reconstructing transaction decision-states from 100% public evidence under the Raven Standard.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

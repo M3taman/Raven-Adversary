@@ -12,6 +12,8 @@ import { InstitutionalDeliverables } from '../components/InstitutionalDeliverabl
 import { ComparisonTable } from '../components/ComparisonTable';
 import { InstitutionalBuyerProfiles } from '../components/InstitutionalBuyerProfiles';
 import { InteractiveBoardroomBriefing } from '../components/InteractiveBoardroomBriefing';
+import ArchitecturalComparison from '../components/ArchitecturalComparison';
+import { InstitutionalSecurityChallenge } from '../components/InstitutionalSecurityChallenge';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -42,6 +44,8 @@ function handleFirestoreError(error: unknown, operationType: OperationType, path
 
 export default function Home() {
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [isSecurityVerified, setIsSecurityVerified] = useState(false);
+  const [securityError, setSecurityError] = useState<string | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isBriefingModalOpen, setIsBriefingModalOpen] = useState(false);
   const [referenceId, setReferenceId] = useState('');
@@ -57,10 +61,24 @@ export default function Home() {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormState('submitting');
-    
+    setSecurityError(null);
+
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
+
+    // Bot honeypot check: If hidden field is filled, silently reject or fail
+    if (data.company_homepage_validation) {
+      console.warn('Bot detected via honeypot field.');
+      setFormState('error');
+      return;
+    }
+
+    if (!isSecurityVerified) {
+      setSecurityError('Please complete the Institutional Anti-Bot Challenge below before submitting.');
+      return;
+    }
+
+    setFormState('submitting');
     const generatedRef = `RAV-${Math.floor(100000 + Math.random() * 900000)}`;
     setReferenceId(generatedRef);
 
@@ -121,65 +139,160 @@ export default function Home() {
       </script>
 
       {/* HERO SECTION */}
-      <section className="min-h-[90vh] flex flex-col justify-center pt-36 pb-24 px-6 md:px-12 xl:px-24 text-center relative">
+      <section className="min-h-[92vh] flex flex-col justify-center pt-36 pb-20 px-6 md:px-12 xl:px-24 text-center relative">
         <div className="max-w-5xl mx-auto space-y-8 flex flex-col items-center">
           
           <div className="inline-flex items-center gap-2 px-3 py-1 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
             <Shield className="w-3 h-3 text-[var(--brand-cyan)]" />
-            INSTITUTIONAL TRANSACTION-STATE INTELLIGENCE
+            RAVEN ADVERSARY INTELLIGENCE // INSTITUTIONAL PRESSURE INTELLIGENCE
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] font-heading text-[var(--text-primary)]">
-            We Reconstruct <span className="text-[var(--brand-cyan)]">Transaction Leverage</span> Before Conditions Deteriorate.
+            Institutional Pressure Intelligence for <span className="text-[var(--brand-cyan)]">Complex Transactions</span>
           </h1>
           
           <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-3xl leading-relaxed">
-            Unlike legal AI tools that summarize contracts, Raven models M&A agreements as dynamic state machines. We audit who actually holds leverage when assumptions break down—grounded 100% in public SEC filings.
+            Raven reconstructs the decision-state of a live transaction from public evidence, adversarially tests the deal's claims, and maps where contractual, financing, governance, and execution pressure can propagate.
           </p>
 
-          <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
-            <a 
-              href="#contact" 
+          <div className="pt-2 flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
+            <Link 
+              to="/request-assessment" 
               className="bg-[var(--text-primary)] text-[var(--bg-primary)] px-8 py-4 flex items-center gap-2 text-xs font-bold font-mono uppercase tracking-wider hover:opacity-90 transition-opacity w-full sm:w-auto justify-center rounded-none shadow-lg"
             >
-              Order Transaction Review ($10K) <ArrowRight className="w-4 h-4" />
-            </a>
+              Request Transaction Assessment <ArrowRight className="w-4 h-4" />
+            </Link>
             
+            <Link 
+              to="/raven-engine" 
+              className="border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--brand-cyan)] px-8 py-4 flex items-center gap-2 text-xs font-bold font-mono uppercase tracking-wider transition-colors w-full sm:w-auto justify-center bg-transparent rounded-none"
+            >
+              The Raven Engine <ChevronRight className="w-3.5 h-3.5 text-[var(--brand-cyan)]" />
+            </Link>
+
             <button 
               onClick={() => setIsBriefingModalOpen(true)} 
               className="px-8 py-4 border border-[var(--brand-cyan)] text-[var(--brand-cyan)] hover:bg-[var(--brand-cyan)]/10 flex items-center gap-2 text-xs font-bold font-mono uppercase tracking-wider transition-colors w-full sm:w-auto justify-center bg-transparent rounded-none"
             >
-              <Play className="w-3.5 h-3.5" /> Launch 7-Min Boardroom Briefing
-            </button>
-
-            <button 
-              onClick={() => setIsVideoModalOpen(true)} 
-              className="px-6 py-4 border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-highlight)] flex items-center gap-2 text-xs font-mono uppercase tracking-wider transition-colors w-full sm:w-auto justify-center bg-transparent rounded-none"
-            >
-              Watch Video Briefing
+              <Play className="w-3.5 h-3.5" /> 7-Min Boardroom Briefing
             </button>
           </div>
 
-          {/* Quick Metrics Bar */}
+          {/* Quick Institutional Highlights Bar */}
           <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl border-t border-[var(--border-color)] text-left">
             <div>
-              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">PROVENANCE</div>
+              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">DATA SCOPE</div>
               <div className="text-sm font-bold font-heading text-[var(--text-primary)] mt-0.5">100% Public SEC Filings</div>
             </div>
             <div>
-              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">EPISTEMIC DISCIPLINE</div>
+              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">EPISTEMIC STANDARD</div>
               <div className="text-sm font-bold font-heading text-[var(--text-primary)] mt-0.5">5-Tier Claim Adjudication</div>
             </div>
             <div>
-              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">DELIVERY SPRINT</div>
-              <div className="text-sm font-bold font-heading text-[var(--text-primary)] mt-0.5">48 - 72 Hour Turnaround</div>
+              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">PROOF CORPUS</div>
+              <div className="text-sm font-bold font-heading text-[var(--text-primary)] mt-0.5">100+ Live Transactions</div>
             </div>
             <div>
               <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">INFORMATION HYGIENE</div>
-              <div className="text-sm font-bold font-heading text-emerald-400 mt-0.5">Zero MNPI / Strict Walls</div>
+              <div className="text-sm font-bold font-heading text-emerald-400 mt-0.5">Zero MNPI // Ethical Walls</div>
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* SECTION: 60-SECOND INSTITUTIONAL MATRIX (5 Core Questions) */}
+      <section className="py-20 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/30">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <div className="max-w-3xl space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
+              INSTITUTIONAL CLARITY // 60-SECOND BRIEFING
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold font-heading tracking-tight text-[var(--text-primary)]">
+              What Institutional Buyers Need to Know in 60 Seconds
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            {/* Q1 */}
+            <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-3">
+              <div className="font-mono text-[10px] text-[var(--brand-cyan)] font-bold uppercase tracking-wider">
+                01 // DEFINITION
+              </div>
+              <h3 className="text-base font-bold font-heading text-[var(--text-primary)]">
+                What exactly is Raven?
+              </h3>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                Raven is an institutional pressure intelligence firm for complex transactions. We model public M&A agreements as dynamic state machines rather than static text documents.
+              </p>
+            </div>
+
+            {/* Q2 */}
+            <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-3">
+              <div className="font-mono text-[10px] text-[var(--brand-cyan)] font-bold uppercase tracking-wider">
+                02 // FUNCTION
+              </div>
+              <h3 className="text-base font-bold font-heading text-[var(--text-primary)]">
+                What does the Raven Engine do?
+              </h3>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                It extracts interlocked covenants, runs multi-agent adversarial debate (Buyer vs. Seller), executes falsification gates, and reconstructs who holds true leverage under stress.
+              </p>
+            </div>
+
+            {/* Q3 */}
+            <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-3">
+              <div className="font-mono text-[10px] text-[var(--brand-cyan)] font-bold uppercase tracking-wider">
+                03 // DIFFERENTIATION
+              </div>
+              <h3 className="text-base font-bold font-heading text-[var(--text-primary)]">
+                Why isn't this another LLM wrap?
+              </h3>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                LLMs summarize text and invent answers. Raven uses a 9-stage deterministic pipeline with automated falsification gates, mathematical proofs, and cryptographic commit hashing.
+              </p>
+            </div>
+
+            {/* Q4 */}
+            <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-3">
+              <div className="font-mono text-[10px] text-[var(--brand-cyan)] font-bold uppercase tracking-wider">
+                04 // VERIFIABILITY
+              </div>
+              <h3 className="text-base font-bold font-heading text-[var(--text-primary)]">
+                Can I verify what it tells me?
+              </h3>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                Yes. Every single fact, number, and clause citation binds directly to line-numbered SEC EDGAR filings and regulatory Call Reports under our 5-Tier Epistemic Standard.
+              </p>
+            </div>
+
+            {/* Q5 */}
+            <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-3 md:col-span-2 lg:col-span-2">
+              <div className="font-mono text-[10px] text-emerald-400 font-bold uppercase tracking-wider">
+                05 // LIVE ENGAGEMENT
+              </div>
+              <h3 className="text-base font-bold font-heading text-[var(--text-primary)]">
+                What happens if I give Raven a live transaction?
+              </h3>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                Our forensic desk conduct pre-engagement conflict verification and delivers an 8-Part Transaction Review Package (including Decision Memo, Evidence Ledger, Adversarial Brief, and 7-Minute Boardroom Walkthrough) within 48 to 72 hours under zero-MNPI protocols.
+              </p>
+              <div className="pt-2">
+                <Link to="/request-assessment" className="font-mono text-xs text-[var(--brand-cyan)] font-bold hover:underline inline-flex items-center gap-1.5">
+                  Initiate Assessment Request <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: ARCHITECTURAL COMPARISON MATRIX */}
+      <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-primary)]">
+        <div className="max-w-6xl mx-auto">
+          <ArchitecturalComparison />
         </div>
       </section>
 
@@ -401,6 +514,21 @@ export default function Home() {
                   />
                 </div>
               </div>
+
+              {/* Institutional Cryptographic Proof-of-Human Security Challenge */}
+              <InstitutionalSecurityChallenge 
+                onVerify={(verified) => {
+                  setIsSecurityVerified(verified);
+                  if (verified) setSecurityError(null);
+                }}
+                isVerified={isSecurityVerified}
+              />
+
+              {securityError && (
+                <div className="text-xs text-amber-400 bg-amber-500/10 border border-amber-500/30 p-3 font-mono">
+                  {securityError}
+                </div>
+              )}
 
               {formState === 'error' && (
                 <div className="text-xs text-red-500 bg-red-500/10 border border-red-500/20 p-3 font-mono">

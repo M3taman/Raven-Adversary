@@ -1,10 +1,26 @@
 import React from 'react';
-import { Terminal, Brain, Shield, ChevronRight, Activity, FileText, CheckCircle2 } from 'lucide-react';
+import { 
+  Terminal, 
+  Brain, 
+  Shield, 
+  ChevronRight, 
+  Activity, 
+  FileText, 
+  CheckCircle2, 
+  Scale, 
+  GitBranch, 
+  AlertTriangle, 
+  Lock, 
+  ArrowRight,
+  BookOpen,
+  Layers,
+  Database
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Methodology() {
   return (
-    <div className="pt-28 pb-20 px-6 max-w-5xl mx-auto space-y-16">
+    <div className="pt-28 pb-20 px-6 max-w-6xl mx-auto space-y-20">
       
       {/* FAQ Schema for GEO/AI-Search crawling */}
       <script type="application/ld+json">
@@ -14,178 +30,243 @@ export default function Methodology() {
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How does Raven's Adversarial Debate Logic work?",
+              "name": "What is the Raven Standard for Transaction Intelligence?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Adversarial Debate Logic processes disclosures from conflicting perspectives—buyer versus seller advocates—over four structured rounds of critical debate, stripping away promotional bias and highlighting hidden risks."
+                "text": "The Raven Standard is a public, deterministic epistemic framework for auditing complex corporate transactions. It enforces strict claim classification, multi-agent adversarial debate, zero-temporal collapse validation, and cryptographic commit tracking across 100% public SEC filings."
               }
             },
             {
               "@type": "Question",
-              "name": "What is the Commit Layer?",
+              "name": "How does Raven separate Verified Facts from Inferences?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The Commit Layer is Raven's strict accountability standard where we document, timestamps, and freeze all analytical risk assessments before transaction outcomes are known, eliminating hindsight bias."
+                "text": "Raven categorizes all analytical assertions into 5 strict tiers: Verified Facts (verbatim line citations), Derived Computations (deterministic arithmetic), Structural Inferences (causal consequence logic), Adversarial Hypotheses (stress simulations), and Unresolved Information Gaps."
               }
             }
           ]
         })}
       </script>
 
-      {/* Header */}
-      <header className="space-y-6 border-b border-[var(--border-color)] pb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[10px] uppercase tracking-[0.2em]">
-          Operational Methodology // Core Architecture
+      {/* HEADER */}
+      <header className="space-y-6 border-b border-[var(--border-color)] pb-12">
+        <div className="inline-flex items-center gap-2 px-3 py-1 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
+          <BookOpen className="w-3 h-3 text-[var(--brand-cyan)]" />
+          PUBLIC EPISTEMIC SPECIFICATION
         </div>
         
         <h1 className="text-4xl md:text-6xl font-bold font-heading tracking-tight text-[var(--text-primary)] leading-[1.1]">
-          The Raven Methodology
+          The Raven Standard for Transaction Intelligence
         </h1>
         
-        <p className="text-xl text-[var(--text-secondary)] leading-relaxed max-w-3xl">
-          Four pipeline modules designed to eliminate low-context LLM summarization and deliver verifiable, actionable pressure-state intelligence.
+        <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-4xl">
+          The public methodology governing claim classification, adversarial interrogation, falsification gates, and decision-state reconstruction in complex M&A transactions.
         </p>
 
-        <div className="pt-4 flex gap-4 text-[10px] font-mono uppercase tracking-widest text-[var(--text-tertiary)]">
-          <div>OPERATIONAL STATUS: ACTIVE</div>
+        <div className="pt-4 flex flex-wrap gap-4 text-[10px] font-mono uppercase tracking-widest text-[var(--text-tertiary)]">
+          <div className="flex items-center gap-1.5 text-emerald-400">
+            <span className="w-2 h-2 rounded-full bg-emerald-500"></span> 100% PUBLIC FILINGS // ZERO MNPI
+          </div>
           <span>|</span>
-          <div>AUDIT INTEGRITY: LEVEL 04 CERTIFIED</div>
+          <div>SPECIFICATION VERSION: 2026.4</div>
+          <span>|</span>
+          <div>DETERMINISTIC & AUDITABLE</div>
         </div>
       </header>
 
-      {/* Modules Detailed Breakdown */}
+      {/* THE 12 PILLARS OF THE RAVEN STANDARD */}
       <div className="space-y-16">
         
-        {/* Module 1: Adversarial Debate Logic */}
-        <section className="grid md:grid-cols-12 gap-8 items-start border-b border-[var(--border-color)] pb-12">
-          <div className="md:col-span-4 space-y-3">
-            <div className="font-mono text-[10px] text-[var(--brand-cyan)] uppercase tracking-widest flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-[var(--brand-cyan)]"></span>
-              MODULE 01
-            </div>
+        {/* Section 1: Evidence Hierarchy & Claim Classification */}
+        <section className="p-8 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-6">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 flex items-center justify-center font-mono font-bold text-xs bg-[var(--brand-cyan)]/10 text-[var(--brand-cyan)] border border-[var(--brand-cyan)]/30">
+              01
+            </span>
             <h2 className="text-2xl font-bold font-heading text-[var(--text-primary)]">
-              Adversarial Debate Logic
+              Evidence Hierarchy & 5-Tier Claim Classification
             </h2>
-            <div className="px-2 py-1 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 inline-block font-mono text-[8px] uppercase tracking-wider text-[var(--text-tertiary)]">
-              Anti-Hallucination Guard
-            </div>
           </div>
-          <div className="md:col-span-8 space-y-4">
-            <p className="text-[var(--text-secondary)]">
-              Generic corporate AI systems attempt to find an artificial "consensus" by averaging documents or compiling checklists. We reject this. M&A risk is discovered through opposition.
-            </p>
-            <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-              Our system runs a four-round adversarial debate between distinct modeling states:
-            </p>
-            <ul className="space-y-2 font-mono text-xs text-[var(--text-primary)]">
-              <li className="flex items-center gap-2">
-                <span className="text-[var(--brand-cyan)]">▶</span> ROUND 1: Target Bull Hypothesis formulation (seller perspective)
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-[var(--brand-cyan)]">▶</span> ROUND 2: Forensic Bear Critique (buyer pressure testing)
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-[var(--brand-cyan)]">▶</span> ROUND 3: Rebuttal & evidentiary narrowing
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-[var(--brand-cyan)]">▶</span> ROUND 4: Consensus synthesis & high-confidence residual risk isolation
-              </li>
-            </ul>
+          <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+            Generic LLMs blend raw contractual facts with speculative management optimism into single unstructured narratives. The Raven Standard strictly segregates every assertion into five deterministic epistemic categories:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-3 pt-2 font-mono text-xs">
+            <div className="p-3 border border-emerald-500/30 bg-emerald-500/5 space-y-1">
+              <div className="font-bold text-emerald-400">TIER 1: FACT</div>
+              <div className="text-[10px] text-[var(--text-secondary)]">Verbatim SEC quote with EDGAR line accession. 100% confidence.</div>
+            </div>
+            <div className="p-3 border border-blue-500/30 bg-blue-500/5 space-y-1">
+              <div className="font-bold text-blue-400">TIER 2: COMPUTATION</div>
+              <div className="text-[10px] text-[var(--text-secondary)]">Deterministic mathematical calculation (dilution ratios, EVE shocks).</div>
+            </div>
+            <div className="p-3 border border-purple-500/30 bg-purple-500/5 space-y-1">
+              <div className="font-bold text-purple-400">TIER 3: INFERENCE</div>
+              <div className="text-[10px] text-[var(--text-secondary)]">Causal structural logic derived directly from cross-clause interplay.</div>
+            </div>
+            <div className="p-3 border border-amber-500/30 bg-amber-500/5 space-y-1">
+              <div className="font-bold text-amber-400">TIER 4: HYPOTHESIS</div>
+              <div className="text-[10px] text-[var(--text-secondary)]">Adversarial stress scenario modeling downside counterparty behaviors.</div>
+            </div>
+            <div className="p-3 border border-rose-500/30 bg-rose-500/5 space-y-1">
+              <div className="font-bold text-rose-400">TIER 5: UNRESOLVED</div>
+              <div className="text-[10px] text-[var(--text-secondary)]">Explicit information vacuum or unverified non-SEC target asset gap.</div>
+            </div>
           </div>
         </section>
 
-        {/* Module 2: Pressure-State Modeling */}
-        <section className="grid md:grid-cols-12 gap-8 items-start border-b border-[var(--border-color)] pb-12">
-          <div className="md:col-span-4 space-y-3">
-            <div className="font-mono text-[10px] text-[var(--brand-cyan)] uppercase tracking-widest flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-[var(--brand-cyan)]"></span>
-              MODULE 02
-            </div>
+        {/* Section 2: Temporal Validation & Anti-Collapse Guards */}
+        <section className="p-8 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-6">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 flex items-center justify-center font-mono font-bold text-xs bg-[var(--brand-cyan)]/10 text-[var(--brand-cyan)] border border-[var(--brand-cyan)]/30">
+              02
+            </span>
             <h2 className="text-2xl font-bold font-heading text-[var(--text-primary)]">
-              Pressure-State Modeling
+              Temporal Validation & Chronological Sequence Enforcement
             </h2>
-            <div className="px-2 py-1 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 inline-block font-mono text-[8px] uppercase tracking-wider text-[var(--text-tertiary)]">
-              Constraint Interdependencies
-            </div>
           </div>
-          <div className="md:col-span-8 space-y-4">
-            <p className="text-[var(--text-secondary)]">
-              Covenants, listing parameters, and asset sizing thresholds never exist in isolation. They form a dynamic network.
-            </p>
-            <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-              Pressure-State Modeling treats public SEC disclosures as inputs to a multi-variable dependency graph. We map how changes in floating variables (like Net Cash limits, stock prices, interest rate collars, or closing delays) propagate across other contractual boundaries. 
-            </p>
-            <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-              This mathematical approach identifies exact tipping points where minor operational delays or clinical setbacks cascade into covenant breaches or massive reserve requirements before the market identifies the exposure.
-            </p>
+          <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+            Transactions fail because events unfold sequentially over time, yet standard diligence tools treat entire document repositories as a single static point. The Raven Standard enforces:
+          </p>
+          <ul className="space-y-2 text-xs text-[var(--text-secondary)] list-disc pl-6 font-sans">
+            <li><strong>Zero Temporal Collapse:</strong> Enforces distinct timestamp ordering between pre-signing negotiations, tender expiration cutoffs, financing disclosures, and regulatory drop-dead dates.</li>
+            <li><strong>Willful Breach Chronology:</strong> Reconstructs exact 24-hour gaps (e.g. tender expiration before financing deficit disclosures) to establish actionable breach liabilities.</li>
+            <li><strong>Lock-Up & Rule 144 Float Schedules:</strong> Models exact 180-day and VWAP-accelerated lock-up release cascades to predict float saturation.</li>
+          </ul>
+        </section>
+
+        {/* Section 3: Multi-Agent Adversarial Debate Protocol */}
+        <section className="p-8 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-6">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 flex items-center justify-center font-mono font-bold text-xs bg-[var(--brand-cyan)]/10 text-[var(--brand-cyan)] border border-[var(--brand-cyan)]/30">
+              03
+            </span>
+            <h2 className="text-2xl font-bold font-heading text-[var(--text-primary)]">
+              Multi-Agent Adversarial Interrogation
+            </h2>
+          </div>
+          <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+            Consensus-seeking AI creates blindspots by averaging contradictory positions. The Raven Standard enforces dialectical tension between opposing specialized reasoning agents:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
+            <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-secondary)] space-y-2">
+              <div className="font-bold text-[var(--brand-cyan)] uppercase">THE SELLER ADVOCATE</div>
+              <p className="text-[var(--text-secondary)] font-sans text-xs">
+                Defends deal rationale, aligns with standard customary drafting, highlights commercial growth synergies, and explains preferred governance ring-fencing.
+              </p>
+            </div>
+            <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-secondary)] space-y-2">
+              <div className="font-bold text-rose-400 uppercase">THE ADVERSARIAL BUYER</div>
+              <p className="text-[var(--text-secondary)] font-sans text-xs">
+                Audits downside asymmetric exposure, tests non-survival of reps & warranties, calculates post-close litigation cash drag, and isolates minority shareholder marginalization.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* Module 3: Commit Layer Mechanics */}
-        <section className="grid md:grid-cols-12 gap-8 items-start border-b border-[var(--border-color)] pb-12">
-          <div className="md:col-span-4 space-y-3">
-            <div className="font-mono text-[10px] text-[var(--brand-cyan)] uppercase tracking-widest flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-[var(--brand-cyan)]"></span>
-              MODULE 03
-            </div>
+        {/* Section 4: Automated Falsification & Cognitive Rejection Gates */}
+        <section className="p-8 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-6">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 flex items-center justify-center font-mono font-bold text-xs bg-[var(--brand-cyan)]/10 text-[var(--brand-cyan)] border border-[var(--brand-cyan)]/30">
+              04
+            </span>
             <h2 className="text-2xl font-bold font-heading text-[var(--text-primary)]">
-              Commit Layer Mechanics
+              Automated Falsification & Cognitive Rejection Gates
             </h2>
-            <div className="px-2 py-1 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 inline-block font-mono text-[8px] uppercase tracking-wider text-[var(--text-tertiary)]">
-              No Hindsight Rewriting
-            </div>
           </div>
-          <div className="md:col-span-8 space-y-4">
-            <p className="text-[var(--text-secondary)]">
-              Corporate advisors are notorious for modifying their analytical history in hindsight. Once a transaction fails, advisors point to generic, catch-all "risk factors" in S-4 drafts to claim they predicted the collapse.
-            </p>
-            <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-              We enforce epistemic honesty. Every pressure pathway and vulnerability score is documented, timestamped, and frozen in our Commit Layer database before close. 
-            </p>
-            <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-              We lock in exact risk ownership profiles and accepted uncertainty vectors. You get an untamperable audit trail of what was known, what was inferred, and what was speculated, ensuring absolute alignment with actual historical outcomes.
-            </p>
+          <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+            Before any strategic conclusion is approved, it must clear four automated falsification gates designed to eliminate confirmation bias and management puffery:
+          </p>
+          <div className="space-y-3 font-mono text-xs">
+            <div className="p-3 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 flex items-start gap-3">
+              <span className="text-[var(--brand-cyan)] font-bold">GATE 1:</span>
+              <div>
+                <span className="font-bold text-[var(--text-primary)]">Absolute Recovery Eradication:</span> Rejects assertions assuming 100% CVR or earnout monetization without verified milestone capitalization.
+              </div>
+            </div>
+            <div className="p-3 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 flex items-start gap-3">
+              <span className="text-[var(--brand-cyan)] font-bold">GATE 2:</span>
+              <div>
+                <span className="font-bold text-[var(--text-primary)]">Entity Discontinuity Verification:</span> Cross-checks operating subsidiaries vs regional holding companies to prevent multi-billion dollar entity mix-ups.
+              </div>
+            </div>
+            <div className="p-3 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 flex items-start gap-3">
+              <span className="text-[var(--brand-cyan)] font-bold">GATE 3:</span>
+              <div>
+                <span className="font-bold text-[var(--text-primary)]">Section 13(d) Syndicate Coordination Gate:</span> Audits PIPE voting agreements to verify whether coordinated voting crosses statutory group thresholds.
+              </div>
+            </div>
+            <div className="p-3 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 flex items-start gap-3">
+              <span className="text-[var(--brand-cyan)] font-bold">GATE 4:</span>
+              <div>
+                <span className="font-bold text-[var(--text-primary)]">Fiduciary Non-Survival Check:</span> Flags any agreement where reps & warranties terminate at closing with zero indemnity escrow.
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Module 4: Evidence Verification Standards */}
-        <section className="grid md:grid-cols-12 gap-8 items-start border-b border-[var(--border-color)] pb-12">
-          <div className="md:col-span-4 space-y-3">
-            <div className="font-mono text-[10px] text-[var(--brand-cyan)] uppercase tracking-widest flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-[var(--brand-cyan)]"></span>
-              MODULE 04
-            </div>
+        {/* Section 5: Pressure Propagation & Decision-State Reconstruction */}
+        <section className="p-8 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-6">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 flex items-center justify-center font-mono font-bold text-xs bg-[var(--brand-cyan)]/10 text-[var(--brand-cyan)] border border-[var(--brand-cyan)]/30">
+              05
+            </span>
             <h2 className="text-2xl font-bold font-heading text-[var(--text-primary)]">
-              Evidence Verification Standards
+              Pressure Propagation & Decision-State Reconstruction
             </h2>
-            <div className="px-2 py-1 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 inline-block font-mono text-[8px] uppercase tracking-wider text-[var(--text-tertiary)]">
-              Strict Verifiability
-            </div>
           </div>
-          <div className="md:col-span-8 space-y-4">
-            <p className="text-[var(--text-secondary)]">
-              Raven is built on a simple rule: <strong>If you cannot prove it, do not claim it.</strong>
-            </p>
-            <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-              Every inference, vulnerability flag, or pressure trajectory generated by our model carries an evidentiary tag that binds it directly to public sources. This include specific SEC form numbers, accession codes, section clauses, and exact line counts.
-            </p>
-            <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-              We do not generate opinions. We unmask the direct, document-backed facts that target companies are legally obligated to disclose, but rely on complexity to hide.
-            </p>
+          <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+            Legal contracts are dynamic state machines. A shift in one covenant ripples across balance sheets, voting thresholds, and executive authority. Raven maps the complete 6-stage cascade:
+          </p>
+          <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-secondary)] font-mono text-xs text-[var(--text-primary)] leading-relaxed">
+            CLAUSE (Schedule 1.5 Net Cash Downward Adjustment) <br/>
+            &nbsp;&nbsp;↓ CONSTRAINT (Target clinical cash burn breaches Target Cash baseline) <br/>
+            &nbsp;&nbsp;↓ COUNTERPARTY BEHAVIOR (Buyer refuses extension without equity haircut) <br/>
+            &nbsp;&nbsp;↓ FINANCIAL CONSEQUENCE (Legacy float allocation diluted to sub-1.00%) <br/>
+            &nbsp;&nbsp;↓ GOVERNANCE CONSEQUENCE (100% board control reconstitutes to buyer) <br/>
+            &nbsp;&nbsp;↓ DECISION STATE (Target board loses walkaway leverage and must accept closing)
           </div>
+        </section>
+
+        {/* Section 6: Cryptographic Commit Layer & Immutable Provenance */}
+        <section className="p-8 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-6">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 flex items-center justify-center font-mono font-bold text-xs bg-[var(--brand-cyan)]/10 text-[var(--brand-cyan)] border border-[var(--brand-cyan)]/30">
+              06
+            </span>
+            <h2 className="text-2xl font-bold font-heading text-[var(--text-primary)]">
+              Cryptographic Commit Layer & Fiduciary Accountability
+            </h2>
+          </div>
+          <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+            Traditional transaction advisors rewrite analytical records in hindsight. The Raven Standard freezes every fact, computational proof, and risk score with a SHA-256 cryptographic hash before deal outcomes are known. This creates an unalterable, time-stamped evidentiary paper trail protecting fiduciaries and investment committees.
+          </p>
         </section>
 
       </div>
 
-      {/* Methodology Summary Map */}
-      <section className="p-8 border border-[var(--border-color)] bg-[var(--bg-secondary)]/10 text-center space-y-6">
-        <h3 className="text-2xl font-bold font-heading text-[var(--text-primary)]">Experience the Integrity of Pressure-State Intel</h3>
-        <p className="text-sm max-w-xl mx-auto">
-          Our core architecture processes transactions with the highest degree of diligence. Begin your target profile review today.
+      {/* CTA SECTION */}
+      <section className="p-8 md:p-12 border border-[var(--brand-cyan)]/40 bg-[var(--brand-cyan)]/5 text-center space-y-6">
+        <h3 className="text-2xl md:text-3xl font-bold font-heading text-[var(--text-primary)]">
+          Audit Your Live Transaction Under the Raven Standard
+        </h3>
+        <p className="text-sm text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed">
+          Commission an independent, cryptographically committed 8-part adversarial transaction review within 48 to 72 hours.
         </p>
-        <Link to="/" className="inline-flex items-center gap-2 bg-[var(--text-primary)] text-[var(--bg-primary)] px-8 py-4 text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity">
-          Initiate Review Workflow <ChevronRight className="w-4 h-4" />
-        </Link>
+        <div className="pt-2 flex flex-wrap justify-center gap-4">
+          <Link
+            to="/request-assessment"
+            className="bg-[var(--text-primary)] text-[var(--bg-primary)] px-8 py-4 font-mono text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-opacity inline-flex items-center gap-2"
+          >
+            Request Transaction Assessment <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+          <Link
+            to="/raven-engine"
+            className="border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] px-8 py-4 font-mono text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center gap-2"
+          >
+            Explore The Raven Engine <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </section>
 
     </div>

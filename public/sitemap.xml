@@ -2,68 +2,111 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ravenadversary.com/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ravenadversary.com/pressure-intelligence/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <loc>https://ravenadversary.com/raven-engine</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ravenadversary.com/intelligence/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <loc>https://ravenadversary.com/methodology</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/comparison</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/institutional-use</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/deal-intelligence</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- Transaction Dossier Slugs -->
   <url>
-    <loc>https://ravenadversary.com/services/m-and-a/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ravenadversary.com/services/activism/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ravenadversary.com/services/governance/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ravenadversary.com/services/regulatory/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ravenadversary.com/methodology/</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ravenadversary.com/security/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <loc>https://ravenadversary.com/deal-intelligence/nims-gravitics</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ravenadversary.com/privacy/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <loc>https://ravenadversary.com/deal-intelligence/inmed-mentari</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ravenadversary.com/terms/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <loc>https://ravenadversary.com/deal-intelligence/nextcure-avere</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/deal-intelligence/fbnc-fcbm</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/deal-intelligence/verifyme-openworld</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/deal-intelligence/first-seacoast</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/deal-intelligence/imaq-vci</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/deal-intelligence/horizon-summit</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/deal-intelligence/valens-therapeutics</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/deal-intelligence/pacific-crest</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Trust, Governance, & Intake -->
+  <url>
+    <loc>https://ravenadversary.com/request-assessment</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/evidence-standard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/trust</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/conflicts</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://ravenadversary.com/security</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
