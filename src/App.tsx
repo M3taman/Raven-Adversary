@@ -173,22 +173,21 @@ export default function App() {
               <div className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-[var(--brand-cyan)]/5 rounded-full blur-[140px]"></div>
               
               {/* Background Watermark Logo */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none">
+              <div className="absolute inset-0 flex items-center justify-center opacity-[0.035] pointer-events-none">
                 <img 
-                  src="/logo.png?v=3" 
+                  src="/logo-raven-dark.png" 
                   alt="Raven Adversary Background Watermark" 
-                  className="w-[100vw] max-w-[1200px] object-contain mix-blend-screen contrast-125 brightness-110" 
+                  className="w-[100vw] max-w-[950px] object-contain" 
                 />
               </div>
             </>
           )}
           {!isDark && (
-             <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none">
+             <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
               <img 
-                src="/logo.png?v=3" 
+                src="/logo-raven-light.png" 
                 alt="Raven Adversary Light Background Watermark" 
-                className="w-[100vw] max-w-[1200px] object-contain mix-blend-multiply hover:opacity-80" 
-                style={{ filter: 'invert(1) contrast(300%) brightness(120%)' }}
+                className="w-[100vw] max-w-[950px] object-contain" 
               />
             </div>
           )}
@@ -202,30 +201,16 @@ export default function App() {
             <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 hover:opacity-100 transition-opacity group/logo relative shrink-0">
               <div className="relative flex items-center h-12 md:h-16 w-auto shrink-0 overflow-visible">
                 <img 
-                  src="/logo.png?v=3" 
+                  src="/logo-raven-dark.png" 
                   alt="Raven Adversary" 
-                  className="h-[140%] max-h-none w-auto object-contain hidden dark:block mix-blend-screen contrast-125 brightness-110 -ml-2"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const fallback = document.getElementById('logo-fallback');
-                    if (fallback) fallback.classList.remove('dark:hidden');
-                  }}
+                  className="h-12 md:h-15 w-auto object-contain hidden dark:block transition-all duration-300 group-hover/logo:scale-[1.02]"
                 />
                 
                 <img 
-                  src="/logo.png?v=3" 
+                  src="/logo-raven-light.png" 
                   alt="Raven Adversary" 
-                  className="h-[140%] max-h-none w-auto object-contain dark:hidden mix-blend-multiply -ml-2"
-                  style={{ filter: 'invert(1) contrast(300%) brightness(120%)' }}
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                  }}
+                  className="h-12 md:h-15 w-auto object-contain dark:hidden transition-all duration-300 group-hover/logo:scale-[1.02]"
                 />
-
-                <div id="logo-fallback" className="font-bold text-2xl tracking-tight flex flex-col leading-none hidden relative z-10 p-2">
-                  <span>RAVEN</span>
-                  <span className="text-[10px] font-medium text-[var(--brand-cyan)] tracking-widest mt-0.5">ADVERSARY</span>
-                </div>
               </div>
               
               <div className="hidden 2xl:flex flex-col gap-1 items-start justify-center ml-2 border-l border-[var(--border-color)] pl-4 py-1">
@@ -443,8 +428,9 @@ export default function App() {
               
               {/* Brand Col */}
               <div className="col-span-2 md:col-span-1 space-y-3">
-                <div className="font-bold text-lg tracking-tight font-heading text-[var(--text-primary)]">
-                  RAVEN ADVERSARY
+                <div className="flex items-center gap-2.5">
+                  <img src="/logo-raven-dark.png" alt="Raven Adversary" className="h-8 w-auto hidden dark:block" />
+                  <img src="/logo-raven-light.png" alt="Raven Adversary" className="h-8 w-auto dark:hidden" />
                 </div>
                 <p className="font-mono text-[9px] tracking-wider leading-relaxed text-[var(--text-tertiary)] uppercase">
                   Institutional pressure intelligence for complex transactions. Grounded strictly in public SEC filings.

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 210 800 565" width="100%" height="100%">
+  <defs>
+    <!-- Deep High-Contrast Cyan-Blue-Indigo-Violet Gradient for Light Mode -->
+    <linearGradient id="ravenLightGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="30%" stop-color="#0369a1" />
+      <stop offset="60%" stop-color="#2563eb" />
+      <stop offset="85%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#6d28d9" />
+    </linearGradient>
+
+    <!-- Subtle Soft Ambient Elevation Shadow -->
+    <filter id="lightSoftShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.12" />
+    </filter>
+
+    <!-- Single Master Raven Facing Right -->
+    <g id="lightRaven">
+      <!-- Body Silhouette -->
+      <path 
+        d="M 235 275
+           C 255 245, 290 225, 335 220
+           C 365 218, 395 230, 425 255
+           C 440 268, 455 272, 465 272
+           C 435 285, 410 290, 390 292
+           C 415 305, 430 325, 440 350
+           C 430 350, 415 342, 400 335
+           C 415 365, 420 395, 405 425
+           C 390 415, 380 405, 375 395
+           C 385 435, 380 470, 345 505
+           C 310 540, 295 580, 280 625
+           C 265 670, 240 705, 205 735
+           C 185 750, 160 760, 135 765
+           C 145 745, 160 725, 175 700
+           C 155 710, 135 715, 115 715
+           C 130 690, 150 665, 170 635
+           C 150 642, 135 645, 120 640
+           C 145 605, 175 565, 190 515
+           C 160 550, 140 580, 120 600
+           C 130 565, 150 530, 175 490
+           C 160 510, 145 525, 135 530
+           C 150 495, 175 460, 200 425
+           C 215 405, 220 380, 215 355
+           C 205 330, 185 315, 155 310
+           C 180 300, 210 295, 235 275 Z"
+        fill="#ffffff"
+        fill-opacity="0.95"
+        stroke="url(#ravenLightGrad)"
+        stroke-width="15"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      />
+
+      <!-- Distinct Wing Separation Curve matching tran.png -->
+      <path
+        d="M 295 400
+           C 325 430, 340 480, 335 540
+           C 330 580, 310 620, 275 660
+           C 290 630, 295 595, 285 560
+           C 275 520, 255 490, 230 470
+           C 260 460, 280 435, 295 400 Z"
+        fill="#ffffff"
+        fill-opacity="0.95"
+        stroke="url(#ravenLightGrad)"
+        stroke-width="13"
+        stroke-linejoin="round"
+      />
+
+      <!-- Eye Cutout -->
+      <circle cx="310" cy="275" r="9" fill="url(#ravenLightGrad)" />
+
+      <!-- Legs & Perch Bar matching tran.png -->
+      <path 
+        d="M 245 710 L 265 765 L 340 765
+           M 295 725 L 310 765"
+        fill="none"
+        stroke="url(#ravenLightGrad)"
+        stroke-width="15"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </g>
+  </defs>
+
+  <!-- Left Raven (Facing Right) -->
+  <use href="#lightRaven" filter="url(#lightSoftShadow)" />
+
+  <!-- Right Raven (Flipped Horizontally, Facing Left, at 1000px symmetry) -->
+  <use 
+    href="#lightRaven" 
+    transform="translate(1000, 0) scale(-1, 1)" 
+    filter="url(#lightSoftShadow)"
+  />
+</svg>

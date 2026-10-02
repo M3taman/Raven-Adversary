@@ -19,7 +19,7 @@ import { db } from '../firebase';
 import { InstitutionalSecurityChallenge } from '../components/InstitutionalSecurityChallenge';
 
 export default function Governance() {
-  const [activeTab, setActiveTab] = useState<'public-source' | 'conflicts' | 'model-governance' | 'challenge-protocol' | 'versions'>('public-source');
+  const [activeTab, setActiveTab] = useState<'public-source' | 'conflicts' | 'model-governance' | 'challenge-protocol' | 'versions' | 'procurement'>('public-source');
   
   // Challenge intake form state
   const [challengeState, setChallengeState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -166,6 +166,16 @@ export default function Governance() {
           }`}
         >
           05 // Version History
+        </button>
+        <button
+          onClick={() => setActiveTab('procurement')}
+          className={`px-4 py-2 border transition-all ${
+            activeTab === 'procurement'
+              ? 'border-[var(--brand-cyan)] bg-[var(--brand-cyan)]/10 text-[var(--brand-cyan)] font-bold'
+              : 'border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+          }`}
+        >
+          06 // Procurement & Vendor Pack
         </button>
       </div>
 
@@ -472,6 +482,87 @@ export default function Governance() {
                 </div>
 
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* TAB 6: PROCUREMENT & VENDOR PACK */}
+        {activeTab === 'procurement' && (
+          <div className="space-y-8 animate-in fade-in duration-200">
+            <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-8">
+              <div className="flex items-center gap-3">
+                <Database className="w-5 h-5 text-[var(--brand-cyan)]" />
+                <h2 className="text-2xl font-bold font-heading text-[var(--text-primary)]">
+                  Institutional Procurement & Vendor Information Pack
+                </h2>
+              </div>
+
+              <div className="space-y-4 text-sm text-[var(--text-secondary)] leading-relaxed font-sans">
+                <p>
+                  To assist institutional investment committees, legal counsel, and procurement teams, Raven provides full transparency on its legal identity, international vendor onboarding readiness, and information-handling procedures.
+                </p>
+              </div>
+
+              {/* 3 Pillars */}
+              <div className="grid md:grid-cols-3 gap-6 font-mono text-xs">
+                
+                <div className="p-5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 space-y-3">
+                  <div className="font-bold text-[var(--brand-cyan)] uppercase text-[11px]">
+                    01 // LEGAL IDENTITY & STRUCTURE
+                  </div>
+                  <div className="text-[var(--text-secondary)] space-y-1.5 leading-relaxed">
+                    <p><strong>Entity Name:</strong> Raven Adversary Intelligence</p>
+                    <p><strong>Leadership:</strong> Founded and operated by principal analyst Abhishek Tanwar.</p>
+                    <p><strong>Jurisdiction:</strong> India-based specialist transaction intelligence practice.</p>
+                    <p><strong>Operating Model:</strong> Founder-led analytical research supported by Raven’s proprietary multi-agent debate engine.</p>
+                  </div>
+                </div>
+
+                <div className="p-5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 space-y-3">
+                  <div className="font-bold text-[var(--brand-cyan)] uppercase text-[11px]">
+                    02 // VENDOR DOCUMENTATION PACK
+                  </div>
+                  <div className="text-[var(--text-secondary)] space-y-1.5 leading-relaxed">
+                    <p>Available upon request for institutional onboarding:</p>
+                    <ul className="list-disc pl-4 space-y-1 text-[11px]">
+                      <li>Legal entity verification & registration</li>
+                      <li>International wire & banking remittance coordinates</li>
+                      <li>Standard invoice template & payment terms</li>
+                      <li>Applicable W-8BEN-E / international tax forms</li>
+                      <li>Bilateral NDA / confidentiality template</li>
+                      <li>Factual security questionnaire responses</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="p-5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 space-y-3">
+                  <div className="font-bold text-[var(--brand-cyan)] uppercase text-[11px]">
+                    03 // TRADING RESTRICTIONS & INTEGRITY
+                  </div>
+                  <div className="text-[var(--text-secondary)] space-y-1.5 leading-relaxed">
+                    <p><strong>Anti-Front-Running Policy:</strong> Raven maintains a strict policy prohibiting personal or proprietary trading in securities of companies under active client engagement.</p>
+                    <p><strong>Search Intent Protection:</strong> Client search queries, target tickers, and research instructions are treated as confidential and never shared or commercialized.</p>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Defined Pilot Structure */}
+              <div className="p-6 border border-emerald-500/30 bg-emerald-500/5 space-y-3 font-mono text-xs">
+                <div className="font-bold text-emerald-400 uppercase text-xs flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4" /> Defined Transaction Review Pilot ($10,000 Flat Fee)
+                </div>
+                <p className="text-[var(--text-secondary)] leading-relaxed font-sans text-xs">
+                  We structure initial engagements as a <strong>defined, limited transaction review pilot</strong> on a single agreed public transaction. The analysis establishes an auditable, point-in-time baseline as of an agreed research cutoff date, allowing your investment committee to evaluate our evidence-linking rigor without long-term subscription commitments.
+                </p>
+                <div className="pt-2 flex flex-wrap gap-4 text-[10px] uppercase text-[var(--text-tertiary)]">
+                  <span>• Fixed $10,000 fee</span>
+                  <span>• Stated 72-hour delivery target</span>
+                  <span>• 100% public-evidence substrate</span>
+                  <span>• Formal invoice upon scope confirmation</span>
+                </div>
+              </div>
+
             </div>
           </div>
         )}

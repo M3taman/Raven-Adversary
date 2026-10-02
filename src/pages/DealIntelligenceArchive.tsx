@@ -224,6 +224,17 @@ export default function DealIntelligenceArchive() {
             How the Engine Works <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
+
+        {/* Public Research vs Client Work Callout */}
+        <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 text-xs font-mono text-[var(--text-secondary)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span><strong>Research Corpus:</strong> 100+ public corporate filings independently mapped under the Raven Standard for academic & evidentiary verification.</span>
+          </div>
+          <div className="text-[10px] text-[var(--text-tertiary)] uppercase whitespace-nowrap">
+            Client mandates isolated under ethical walls
+          </div>
+        </div>
       </div>
 
       {/* SEARCH & FILTER CONTROLS */}

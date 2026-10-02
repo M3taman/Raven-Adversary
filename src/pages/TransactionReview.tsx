@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Layers, ShieldCheck, Clock, CheckCircle2, ArrowRight, FileText, Check, AlertCircle, HelpCircle, Lock, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { InstitutionalBuyerGuide } from '../components/InstitutionalBuyerGuide';
+import { FeasibilityMatrix } from '../components/FeasibilityMatrix';
 
 export default function TransactionReview() {
   const [selectedPlan, setSelectedPlan] = useState<'standard' | 'expedited'>('standard');
@@ -153,17 +155,78 @@ export default function TransactionReview() {
 
       </div>
 
+      {/* Commercial Terms, Scope Boundaries & Exclusions */}
+      <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 space-y-6">
+        <div className="flex items-center justify-between border-b border-[var(--border-color)] pb-4">
+          <div className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--text-primary)]">
+            Institutional Scope, Eligibility & Engagement Standards
+          </div>
+          <span className="text-[10px] font-mono text-[var(--brand-cyan)] font-bold">ZERO MNPI MANDATE</span>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 text-xs font-mono text-[var(--text-secondary)] leading-relaxed">
+          <div className="space-y-2">
+            <div className="text-[var(--text-primary)] font-bold uppercase tracking-wider text-[11px]">
+              01 // ELIGIBLE TRANSACTIONS
+            </div>
+            <p>
+              U.S. & cross-border public mergers (S-4 / F-4 / DEFM14A), hostile proxy battles, de-SPAC combinations, bank holding company integrations crossing regulatory asset tiers, and public chapter 11 reorganizations.
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <div className="text-[var(--text-primary)] font-bold uppercase tracking-wider text-[11px]">
+              02 // INCLUDED IN SPRINT
+            </div>
+            <p>
+              All 8 parts of the review package, verbatim SEC citations with line-numbered accessions, 7-minute executive audio/video walkthrough, SHA-256 commit hash, and a 7-day post-delivery evidentiary challenge window.
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <div className="text-[var(--text-primary)] font-bold uppercase tracking-wider text-[11px]">
+              03 // OPERATIONAL BOUNDARIES
+            </div>
+            <p>
+              Exclusively public regulatory evidence. Raven does not enter virtual data rooms (VDRs) or accept MNPI. Raven delivers transaction pressure intelligence and adversarial scenario modeling, not statutory legal opinions or audit attestations.
+            </p>
+          </div>
+        </div>
+
+        {/* 3-Step Intake Bar */}
+        <div className="pt-4 border-t border-[var(--border-color)] grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono">
+          <div className="p-3 bg-[var(--bg-primary)] border border-[var(--border-color)]">
+            <span className="text-[var(--brand-cyan)] font-bold block mb-1">STEP 1: FEASIBILITY CHECK</span>
+            Free public filing check within 1 business day. Zero payment required.
+          </div>
+          <div className="p-3 bg-[var(--bg-primary)] border border-[var(--border-color)]">
+            <span className="text-[var(--brand-cyan)] font-bold block mb-1">STEP 2: SCOPE AGREEMENT</span>
+            Confirm focal inquiry priorities. Fixed-fee invoice ($10K / $25K) with no hidden billables.
+          </div>
+          <div className="p-3 bg-[var(--bg-primary)] border border-[var(--border-color)]">
+            <span className="text-[var(--brand-cyan)] font-bold block mb-1">STEP 3: 48-72H DELIVERY</span>
+            8-part dossier delivered to deal leads + 7-day post-delivery challenge protocol.
+          </div>
+        </div>
+      </div>
+
+      {/* Feasibility Framework & Scope Boundaries */}
+      <FeasibilityMatrix />
+
+      {/* 10 Institutional Buyer Questions */}
+      <InstitutionalBuyerGuide />
+
       {/* Order Intake Form */}
-      <div className="border border-[var(--border-color)] bg-[var(--bg-primary)] p-8 md:p-12 space-y-8">
+      <div className="border border-[var(--border-color)] bg-[var(--bg-primary)] p-8 md:p-12 space-y-8" id="intake-form">
         <div className="space-y-2 border-b border-[var(--border-color)] pb-6">
           <div className="font-mono text-xs text-[var(--brand-cyan)] uppercase tracking-widest font-bold">
-            TRANSACTION INTAKE & CONFLICT CHECK PROTOCOL
+            PRELIMINARY INQUIRY // PUBLIC-SOURCE FEASIBILITY CHECK
           </div>
           <h2 className="text-2xl md:text-3xl font-bold font-heading text-[var(--text-primary)]">
-            Initiate Transaction Intelligence Request
+            Check Transaction Feasibility
           </h2>
           <p className="text-sm text-[var(--text-secondary)]">
-            Submit public transaction identifiers. Our desk verifies public filing coverage and confirms zero conflicting mandates within 2 hours.
+            Submit public transaction identifiers. Our desk verifies public filing coverage and confirms transaction feasibility within 1 business day at zero cost.
           </p>
         </div>
 
@@ -279,8 +342,11 @@ export default function TransactionReview() {
               type="submit"
               className="w-full py-4 bg-[var(--text-primary)] text-[var(--bg-primary)] hover:opacity-90 transition-opacity font-mono text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2"
             >
-              Submit Intake for {selectedPlan === 'standard' ? 'Standard Review ($10,000)' : 'Expedited Desk ($25,000)'} <ArrowRight className="w-4 h-4" />
+              Submit for Free Public Feasibility Check ({selectedPlan === 'standard' ? '$10,000 Standard Target' : '$25,000 Expedited Desk'}) <ArrowRight className="w-4 h-4" />
             </button>
+            <div className="text-center font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">
+              Zero payment due now. Formal fixed-fee invoice issued only after mutual scope confirmation.
+            </div>
           </form>
         )}
       </div>

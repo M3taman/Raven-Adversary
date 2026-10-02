@@ -114,14 +114,14 @@ export default function RequestAssessment() {
           </div>
 
           <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-            Our forensic transaction desk has received your submission. An intelligence officer will verify SEC filing availability and deliver engagement confirmation within 2 hours.
+            Your preliminary inquiry has been recorded. Our desk will verify SEC public filing depth and deliver preliminary feasibility confirmation within 1 business day.
           </p>
 
           <div className="p-4 bg-[var(--bg-secondary)] border border-[var(--border-color)] text-left font-mono text-xs space-y-1.5">
             <div className="text-[var(--text-tertiary)] uppercase text-[10px]">NEXT PROCEDURAL STEPS:</div>
-            <div className="text-[var(--text-primary)]">1. Public filing & EDGAR accession validation</div>
-            <div className="text-[var(--text-primary)]">2. Conflict clearance & digital ethical wall verification</div>
-            <div className="text-[var(--text-primary)]">3. Delivery of 8-Part Transaction Review Package within 48-72h</div>
+            <div className="text-[var(--text-primary)]">1. Public filing & EDGAR accession depth validation</div>
+            <div className="text-[var(--text-primary)]">2. Conflict clearance & scope confirmation agreement</div>
+            <div className="text-[var(--text-primary)]">3. Delivery of 8-Part Transaction Review Package (72h standard delivery target)</div>
           </div>
 
           <button
@@ -297,13 +297,13 @@ export default function RequestAssessment() {
                   </>
                 ) : (
                   <>
-                    Submit Transaction Assessment Request <ArrowRight className="w-4 h-4" />
+                    Submit for Free Public Feasibility Check (1 Business Day) <ArrowRight className="w-4 h-4" />
                   </>
                 )}
               </button>
 
               <div className="font-mono text-[9px] text-[var(--text-tertiary)] text-center leading-relaxed">
-                By submitting, you initiate an engagement verification request. All research is conducted exclusively using public SEC filings and public disclosures under zero-MNPI protocols.
+                By submitting, you initiate a preliminary public-source feasibility check. All research is conducted exclusively using public SEC filings under zero-MNPI protocols. No payment is required until scope is mutually confirmed.
               </div>
 
             </form>

@@ -14,6 +14,10 @@ import { InstitutionalBuyerProfiles } from '../components/InstitutionalBuyerProf
 import { InteractiveBoardroomBriefing } from '../components/InteractiveBoardroomBriefing';
 import ArchitecturalComparison from '../components/ArchitecturalComparison';
 import { InstitutionalSecurityChallenge } from '../components/InstitutionalSecurityChallenge';
+import { SampleAssessmentViewer } from '../components/SampleAssessmentViewer';
+import { InstitutionalBuyerGuide } from '../components/InstitutionalBuyerGuide';
+import { LeadershipAccountability } from '../components/LeadershipAccountability';
+import { FeasibilityMatrix } from '../components/FeasibilityMatrix';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -138,37 +142,53 @@ export default function Home() {
         })}
       </script>
 
-      {/* HERO SECTION */}
-      <section className="min-h-[92vh] flex flex-col justify-center pt-36 pb-20 px-6 md:px-12 xl:px-24 text-center relative">
+      {/* HERO SECTION - BUYER PROBLEM LED */}
+      <section className="min-h-[88vh] flex flex-col justify-center pt-36 pb-16 px-6 md:px-12 xl:px-24 text-center relative">
         <div className="max-w-5xl mx-auto space-y-8 flex flex-col items-center">
           
           <div className="inline-flex items-center gap-2 px-3 py-1 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
             <Shield className="w-3 h-3 text-[var(--brand-cyan)]" />
-            RAVEN ADVERSARY INTELLIGENCE // INSTITUTIONAL PRESSURE INTELLIGENCE
+            RAVEN ADVERSARY INTELLIGENCE // INSTITUTIONAL TRANSACTION DESK
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] font-heading text-[var(--text-primary)]">
-            Institutional Pressure Intelligence for <span className="text-[var(--brand-cyan)]">Complex Transactions</span>
+            Find where a live transaction can break <span className="text-[var(--brand-cyan)]">before it becomes your problem.</span>
           </h1>
           
           <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-3xl leading-relaxed">
-            Raven reconstructs the decision-state of a live transaction from public evidence, adversarially tests the deal's claims, and maps where contractual, financing, governance, and execution pressure can propagate.
+            Raven examines public transaction filings, contractual rights, financing dependencies, and governance structures to identify where pressure can propagate, and what evidence supports each finding.
           </p>
 
+          {/* 3 Core Trust Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+            <div className="px-3.5 py-1.5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/50 font-mono text-xs text-[var(--text-primary)] flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-cyan)]"></span>
+              Source-linked analysis
+            </div>
+            <div className="px-3.5 py-1.5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/50 font-mono text-xs text-[var(--text-primary)] flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-cyan)]"></span>
+              Adversarial review
+            </div>
+            <div className="px-3.5 py-1.5 border border-[var(--border-color)] bg-[var(--bg-secondary)]/50 font-mono text-xs text-[var(--text-primary)] flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-cyan)]"></span>
+              Transaction-specific findings
+            </div>
+          </div>
+
           <div className="pt-2 flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
-            <Link 
-              to="/request-assessment" 
+            <a 
+              href="#sample-assessment" 
               className="bg-[var(--text-primary)] text-[var(--bg-primary)] px-8 py-4 flex items-center gap-2 text-xs font-bold font-mono uppercase tracking-wider hover:opacity-90 transition-opacity w-full sm:w-auto justify-center rounded-none shadow-lg"
             >
-              Request Transaction Assessment <ArrowRight className="w-4 h-4" />
-            </Link>
+              View a Sample Assessment <ArrowRight className="w-4 h-4" />
+            </a>
             
-            <Link 
-              to="/raven-engine" 
+            <a 
+              href="#how-it-works" 
               className="border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--brand-cyan)] px-8 py-4 flex items-center gap-2 text-xs font-bold font-mono uppercase tracking-wider transition-colors w-full sm:w-auto justify-center bg-transparent rounded-none"
             >
-              The Raven Engine <ChevronRight className="w-3.5 h-3.5 text-[var(--brand-cyan)]" />
-            </Link>
+              How the Review Works →
+            </a>
 
             <button 
               onClick={() => setIsBriefingModalOpen(true)} 
@@ -193,13 +213,16 @@ export default function Home() {
               <div className="text-sm font-bold font-heading text-[var(--text-primary)] mt-0.5">100+ Live Transactions</div>
             </div>
             <div>
-              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">INFORMATION HYGIENE</div>
-              <div className="text-sm font-bold font-heading text-emerald-400 mt-0.5">Zero MNPI // Ethical Walls</div>
+              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">COMMERCIAL SPRINT</div>
+              <div className="text-sm font-bold font-heading text-emerald-400 mt-0.5">48-72h • $10K Flat Fee</div>
             </div>
           </div>
 
         </div>
       </section>
+
+      {/* DELIVERABLE PROOF: INTERACTIVE REDACTED SAMPLE DELIVERABLE (NEAR THE TOP) */}
+      <SampleAssessmentViewer />
 
       {/* SECTION 1: 60-SECOND INSTITUTIONAL MATRIX (5 Core Institutional Questions) */}
       <section className="py-20 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/30">
@@ -291,6 +314,124 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* SECTION 1.5: HOW THE REVIEW WORKS // 3-STAGE INSTITUTIONAL PROTOCOL */}
+      <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-primary)]" id="how-it-works">
+        <div className="max-w-6xl mx-auto space-y-14">
+          
+          <div className="max-w-3xl space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
+              ENGAGEMENT ARCHITECTURE // 3-STAGE WORKFLOW
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold font-heading tracking-tight text-[var(--text-primary)]">
+              How a Raven Engagement Works
+            </h2>
+            <p className="text-base text-[var(--text-secondary)] leading-relaxed">
+              We designed our intake specifically for high-velocity transaction teams. No payment is required to evaluate transaction feasibility, no sales pitch, and guaranteed 48-72h turnaround.
+            </p>
+          </div>
+
+          {/* 3 Step Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Step 1 */}
+            <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 space-y-5 flex flex-col justify-between relative group hover:border-[var(--brand-cyan)]/50 transition-colors">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-bold text-[var(--brand-cyan)]">STEP 01</span>
+                  <span className="px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-mono text-[9px] font-bold">
+                    FREE // 1 BUSINESS DAY
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold font-heading text-[var(--text-primary)]">
+                  Filing Feasibility & Coverage Check
+                </h3>
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-mono">
+                  Submit the target transaction identifier (Ticker, CIK, or deal code). Our desk verifies public filing coverage and confirms transaction feasibility within 1 business day (priority turnaround during live deal sprints).
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-[var(--border-color)]/60 text-[11px] font-mono text-[var(--text-tertiary)] space-y-1.5">
+                <div>• Zero financial commitment</div>
+                <div>• Zero credit card required</div>
+                <div>• Source coverage confirmation</div>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="p-8 border border-[var(--brand-cyan)]/40 bg-[var(--brand-cyan)]/5 space-y-5 flex flex-col justify-between relative group hover:border-[var(--brand-cyan)] transition-colors">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-bold text-[var(--brand-cyan)]">STEP 02</span>
+                  <span className="px-2 py-0.5 border border-[var(--border-color)] bg-[var(--bg-primary)] font-mono text-[9px] text-[var(--text-primary)] font-bold">
+                    $10K FLAT FEE ($25K EXPEDITED)
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold font-heading text-[var(--text-primary)]">
+                  Scope Confirmation & Adversarial Sprint
+                </h3>
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-mono">
+                  Upon conflict clearance, your deal leads confirm specific inquiry priorities (e.g. Schedule 1.5 Net Cash formulas, regulatory capital drags, or proxy voting blocks). Fixed-fee agreement is locked with strict 48-72h SLA.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-[var(--border-color)]/60 text-[11px] font-mono text-[var(--text-tertiary)] space-y-1.5">
+                <div>• 100% transparent fixed price</div>
+                <div>• Zero hidden hourly billables</div>
+                <div>• Strict zero-MNPI protocols</div>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 space-y-5 flex flex-col justify-between relative group hover:border-[var(--brand-cyan)]/50 transition-colors">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-bold text-[var(--brand-cyan)]">STEP 03</span>
+                  <span className="px-2 py-0.5 border border-[var(--border-color)] bg-[var(--bg-primary)] font-mono text-[9px] text-[var(--brand-cyan)] font-bold">
+                    DELIVERY + 7-DAY REVIEW
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold font-heading text-[var(--text-primary)]">
+                  8-Part Dossier & Boardroom Briefing
+                </h3>
+                <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-mono">
+                  You receive the complete 8-part dossier, EDGAR line-numbered evidence ledger, and 7-minute executive briefing. Includes a 7-day post-delivery challenge window to address subsequent S-4/A or 8-K amendments.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-[var(--border-color)]/60 text-[11px] font-mono text-[var(--text-tertiary)] space-y-1.5">
+                <div>• Board-ready one-page decision memo</div>
+                <div>• Immutable SHA-256 commit hash</div>
+                <div>• 7-day evidentiary challenge protocol</div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Scope Boundaries & Operational Exclusions Box */}
+          <div className="p-6 md:p-8 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 space-y-4">
+            <div className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--text-primary)] flex items-center justify-between">
+              <span>Scope Boundaries, Substrate & Legal Disclaimers</span>
+              <span className="text-[10px] text-[var(--brand-cyan)]">INSTITUTIONAL HYGIENE</span>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 text-xs text-[var(--text-secondary)] font-mono leading-relaxed">
+              <div>
+                <strong className="text-[var(--text-primary)] block mb-1">What We Ingest & Analyze:</strong>
+                All public SEC disclosures (Forms S-4, 8-K, 10-K, 10-Q, DEF 14A), federal banking Call Reports, debt indentures, antitrust filings, and public court dockets. Every finding is verifiable on SEC EDGAR.
+              </div>
+              <div>
+                <strong className="text-[var(--text-primary)] block mb-1">Explicit Exclusions & Nature of Service:</strong>
+                Raven does not access virtual data rooms (VDRs), inspect private emails, or ingest MNPI. Raven provides adversarial pressure analytics and decision-state modeling, not formal statutory legal opinions, accounting audits, or investment advice.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* TRANSACTION FEASIBILITY & ELIGIBILITY MATRIX */}
+      <FeasibilityMatrix />
 
       {/* SECTION 2: PROOF - INTERACTIVE PRESSURE PROPAGATION */}
       <section className="py-24 px-6 border-t border-[var(--border-color)] bg-[var(--bg-primary)]">
@@ -411,19 +552,25 @@ export default function Home() {
       {/* SECTION 11: FORENSIC CASE STUDIES */}
       <CaseStudies />
 
+      {/* LEADERSHIP & FOUNDER ACCOUNTABILITY */}
+      <LeadershipAccountability />
+
+      {/* INSTITUTIONAL BUYER'S GUIDE: 10 DECISION QUESTIONS */}
+      <InstitutionalBuyerGuide />
+
       {/* SECTION 12: INITIATE REVIEW / CONTACT PORTAL */}
       <section id="contact" className="py-32 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/10">
         <div className="max-w-3xl mx-auto space-y-10 border border-[var(--border-color)] bg-[var(--bg-primary)] p-8 md:p-14 shadow-2xl relative overflow-hidden">
           
           <div className="space-y-4 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[var(--brand-cyan)]/10 text-[var(--brand-cyan)] border border-[var(--brand-cyan)]/30 text-[9px] font-mono tracking-widest uppercase font-bold">
-              SELECTIVE ENGAGEMENT DESK // CONFLICT SCREENING
+              PRELIMINARY INQUIRY // PUBLIC-SOURCE FEASIBILITY CHECK
             </div>
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-[var(--text-primary)]">
-              Initiate Transaction Intelligence Review
+              Check Transaction Feasibility
             </h2>
             <p className="text-sm text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed">
-              Submit target transaction identifiers. Our desk conducts pre-engagement conflict verification and confirms filing coverage within 2 hours.
+              Submit target transaction identifiers below. We verify public SEC filing depth and confirm analytical feasibility within 1 business day at zero cost or obligation.
             </p>
           </div>
 
@@ -433,13 +580,13 @@ export default function Home() {
                 <CheckCircle2 className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-[var(--text-primary)] font-heading">
-                Transaction Intake Received
+                Preliminary Inquiry Received
               </h3>
               <p className="text-xs text-[var(--text-secondary)] max-w-md mx-auto leading-relaxed">
-                Conflict check and scope confirmation will be delivered to your corporate email within 2 hours.
+                Filing feasibility and source coverage confirmation will be delivered to your corporate email within 1 business day.
               </p>
               <div className="p-3 border border-[var(--border-color)] bg-[var(--bg-primary)] inline-block font-mono text-xs text-[var(--brand-cyan)]">
-                AUDIT REFERENCE CODE: {referenceId}
+                INQUIRY REFERENCE: {referenceId}
               </div>
             </div>
           ) : (
@@ -465,20 +612,20 @@ export default function Home() {
                       Institutional Work Email *
                     </label>
                     <input 
-                      required 
-                      disabled={formState !== 'idle'} 
-                      type="email" 
-                      name="email" 
-                      className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] text-xs font-mono" 
-                      placeholder="analyst@firm.com" 
-                    />
+                    required 
+                    disabled={formState !== 'idle'} 
+                    type="email" 
+                    name="email" 
+                    className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] text-xs font-mono" 
+                    placeholder="analyst@firm.com" 
+                  />
                   </div>
                   <div>
                     <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-1.5 font-bold">
                       Target Ticker / CIK / Transaction Name *
                     </label>
                     <input 
-                      required
+                      required 
                       disabled={formState !== 'idle'} 
                       type="text" 
                       name="cikOrTicker" 
@@ -503,14 +650,14 @@ export default function Home() {
 
                 <div>
                   <label className="block text-[10px] font-mono text-[var(--text-tertiary)] uppercase tracking-widest mb-1.5 font-bold">
-                    Strategic Focus Areas (Optional)
+                    Specific Focal Inquiries / Transaction Concerns (Optional)
                   </label>
                   <textarea 
                     disabled={formState !== 'idle'} 
                     name="additionalDetails" 
                     rows={3} 
                     className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] px-4 py-3 focus:outline-none focus:border-[var(--brand-cyan)] text-xs font-mono resize-none" 
-                    placeholder="e.g. MAE carveout analysis, proxy voting pass-through, regulatory capital threshold drag..." 
+                    placeholder="e.g. Schedule 1.5 Net Cash adjustment, proxy voting pass-through, MAE carveout analysis, Category III capital drag..." 
                   />
                 </div>
               </div>
@@ -539,25 +686,26 @@ export default function Home() {
               {/* Zero MNPI notice */}
               <div className="p-3 bg-[var(--bg-secondary)] border border-[var(--border-color)] flex items-center gap-2 text-[10px] font-mono text-[var(--text-tertiary)]">
                 <Lock className="w-3.5 h-3.5 text-[var(--brand-cyan)] shrink-0" />
-                <span>Zero MNPI Policy: Operating exclusively on public SEC filings, Call Reports, and court dockets.</span>
+                <span>Zero MNPI Policy: Operating exclusively on public SEC filings, Call Reports, and court dockets. Do not submit confidential deal documents.</span>
               </div>
 
               <button 
                 type="submit" 
-                disabled={formState !== 'idle'}
+                disabled={formState !== 'idle'} 
                 className="w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-xs font-mono font-bold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {formState === 'submitting' ? (
-                  <><Loader2 className="w-4 h-4 animate-spin" /> Verifying Coverage & Conflict Screen...</>
+                  <><Loader2 className="w-4 h-4 animate-spin" /> Verifying Filing Availability & Feasibility...</>
                 ) : (
-                  'Submit Transaction for Conflict Clearance & Review ($10K)'
+                  'Submit for Free Public Feasibility Check (1 Business Day)'
                 )}
               </button>
             </form>
           )}
 
-          <div className="text-center font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider">
-            Standard turnaround: 72 hours ($10,000) • Expedited priority desk: 24-48 hours ($25,000)
+          <div className="text-center font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider space-y-1">
+            <div>Step 1: Free Public-Source Coverage Check (1 Business Day) • Step 2: Scoped Engagement Confirmation</div>
+            <div>Standard Review: $10,000 (72h delivery target) • Expedited Priority Desk: $25,000 (24-48h by agreement)</div>
           </div>
 
         </div>

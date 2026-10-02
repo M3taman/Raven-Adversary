@@ -101,13 +101,13 @@ export default function CaseStudies() {
         <div className="max-w-3xl space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/5 text-[var(--brand-cyan)] font-mono text-[9px] uppercase tracking-[0.2em] font-bold">
             <FileText className="w-3 h-3 text-[var(--brand-cyan)]" />
-            Section 06 // Forensic Case Archive
+            Section 06 // PUBLIC RESEARCH CORPUS & VERIFIED WALKTHROUGHS
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-heading tracking-tight text-[var(--text-primary)]">
-            Forensic Case Studies
+            Forensic Case Studies (Public Corpus)
           </h2>
           <p className="text-base text-[var(--text-secondary)]">
-            Detailed case studies demonstrating how static contract summaries miss dynamic leverage shifts and latent liabilities.
+            Independently checkable analytical walkthroughs from our 100+ public transaction corpus. Each study dissects public SEC EDGAR accessions to demonstrate how unmodeled covenants, trust voting terms, and asset thresholds propagate systemic transaction risk.
           </p>
         </div>
 
