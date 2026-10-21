@@ -11,7 +11,10 @@ import {
   Briefcase, 
   AlertCircle, 
   FileCode,
-  Scale
+  Scale,
+  Mail,
+  Copy,
+  Check
 } from 'lucide-react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
@@ -22,6 +25,7 @@ export default function RequestAssessment() {
   const [isSecurityVerified, setIsSecurityVerified] = useState(false);
   const [referenceId, setReferenceId] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -347,10 +351,50 @@ export default function RequestAssessment() {
               </ul>
             </div>
 
-            <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-secondary)]/20 space-y-2 text-left font-mono text-xs">
-              <div className="text-[var(--text-tertiary)] uppercase text-[9px]">DIRECT DESK INQUIRIES:</div>
-              <div className="text-[var(--text-primary)] font-bold">desk@ravenadversary.com</div>
-              <div className="text-[var(--text-tertiary)] text-[9px] pt-1">Institutional clearance desk active 24/7 during active deal weeks.</div>
+            <div className="p-6 border border-[var(--border-color)] hover:border-[var(--brand-cyan)]/50 bg-[var(--bg-secondary)]/30 space-y-3 text-left font-mono text-xs transition-colors shadow-sm">
+              <div className="flex items-center justify-between">
+                <div className="text-[var(--text-tertiary)] uppercase text-[9px] font-bold tracking-widest flex items-center gap-1.5">
+                  <Mail className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> DIRECT DESK DISPATCH
+                </div>
+                <span className="text-[8px] px-1.5 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-bold uppercase tracking-wider">
+                  24/7 ACTIVE
+                </span>
+              </div>
+
+              <div className="space-y-1.5">
+                <div className="text-[10px] text-[var(--text-secondary)]">
+                  Direct inquiries to Transaction Desk:
+                </div>
+                <div className="flex items-center justify-between gap-2 p-2.5 bg-[var(--bg-primary)] border border-[var(--border-color)]">
+                  <a 
+                    href="mailto:desk@ravenadversary.com?subject=Institutional%20Transaction%20Inquiry%20//%20Raven%20Adversary"
+                    className="text-[var(--brand-cyan)] hover:underline font-bold text-xs truncate"
+                  >
+                    desk@ravenadversary.com
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigator.clipboard.writeText('desk@ravenadversary.com');
+                      setCopiedEmail(true);
+                      setTimeout(() => setCopiedEmail(false), 2000);
+                    }}
+                    className="p-1 hover:text-[var(--text-primary)] text-[var(--text-tertiary)] transition-colors shrink-0"
+                    title="Copy Direct Desk Email"
+                    aria-label="Copy Direct Desk Email"
+                  >
+                    {copiedEmail ? (
+                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    ) : (
+                      <Copy className="w-3.5 h-3.5" />
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              <div className="text-[10px] text-[var(--text-tertiary)] leading-relaxed pt-1 border-t border-[var(--border-color)]/50">
+                Monitored directly by Founder & Principal Analyst Abhishek Tanwar. For immediate 60-min SLA dispatch, submit your target ticker via the portal on this page.
+              </div>
             </div>
 
           </div>
