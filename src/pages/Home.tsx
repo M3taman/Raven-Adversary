@@ -18,6 +18,9 @@ import { SampleAssessmentViewer } from '../components/SampleAssessmentViewer';
 import { InstitutionalBuyerGuide } from '../components/InstitutionalBuyerGuide';
 import { LeadershipAccountability } from '../components/LeadershipAccountability';
 import { FeasibilityMatrix } from '../components/FeasibilityMatrix';
+import { HeroQuickIntake } from '../components/HeroQuickIntake';
+import { LiveDealShowcase } from '../components/LiveDealShowcase';
+import { LitigationArbitrageDesk } from '../components/LitigationArbitrageDesk';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -132,10 +135,10 @@ export default function Home() {
             },
             {
               "@type": "Question",
-              "name": "What is the 8-Part Transaction Review Package?",
+              "name": "What is the Single-Transaction Forensic Dossier?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "A comprehensive $10,000 / $25,000 commercial forensic audit delivered within 48 to 72 hours, including a Transaction State Baseline, Evidence Ledger, Critical Clause Cards, Pressure Propagation Map, Adversarial Strategy Memo, Executive Decision Brief, 7-Minute Boardroom Walkthrough, and Commit Layer Artifact."
+                "text": "A comprehensive $2,499 commercial forensic audit delivered within 60 minutes from target filing, including a 2-Page Executive Risk Brief, Contractual Clause Card, 6-Vector Risk Index, and 16-Chapter Statutory Citation Registry. Institutional Retainer available at $7,500/month."
               }
             }
           ]
@@ -175,12 +178,15 @@ export default function Home() {
             </div>
           </div>
 
+          {/* RAPID ZERO-FRICTION INTAKE BAR */}
+          <HeroQuickIntake />
+
           <div className="pt-2 flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
             <a 
-              href="#sample-assessment" 
+              href="#live-deals" 
               className="bg-[var(--text-primary)] text-[var(--bg-primary)] px-8 py-4 flex items-center gap-2 text-xs font-bold font-mono uppercase tracking-wider hover:opacity-90 transition-opacity w-full sm:w-auto justify-center rounded-none shadow-lg"
             >
-              View a Sample Assessment <ArrowRight className="w-4 h-4" />
+              View Live Deal Teardowns <ArrowRight className="w-4 h-4" />
             </a>
             
             <a 
@@ -214,14 +220,24 @@ export default function Home() {
             </div>
             <div>
               <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">COMMERCIAL SPRINT</div>
-              <div className="text-sm font-bold font-heading text-emerald-400 mt-0.5">48-72h • $10K Flat Fee</div>
+              <div className="text-sm font-bold font-heading text-emerald-400 mt-0.5">60-Min SLA • $2,499 Flat Fee</div>
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* DELIVERABLE PROOF: INTERACTIVE REDACTED SAMPLE DELIVERABLE (NEAR THE TOP) */}
+      {/* ABOVE-THE-FOLD LIVE OCTOBER 2026 DEAL TEARDOWNS SHOWCASE */}
+      <div id="live-deals">
+        <LiveDealShowcase />
+      </div>
+
+      {/* M&A LITIGATION, APPRAISAL ARBITRAGE (DGCL § 262) & SPECIAL SITUATIONS DESK */}
+      <div id="litigation-arbitrage">
+        <LitigationArbitrageDesk />
+      </div>
+
+      {/* DELIVERABLE PROOF: INTERACTIVE REDACTED SAMPLE DELIVERABLE */}
       <SampleAssessmentViewer />
 
       {/* SECTION 1: 60-SECOND INSTITUTIONAL MATRIX (5 Core Institutional Questions) */}
@@ -299,7 +315,7 @@ export default function Home() {
                 How is Raven engaged on a live transaction?
               </h3>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                We deliver an 8-Part Transaction Review Package—including One-Page Decision Memo, Evidence Ledger, Adversarial Strategy Memo, Pressure Propagation Map, and 7-Minute Boardroom Walkthrough—within 48 to 72 hours for a $10,000 flat fee.
+                We deliver a Single-Transaction Forensic Dossier—including 1-Page Contractual Clause Card, 2-Page Executive Risk Brief, 6-Vector Risk Index, and 16-Chapter Statutory Citation Registry—within 60 minutes for a $2,499 flat fee, or via an Institutional Desk Retainer at $7,500/month.
               </p>
               <div className="pt-2 flex items-center gap-4">
                 <Link to="/request-assessment" className="font-mono text-xs text-[var(--brand-cyan)] font-bold hover:underline inline-flex items-center gap-1.5">
@@ -327,7 +343,7 @@ export default function Home() {
               How a Raven Engagement Works
             </h2>
             <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-              We designed our intake specifically for high-velocity transaction teams. No payment is required to evaluate transaction feasibility, no sales pitch, and guaranteed 48-72h turnaround.
+              We designed our intake specifically for high-velocity transaction teams. No payment is required to evaluate transaction feasibility, zero sales pitch, and rapid 60-minute turnaround from filing.
             </p>
           </div>
 
@@ -363,15 +379,15 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-xs font-bold text-[var(--brand-cyan)]">STEP 02</span>
-                  <span className="px-2 py-0.5 border border-[var(--border-color)] bg-[var(--bg-primary)] font-mono text-[9px] text-[var(--text-primary)] font-bold">
-                    $10K FLAT FEE ($25K EXPEDITED)
+                  <span className="px-2 py-0.5 border border-[var(--brand-cyan)] bg-[var(--brand-cyan)]/10 font-mono text-[9px] text-[var(--brand-cyan)] font-bold">
+                    $2,499 SINGLE DOSSIER // $7,500/MO RETAINER
                   </span>
                 </div>
                 <h3 className="text-xl font-bold font-heading text-[var(--text-primary)]">
-                  Scope Confirmation & Adversarial Sprint
+                  Scope Confirmation & Rapid Forensic Sprint
                 </h3>
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed font-mono">
-                  Upon conflict clearance, your deal leads confirm specific inquiry priorities (e.g. Schedule 1.5 Net Cash formulas, regulatory capital drags, or proxy voting blocks). Fixed-fee agreement is locked with strict 48-72h SLA.
+                  Upon conflict clearance, your deal leads confirm specific inquiry priorities (e.g. Schedule 13E-3/TRA leakage, Section 8.03(c) several liability, or MFW cleansing breaches). Fixed-fee agreement is locked with strict 60-minute rapid memo turnaround and 24-hour statutory audit delivery.
                 </p>
               </div>
 
@@ -705,7 +721,7 @@ export default function Home() {
 
           <div className="text-center font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider space-y-1">
             <div>Step 1: Free Public-Source Coverage Check (1 Business Day) • Step 2: Scoped Engagement Confirmation</div>
-            <div>Standard Review: $10,000 (72h delivery target) • Expedited Priority Desk: $25,000 (24-48h by agreement)</div>
+            <div>Single Forensic Dossier: $2,499 (60-Min SLA) • Institutional Desk Retainer: $7,500/mo (Unlimited EDGAR Live Runs)</div>
           </div>
 
         </div>

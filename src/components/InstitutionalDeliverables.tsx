@@ -86,13 +86,13 @@ export function InstitutionalDeliverables() {
               The 8-Part Transaction Review Package
             </h2>
             <p className="text-base md:text-lg text-[var(--text-secondary)] leading-relaxed">
-              When millions of dollars of enterprise value depend on contract-state nuances, Raven delivers a complete, forensic audit of transaction leverage and unpriced exposure within 48 to 72 hours.
+              When millions of dollars of enterprise value depend on contract-state nuances, Raven delivers a complete, forensic audit of transaction leverage and unpriced exposure with rapid 60-minute turnaround from filing.
             </p>
           </div>
 
           <div className="flex flex-col items-start md:items-end gap-2 font-mono text-xs">
-            <div className="text-[var(--brand-cyan)] font-bold">// STANDARD ENGAGEMENT: $10,000</div>
-            <div className="text-[var(--text-tertiary)]">EXPEDITED (24-48 HR): $25,000</div>
+            <div className="text-[var(--brand-cyan)] font-bold">// SINGLE FORENSIC DOSSIER: $2,499</div>
+            <div className="text-emerald-400 font-semibold">INSTITUTIONAL DESK RETAINER: $7,500 / MO</div>
           </div>
         </div>
 
@@ -133,95 +133,95 @@ export function InstitutionalDeliverables() {
         {/* Commercial Engagement Options Box */}
         <div className="grid md:grid-cols-2 gap-8 items-stretch pt-6">
           
-          {/* Option 1: Standard Review */}
+          {/* Option 1: Single-Transaction Forensic Dossier */}
           <div className="p-8 border border-[var(--border-color)] bg-[var(--bg-primary)] flex flex-col justify-between space-y-8 relative">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-widest font-bold">
-                  STANDARD TRANSACTION REVIEW
+                  SINGLE-TRANSACTION FORENSIC DOSSIER
                 </span>
-                <span className="px-2 py-0.5 bg-[var(--bg-secondary)] border border-[var(--border-color)] font-mono text-[9px] text-[var(--text-secondary)]">
-                  72-HOUR DELIVERY
+                <span className="px-2 py-0.5 bg-[var(--bg-secondary)] border border-emerald-500/30 text-emerald-400 font-mono text-[9px] font-bold">
+                  60-MINUTE TURNAROUND
                 </span>
               </div>
 
               <div className="text-3xl font-bold font-heading text-[var(--text-primary)]">
-                $10,000 <span className="text-xs font-normal font-mono text-[var(--text-tertiary)]">/ Live Transaction</span>
+                $2,499 <span className="text-xs font-normal font-mono text-[var(--text-tertiary)]">/ Live Transaction</span>
               </div>
 
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Comprehensive 8-part forensic intelligence package for standard M&A transactions, proxy contests, or major capital re-structurings with 72-hour turnaround.
+                Rapid, frictionless forensic audit package for live M&A transactions, proxy contests, or litigation filings. Swipable directly via corporate card.
               </p>
 
               <ul className="space-y-2 text-xs text-[var(--text-secondary)] font-mono">
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Full 8-part intelligence dossier
+                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> 2-Page Executive Risk Brief (Board Memo)
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Complete SEC filing evidence ledger
+                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Contractual Clause Card with triggers & amplifiers
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Adversarial strategy and leverage memo
+                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Complete 16-Chapter Statutory Citation Registry
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> 7-Minute Boardroom Walkthrough delivery
+                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Raven 6-Vector Risk Index & stress deltas
                 </li>
               </ul>
             </div>
 
             <Link
-              to="/transaction-review"
+              to="/request-assessment"
               className="w-full py-3.5 bg-[var(--text-primary)] text-[var(--bg-primary)] text-center font-mono text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity"
             >
-              Order Standard Review ($10K)
+              Order Single Dossier ($2,499)
             </Link>
           </div>
 
-          {/* Option 2: Expedited Strategic Review */}
+          {/* Option 2: Institutional Desk Retainer */}
           <div className="p-8 border border-[var(--brand-cyan)] bg-[var(--brand-cyan)]/5 flex flex-col justify-between space-y-8 relative">
             <div className="absolute top-0 right-0 px-3 py-1 bg-[var(--brand-cyan)] text-black font-mono text-[9px] font-bold uppercase tracking-widest">
-              PRIORITY DESK
+              INSTITUTIONAL DESK
             </div>
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] text-[var(--brand-cyan)] uppercase tracking-widest font-bold">
-                  EXPEDITED TRANSACTION REVIEW
+                  INSTITUTIONAL DESK RETAINER
                 </span>
                 <span className="px-2 py-0.5 bg-[var(--brand-cyan)]/10 border border-[var(--brand-cyan)]/30 font-mono text-[9px] text-[var(--brand-cyan)] font-bold">
-                  24-48 HOUR SPRINT
+                  UNLIMITED LIVE RUNS
                 </span>
               </div>
 
               <div className="text-3xl font-bold font-heading text-[var(--text-primary)]">
-                $25,000 <span className="text-xs font-normal font-mono text-[var(--text-tertiary)]">/ Live Transaction</span>
+                $7,500 <span className="text-xs font-normal font-mono text-[var(--text-tertiary)]">/ Month Retainer</span>
               </div>
 
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Immediate dedicated turnaround for active hostile bids, ticking-fee deadlines, breaking proxy developments, or imminent board votes.
+                Full-coverage coverage for hedge fund merger arb pods, special litigation teams, and M&A boutiques with ongoing live transaction flow.
               </p>
 
               <ul className="space-y-2 text-xs text-[var(--text-secondary)] font-mono">
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> 24-48 hour dedicated execution desk
+                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Unlimited live EDGAR deal ingestion runs
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Direct interactive briefing with executive leads
+                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Schedule 13E-3 / PREM14A delta alerts
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Live amendment tracking & dynamic updates
+                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Custom red-team adversarial scenario directives
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Custom red-team tactical defense scenarios
+                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Direct hotline with senior forensic intelligence leads
                 </li>
               </ul>
             </div>
 
             <Link
-              to="/transaction-review"
+              to="/request-assessment"
               className="w-full py-3.5 bg-[var(--brand-cyan)] text-black text-center font-mono text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity"
             >
-              Order Expedited Review ($25K)
+              Engage Desk Retainer ($7,500/mo)
             </Link>
           </div>
 

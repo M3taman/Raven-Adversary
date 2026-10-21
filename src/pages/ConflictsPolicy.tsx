@@ -32,7 +32,7 @@ export default function ConflictsPolicy() {
         <section className="space-y-3">
           <h2 className="text-lg font-bold font-heading text-[var(--text-primary)]">2. Mandatory Pre-Engagement Conflict Clearance</h2>
           <p>
-            Prior to commencing any 8-Part Transaction Review ($10K or $25K engagement), Raven's automated intake system checks the target company CIK, ticker, and transaction counterparties against our active engagement registry.
+            Prior to commencing any Forensic Transaction Review ($2,499 Single Dossier or $7,500/mo Retainer), Raven's automated intake system checks the target company CIK, ticker, and transaction counterparties against our active engagement registry.
           </p>
           <ul className="list-disc pl-5 space-y-2 font-mono text-xs text-[var(--text-primary)]">
             <li>If an active exclusive mandate exists on the same transaction for an opposing party, the prospective inquiry is immediately declined with zero disclosure of prior client identity.</li>

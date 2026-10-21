@@ -86,7 +86,7 @@ export default function RequestAssessment() {
         </h1>
         
         <p className="text-base md:text-lg text-[var(--text-secondary)] leading-relaxed">
-          Submit the parameters of an announced, pending, or rumored transaction. Raven reconstructs the complete decision-state graph, tests deal claims, and maps pressure propagation within 48 to 72 hours.
+          Submit the parameters of an announced, pending, or rumored transaction. Raven reconstructs the complete decision-state graph, tests deal claims, and maps pressure propagation within 60 minutes of target filing.
         </p>
       </div>
 
@@ -121,7 +121,7 @@ export default function RequestAssessment() {
             <div className="text-[var(--text-tertiary)] uppercase text-[10px]">NEXT PROCEDURAL STEPS:</div>
             <div className="text-[var(--text-primary)]">1. Public filing & EDGAR accession depth validation</div>
             <div className="text-[var(--text-primary)]">2. Conflict clearance & scope confirmation agreement</div>
-            <div className="text-[var(--text-primary)]">3. Delivery of 8-Part Transaction Review Package (72h standard delivery target)</div>
+            <div className="text-[var(--text-primary)]">3. Delivery of Forensic Dossier Package (60-minute standard delivery SLA)</div>
           </div>
 
           <button
@@ -317,13 +317,13 @@ export default function RequestAssessment() {
                 COMMERCIAL DELIVERABLE
               </div>
               <h3 className="text-lg font-bold font-heading text-[var(--text-primary)]">
-                8-Part Transaction Review Package ($10,000)
+                Single Forensic Dossier ($2,499)
               </h3>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Delivered in 48-72 hours. Includes a complete Transaction State Baseline, Claim Verification Ledger, Adversarial Debrief, Pressure Cascade Graph, and 7-Minute Boardroom Walkthrough.
+                Delivered in 60 minutes. Includes 2-Page Executive Risk Brief, 1-Page Contractual Clause Card, 6-Vector Risk Index, and 16-Chapter Statutory Citation Registry.
               </p>
-              <div className="pt-2 font-mono text-[9px] text-[var(--text-tertiary)] border-t border-[var(--border-color)]">
-                EXPEDITED 24-48H DESK: $25,000
+              <div className="pt-2 font-mono text-[9px] text-emerald-400 font-bold border-t border-[var(--border-color)]">
+                INSTITUTIONAL DESK RETAINER: $7,500 / MONTH
               </div>
             </div>
 

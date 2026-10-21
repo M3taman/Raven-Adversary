@@ -223,13 +223,13 @@ export default function Governance() {
               </div>
               <div className="space-y-4 text-sm text-[var(--text-secondary)] leading-relaxed font-sans">
                 <p>
-                  Raven maintains strict structural independence from deal outcomes. Because our revenue is derived from flat-fee institutional assessments ($10,000 / $25,000) rather than success-contingent advisory bonuses or closing fees, our analysis remains analytically dispassionate.
+                  Raven maintains strict structural independence from deal outcomes. Because our revenue is derived from flat-fee institutional assessments ($2,499 Single Dossier / $7,500 Monthly Retainer) rather than success-contingent advisory bonuses or closing fees, our analysis remains analytically dispassionate.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 font-mono text-xs">
                   <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-2">
                     <div className="font-bold text-[var(--text-primary)]">Engagement Exclusivity & Sprints</div>
                     <p className="text-[var(--text-secondary)] text-xs">
-                      During an active 48–72 hour transaction review sprint, Raven does not accept concurrent conflicting mandates on the same specific hostile or competing tender offer.
+                      During an active transaction review sprint, Raven does not accept concurrent conflicting mandates on the same specific hostile or competing tender offer.
                     </p>
                   </div>
                   <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-2">
@@ -550,16 +550,16 @@ export default function Governance() {
               {/* Defined Pilot Structure */}
               <div className="p-6 border border-emerald-500/30 bg-emerald-500/5 space-y-3 font-mono text-xs">
                 <div className="font-bold text-emerald-400 uppercase text-xs flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4" /> Defined Transaction Review Pilot ($10,000 Flat Fee)
+                  <CheckCircle2 className="w-4 h-4" /> Single-Transaction Forensic Dossier ($2,499 Flat Fee)
                 </div>
                 <p className="text-[var(--text-secondary)] leading-relaxed font-sans text-xs">
-                  We structure initial engagements as a <strong>defined, limited transaction review pilot</strong> on a single agreed public transaction. The analysis establishes an auditable, point-in-time baseline as of an agreed research cutoff date, allowing your investment committee to evaluate our evidence-linking rigor without long-term subscription commitments.
+                  We structure initial engagements as a <strong>single-transaction forensic sprint</strong> on an active public filing. The analysis establishes an auditable, point-in-time baseline as of an agreed research cutoff date, allowing your investment committee to evaluate our evidence-linking rigor within 60 minutes, with monthly institutional retainer options at $7,500/mo.
                 </p>
                 <div className="pt-2 flex flex-wrap gap-4 text-[10px] uppercase text-[var(--text-tertiary)]">
-                  <span>• Fixed $10,000 fee</span>
-                  <span>• Stated 72-hour delivery target</span>
+                  <span>• Fixed $2,499 fee</span>
+                  <span>• 60-Minute rapid delivery target</span>
                   <span>• 100% public-evidence substrate</span>
-                  <span>• Formal invoice upon scope confirmation</span>
+                  <span>• Instant corporate billing</span>
                 </div>
               </div>
 

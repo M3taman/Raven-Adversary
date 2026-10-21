@@ -169,7 +169,7 @@ export function InstitutionalBuyerProfiles() {
 
             <div className="pt-4 border-t border-[var(--border-color)] flex items-center justify-between">
               <span className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase">
-                TYPICAL TURNAROUND: 48 TO 72 HOURS
+                RAPID 60-MIN CLAUSE CARD // SAME-DAY DOSSIER
               </span>
               <a
                 href="/#contact"

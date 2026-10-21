@@ -61,12 +61,12 @@ const METADATA: Record<string, { title: string; description: string }> = {
     description: 'The public epistemic standard governing claim classification, adversarial interrogation, falsification gates, and decision-state reconstruction in M&A.'
   },
   '/request-assessment': {
-    title: 'Request Transaction Assessment // 48-72h Audit Sprint | Raven Adversary',
-    description: 'Commission an independent, cryptographically committed 8-part adversarial transaction review under zero-MNPI protocols.'
+    title: 'Request Transaction Assessment // 60-Minute Forensic SLA | Raven Adversary',
+    description: 'Commission an independent, cryptographically committed forensic transaction review under zero-MNPI protocols within 60 minutes.'
   },
   '/transaction-review': {
-    title: '8-Part Transaction Review Package ($10K / $25K) | Raven Adversary',
-    description: 'Comprehensive 48-72 hour forensic transaction intelligence review for active M&A, contested shareholder votes, and bank consolidations.'
+    title: 'Forensic Transaction Dossier ($2,499 Flat Fee) | Raven Adversary',
+    description: 'Comprehensive 60-minute forensic transaction intelligence review for active M&A, contested shareholder votes, and bank consolidations.'
   },
   '/evidence-standard': {
     title: '5-Tier Evidence Standard & Claim Adjudication | Raven Adversary',

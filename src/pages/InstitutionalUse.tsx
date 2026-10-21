@@ -45,7 +45,7 @@ const PROFILES: InstitutionalProfile[] = [
       'Asymmetric floor financing conditions enabling target closing with 50%+ capital shortfalls'
     ],
     ravenWorkflow: 'Ingests merger agreements and SEC disclosures to simulate drop-dead expiration states, Net Cash burn schedules, and collar sensitivity curves.',
-    keyDeliverable: 'Transaction State Baseline & Adversarial Pressure Cascade Map within 48 hours of filing.',
+    keyDeliverable: 'Transaction State Baseline & Adversarial Pressure Cascade Map within 60 minutes of filing.',
     caseReference: {
       title: 'NextCure / Avere Therapeutics',
       link: '/case-studies/nextcure-avere',
@@ -298,7 +298,7 @@ export default function InstitutionalUse() {
           Request an Institutional Assessment for Your Mandate
         </h2>
         <p className="text-sm text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed">
-          Receive a tailored 8-part adversarial transaction review within 48 to 72 hours.
+          Receive a tailored forensic transaction review package with a rapid 60-minute turnaround from filing.
         </p>
         <div className="pt-2">
           <Link

@@ -159,17 +159,16 @@ const BUYER_QUESTIONS: FAQItem[] = [
     id: 'terms',
     number: '09',
     question: 'What are the commercial terms & pilot structure?',
-    shortSummary: 'Structured as a defined $10,000 transaction review pilot with a 72-hour delivery target on an agreed public transaction.',
+    shortSummary: 'Structured as a frictionless $2,499 Single-Transaction Forensic Dossier (60-Minute SLA) or $7,500/mo Desk Retainer.',
     detailedAnswer: (
       <div className="space-y-3 font-mono text-xs text-[var(--text-secondary)] leading-relaxed">
         <p>
-          Our engagements are structured as <strong>defined transaction review pilots</strong> with clear scope prerequisites:
+          Our engagements are structured with clear institutional clarity:
         </p>
         <ul className="space-y-1.5 list-disc pl-4 text-[var(--text-primary)]">
-          <li><strong>Standard Pilot ($10,000):</strong> Comprehensive 8-part dossier and 16-chapter forensic report delivered against an agreed research cutoff date (72-hour delivery target).</li>
-          <li><strong>Point-in-Time Baseline:</strong> The analysis establishes an auditable snapshot as of the agreed research cutoff date. Ordinary-course 8-Ks filed during the active 72h sprint are incorporated. Substantial transaction restructurings require mutual scope re-baselining.</li>
-          <li><strong>Expedited Priority Desk ($25,000):</strong> Accelerated 24–48 hour delivery for imminent shareholder votes, hostile exchange offers, or drop-dead dates.</li>
-          <li><strong>Zero Hidden Fees:</strong> 100% fixed fee. No hourly billables, no unexpected overages. Formal invoice issued only after mutual scope confirmation.</li>
+          <li><strong>Single-Transaction Forensic Dossier ($2,499):</strong> 2-Page Executive Risk Brief, Contractual Clause Card, 6-Vector Risk Index, and complete 16-chapter forensic registry delivered within 60 minutes from target filing.</li>
+          <li><strong>Institutional Desk Retainer ($7,500 / month):</strong> Unlimited live EDGAR deal ingestion runs, Schedule 13E-3 / PREM14A delta alerts, custom adversarial scenario directives, and direct analyst hotline.</li>
+          <li><strong>Zero Hidden Fees:</strong> 100% fixed fee. No hourly billables, no unexpected overages. Point-in-time cryptographic audit trail.</li>
         </ul>
       </div>
     )
@@ -182,7 +181,7 @@ const BUYER_QUESTIONS: FAQItem[] = [
     detailedAnswer: (
       <div className="space-y-3 font-mono text-xs text-[var(--text-secondary)] leading-relaxed">
         <p>
-          You do not need to spend $10,000 or make a commitment today.
+          You do not need to wire funds or make an upfront commitment today.
         </p>
         <p>
           Simply submit the target company ticker, CIK, or deal name. Our desk will run a <strong>free public-source feasibility check</strong> to confirm whether the SEC filing record has sufficient depth to support a high-conviction assessment.

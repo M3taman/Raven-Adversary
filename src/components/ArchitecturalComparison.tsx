@@ -77,7 +77,7 @@ const COMPARISON_DATA: ComparisonDimension[] = [
     genericAI: "Instant unstructured text ($50–$300/user/mo SaaS) without transaction grounding",
     traditionalVDR: "Volume data room fees ($20K–$100K+/deal) requiring hundreds of associate hours",
     legacyAdvisory: "3 to 6 weeks review cycle ($150K–$1M+ in billable hours)",
-    ravenEngine: "48 to 72 Hour Delivery ($10,000 Flat Fee / $25,000 Complex Sprint)",
+    ravenEngine: "60-Minute Turnaround ($2,499 Flat Fee) / Unlimited Desk Retainer ($7,500/mo)",
     institutionalImpact: "Delivers an 8-part boardroom-ready intelligence dossier within active negotiation windows."
   }
 ];
@@ -217,7 +217,7 @@ export default function ArchitecturalComparison() {
             Experience the Raven Epistemic Standard on Your Live Deal
           </div>
           <p className="text-xs text-[var(--text-secondary)] font-mono">
-            Commission a 48–72 hour independent transaction assessment ($10K Flat Fee).
+            Commission a 60-minute forensic dossier ($2,499 Flat Fee) or monthly desk retainer ($7,500/mo).
           </p>
         </div>
         <Link 

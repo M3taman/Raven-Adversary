@@ -221,7 +221,7 @@ export default function Lexicon() {
             Apply the Epistemic Standard to Your Deal
           </div>
           <p className="text-xs text-[var(--text-secondary)] font-mono">
-            48–72 hour adversarial pressure audit ($10,000 Flat Fee).
+            60-minute rapid forensic risk brief and 16-chapter audit ($2,499 Flat Fee / $7,500 Monthly Retainer).
           </p>
         </div>
         <Link

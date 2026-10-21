@@ -377,7 +377,7 @@ export default function DealIntelligenceArchive() {
           Need an Adversarial Intelligence Review on Your Transaction?
         </h2>
         <p className="text-sm text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed">
-          Submit any pending or announced deal to receive an institutional 8-part transaction review package within 48 to 72 hours.
+          Submit any pending or announced deal to receive an institutional forensic review package within 60 minutes of target filing.
         </p>
         <div className="pt-2">
           <Link

@@ -36,7 +36,7 @@ export function SampleAssessmentViewer() {
               href="#contact"
               className="px-5 py-2.5 bg-[var(--text-primary)] text-[var(--bg-primary)] font-mono text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-opacity"
             >
-              Order Review ($10K)
+              Order Forensic Dossier ($2,499)
             </a>
           </div>
         </div>
@@ -607,7 +607,7 @@ export function SampleAssessmentViewer() {
               <span>Independent forensic research conducted strictly on public SEC filings. Not formal legal counsel or investment advice.</span>
             </div>
             <div>
-              Deliverable Turnaround: Standard 72h ($10,000) • Expedited 24-48h ($25,000)
+              Deliverable Turnaround: Single Forensic Dossier 60-Min SLA ($2,499) • Institutional Desk Retainer ($7,500/mo)
             </div>
           </div>
 

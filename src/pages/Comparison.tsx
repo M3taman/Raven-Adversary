@@ -122,7 +122,7 @@ export default function ComparisonPage() {
           Commission an Adversarial Review for Your Target Transaction
         </h3>
         <p className="text-sm text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
-          Receive a complete 8-Part Transaction Review Package—including decision memo, evidence ledger, adversarial debate transcript, and 7-minute boardroom walkthrough—within 48 to 72 hours.
+          Receive a complete Forensic Dossier Package—including executive risk brief, 1-page clause card, 6-vector risk index, and 16-chapter citation registry—with a rapid 60-minute turnaround from target filing.
         </p>
         <div className="pt-2 flex flex-wrap justify-center gap-4">
           <Link

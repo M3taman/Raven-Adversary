@@ -418,7 +418,7 @@ export default function RavenEngine() {
         </h2>
         
         <p className="text-base text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
-          Submit the ticker, CIK, or target entity of any announced or rumored transaction. Raven reconstructs the complete 9-stage decision-state graph within 48 to 72 hours.
+          Submit the ticker, CIK, or target entity of any announced or rumored transaction. Raven reconstructs the complete decision-state graph within 60 minutes of target filing.
         </p>
 
         <div className="pt-2 flex flex-col sm:flex-row justify-center gap-4">

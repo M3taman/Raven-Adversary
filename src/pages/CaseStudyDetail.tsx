@@ -644,7 +644,7 @@ export default function CaseStudyDetail() {
           to="/transaction-review"
           className="px-6 py-3.5 bg-[var(--text-primary)] text-[var(--bg-primary)] hover:opacity-90 font-mono text-xs font-bold uppercase tracking-wider transition-opacity shrink-0"
         >
-          Request Transaction Review ($10K)
+          Request Forensic Dossier ($2,499)
         </Link>
       </div>
 

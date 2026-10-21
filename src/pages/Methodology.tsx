@@ -251,7 +251,7 @@ export default function Methodology() {
           Audit Your Live Transaction Under the Raven Standard
         </h3>
         <p className="text-sm text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed">
-          Commission an independent, cryptographically committed 8-part adversarial transaction review within 48 to 72 hours.
+          Commission an independent, cryptographically committed forensic transaction review with a 60-minute turnaround from target filing.
         </p>
         <div className="pt-2 flex flex-wrap justify-center gap-4">
           <Link

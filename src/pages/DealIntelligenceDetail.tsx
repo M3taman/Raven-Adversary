@@ -97,7 +97,7 @@ export default function DealIntelligenceDetail() {
             to="/request-assessment"
             className="bg-[var(--text-primary)] text-[var(--bg-primary)] px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-wider hover:opacity-90 transition-opacity"
           >
-            Commission Live Audit ($10K)
+            Commission Live Audit ($2,499)
           </Link>
         </div>
       </header>
@@ -311,7 +311,7 @@ export default function DealIntelligenceDetail() {
             Commission a Live Forensic Review for Your Target Deal
           </h3>
           <p className="text-xs text-[var(--text-secondary)]">
-            48 to 72 hour turnaround. 8-Part Forensic Dossier delivered under strict zero-MNPI protocols.
+            Rapid 60-minute turnaround from filing. Forensic Dossier delivered under strict zero-MNPI protocols.
           </p>
         </div>
         <Link
