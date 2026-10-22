@@ -159,16 +159,16 @@ const BUYER_QUESTIONS: FAQItem[] = [
     id: 'terms',
     number: '09',
     question: 'What are the commercial terms & pilot structure?',
-    shortSummary: 'Structured as a frictionless $2,499 Single-Transaction Forensic Dossier (60-Minute SLA) or $7,500/mo Desk Retainer.',
+    shortSummary: 'Three institutional tiers: Tier I Live Evaluation ($0 Complimentary), Tier II Forensic Sprint ($10K–$15K), and Tier III Retainer ($150K/yr | $37.5K/qtr).',
     detailedAnswer: (
       <div className="space-y-3 font-mono text-xs text-[var(--text-secondary)] leading-relaxed">
         <p>
-          Our engagements are structured with clear institutional clarity:
+          Our engagements follow a three-tier institutional commercial architecture with fixed fees and zero hidden billables:
         </p>
-        <ul className="space-y-1.5 list-disc pl-4 text-[var(--text-primary)]">
-          <li><strong>Single-Transaction Forensic Dossier ($2,499):</strong> 2-Page Executive Risk Brief, Contractual Clause Card, 6-Vector Risk Index, and complete 16-chapter forensic registry delivered within 60 minutes from target filing.</li>
-          <li><strong>Institutional Desk Retainer ($7,500 / month):</strong> Unlimited live EDGAR deal ingestion runs, Schedule 13E-3 / PREM14A delta alerts, custom adversarial scenario directives, and direct analyst hotline.</li>
-          <li><strong>Zero Hidden Fees:</strong> 100% fixed fee. No hourly billables, no unexpected overages. Point-in-time cryptographic audit trail.</li>
+        <ul className="space-y-2 list-disc pl-4 text-[var(--text-primary)]">
+          <li><strong>Tier I // Live-Deal Evaluation Pilot (Complimentary $0):</strong> 48-hour partner-level stress test on one active public transaction (8-K / S-4 / PREM14A) selected by your Managing Director or Litigation Partner. Delivers a 1-page contractual clause card and 6-vector risk score.</li>
+          <li><strong>Tier II // Single-Transaction Forensic Sprint ($15,000 Flat Fee • $10,000 First-Time Pilot Rate):</strong> Rapid 60-minute turnaround from target SEC filing. Complete 8-part package including the 16-chapter statutory dossier, full clause card deck, custom adversarial directive testing, and SHA-256 commit hash.</li>
+          <li><strong>Tier III // Dedicated Desk Retainer ($150,000 / Year or $37,500 / Quarter):</strong> Active coverage across up to 5 concurrent watch-list transactions for hedge funds and litigation boutiques, real-time filing delta alerts (PREM14A to DEFM14A), priority 60-minute SLA, and direct senior analyst redline consultation.</li>
         </ul>
       </div>
     )

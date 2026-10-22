@@ -138,7 +138,7 @@ export default function Home() {
               "name": "What is the Single-Transaction Forensic Dossier?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "A comprehensive $2,499 commercial forensic audit delivered within 60 minutes from target filing, including a 2-Page Executive Risk Brief, Contractual Clause Card, 6-Vector Risk Index, and 16-Chapter Statutory Citation Registry. Institutional Retainer available at $7,500/month."
+                "text": "A comprehensive commercial forensic audit delivered within 60 minutes from target filing, including a 2-Page Executive Risk Brief, Contractual Clause Card, 6-Vector Risk Index, and 16-Chapter Statutory Citation Registry ($15,000 Single Sprint / $150,000 Annual Retainer)."
               }
             }
           ]
@@ -219,8 +219,8 @@ export default function Home() {
               <div className="text-sm font-bold font-heading text-[var(--text-primary)] mt-0.5">100+ Live Transactions</div>
             </div>
             <div>
-              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">COMMERCIAL SPRINT</div>
-              <div className="text-sm font-bold font-heading text-emerald-400 mt-0.5">60-Min SLA • $2,499 Flat Fee</div>
+              <div className="font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-widest">COMMERCIAL DESK</div>
+              <div className="text-sm font-bold font-heading text-emerald-400 mt-0.5">48h Pilot ($0) • $10K-$15K Sprint • Retainer</div>
             </div>
           </div>
 
@@ -315,7 +315,7 @@ export default function Home() {
                 How is Raven engaged on a live transaction?
               </h3>
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                We deliver a Single-Transaction Forensic Dossier—including 1-Page Contractual Clause Card, 2-Page Executive Risk Brief, 6-Vector Risk Index, and 16-Chapter Statutory Citation Registry—within 60 minutes for a $2,499 flat fee, or via an Institutional Desk Retainer at $7,500/month.
+                We deliver a Single-Deal Forensic Sprint—including 1-Page Contractual Clause Card, 2-Page Executive Risk Brief, 6-Vector Risk Index, and 16-Chapter Statutory Citation Registry—within 60 minutes of filing for a $15,000 flat fee, or via an Annual Institutional Desk Retainer at $150,000/year ($37,500/quarter).
               </p>
               <div className="pt-2 flex items-center gap-4">
                 <Link to="/request-assessment" className="font-mono text-xs text-[var(--brand-cyan)] font-bold hover:underline inline-flex items-center gap-1.5">
@@ -380,7 +380,7 @@ export default function Home() {
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-xs font-bold text-[var(--brand-cyan)]">STEP 02</span>
                   <span className="px-2 py-0.5 border border-[var(--brand-cyan)] bg-[var(--brand-cyan)]/10 font-mono text-[9px] text-[var(--brand-cyan)] font-bold">
-                    $2,499 SINGLE DOSSIER // $7,500/MO RETAINER
+                    $15,000 SINGLE SPRINT // $150,000/YR RETAINER
                   </span>
                 </div>
                 <h3 className="text-xl font-bold font-heading text-[var(--text-primary)]">
@@ -721,7 +721,7 @@ export default function Home() {
 
           <div className="text-center font-mono text-[9px] text-[var(--text-tertiary)] uppercase tracking-wider space-y-1">
             <div>Step 1: Free Public-Source Coverage Check (1 Business Day) • Step 2: Scoped Engagement Confirmation</div>
-            <div>Single Forensic Dossier: $2,499 (60-Min SLA) • Institutional Desk Retainer: $7,500/mo (Unlimited EDGAR Live Runs)</div>
+            <div>Single Forensic Sprint: $15,000 (60-Min SLA) • Annual Desk Retainer: $150,000/yr (Unlimited EDGAR Live Runs)</div>
           </div>
 
         </div>

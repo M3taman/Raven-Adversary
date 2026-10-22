@@ -59,6 +59,7 @@ export default function RequestAssessment() {
         targetEntity: data.targetEntity as string,
         transactionType: data.transactionType as string,
         transactionStage: data.transactionStage as string,
+        mandateTier: (data.mandateTier as string) || 'Tier II: Single Forensic Sprint ($10K Pilot / $15K Standard)',
         transactionValue: data.transactionValue as string,
         strategicObjective: data.strategicObjective as string,
         referenceId: generatedRef,
@@ -246,6 +247,31 @@ export default function RequestAssessment() {
                 </div>
               </div>
 
+              {/* Row 3.5: Commercial Mandate Tier Selection */}
+              <div className="space-y-2 text-left">
+                <div className="flex items-center justify-between">
+                  <label className="font-mono text-[10px] text-[var(--brand-cyan)] uppercase tracking-wider font-bold">
+                    Requested Commercial Mandate Tier <span className="text-rose-400">*</span>
+                  </label>
+                  <span className="font-mono text-[9px] text-[var(--text-tertiary)]">ZERO PAYMENT REQUIRED ON INTAKE</span>
+                </div>
+                <select
+                  name="mandateTier"
+                  defaultValue="Tier II: Single Forensic Sprint ($10K Pilot / $15K Standard)"
+                  className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] px-4 py-3 text-sm text-[var(--text-primary)] focus:border-[var(--brand-cyan)] focus:outline-none font-sans font-medium"
+                >
+                  <option value="Tier I: Live-Deal Evaluation Pilot (Complimentary 48-Hour Forensic Stress Test)">
+                    Tier I: Live-Deal Evaluation Pilot (Complimentary $0 • 48-Hour Forensic Stress Test)
+                  </option>
+                  <option value="Tier II: Single Forensic Sprint ($10K Pilot / $15K Standard)">
+                    Tier II: Single-Transaction Forensic Sprint ($10,000 Pilot / $15,000 Standard • 60-Min SLA)
+                  </option>
+                  <option value="Tier III: Dedicated Desk Retainer ($150,000/Year | $37,500/Quarter)">
+                    Tier III: Dedicated Desk Retainer ($37,500/Quarter | $150,000/Year • Up to 5 Active Transactions)
+                  </option>
+                </select>
+              </div>
+
               {/* Row 4: Strategic Objective */}
               <div className="space-y-2 text-left">
                 <label className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-wider font-bold">
@@ -318,16 +344,38 @@ export default function RequestAssessment() {
             
             <div className="p-6 border border-[var(--border-color)] bg-[var(--bg-secondary)]/30 space-y-4 text-left">
               <div className="font-mono text-[10px] text-[var(--brand-cyan)] uppercase font-bold tracking-wider">
-                COMMERCIAL DELIVERABLE
+                COMMERCIAL MANDATE ARCHITECTURE
               </div>
-              <h3 className="text-lg font-bold font-heading text-[var(--text-primary)]">
-                Single Forensic Dossier ($2,499)
-              </h3>
-              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Delivered in 60 minutes. Includes 2-Page Executive Risk Brief, 1-Page Contractual Clause Card, 6-Vector Risk Index, and 16-Chapter Statutory Citation Registry.
-              </p>
-              <div className="pt-2 font-mono text-[9px] text-emerald-400 font-bold border-t border-[var(--border-color)]">
-                INSTITUTIONAL DESK RETAINER: $7,500 / MONTH
+              <div className="space-y-3 font-mono text-xs divide-y divide-[var(--border-color)]/60">
+                <div className="pt-1">
+                  <div className="flex items-center justify-between text-[11px] font-bold text-[var(--text-primary)]">
+                    <span>TIER I: LIVE EVALUATION</span>
+                    <span className="text-emerald-400 font-bold">$0 (COMPLIMENTARY)</span>
+                  </div>
+                  <p className="text-[10px] text-[var(--text-secondary)] font-sans mt-0.5 leading-tight">
+                    48-Hour Forensic Stress Test on 1 live public deal. 1-page clause card & 6-vector risk score.
+                  </p>
+                </div>
+
+                <div className="pt-2.5">
+                  <div className="flex items-center justify-between text-[11px] font-bold text-[var(--brand-cyan)]">
+                    <span>TIER II: FORENSIC SPRINT</span>
+                    <span className="text-[var(--text-primary)] font-bold">$10K - $15K</span>
+                  </div>
+                  <p className="text-[10px] text-[var(--text-secondary)] font-sans mt-0.5 leading-tight">
+                    60-minute turnaround from filing. 16-chapter dossier, clause cards & adversarial directive testing.
+                  </p>
+                </div>
+
+                <div className="pt-2.5">
+                  <div className="flex items-center justify-between text-[11px] font-bold text-purple-400">
+                    <span>TIER III: DESK RETAINER</span>
+                    <span className="text-[var(--text-primary)] font-bold">$37,500 / QTR</span>
+                  </div>
+                  <p className="text-[10px] text-[var(--text-secondary)] font-sans mt-0.5 leading-tight">
+                    $150K/yr. Continuous watch-list coverage across up to 5 concurrent deals, delta alerts & priority SLA.
+                  </p>
+                </div>
               </div>
             </div>
 

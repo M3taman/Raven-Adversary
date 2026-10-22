@@ -6,7 +6,7 @@ import { InstitutionalBuyerGuide } from '../components/InstitutionalBuyerGuide';
 import { FeasibilityMatrix } from '../components/FeasibilityMatrix';
 
 export default function TransactionReview() {
-  const [selectedPlan, setSelectedPlan] = useState<'standard' | 'expedited'>('standard');
+  const [selectedPlan, setSelectedPlan] = useState<'pilot' | 'sprint' | 'retainer'>('sprint');
   const [tickerOrCik, setTickerOrCik] = useState('');
   const [firmName, setFirmName] = useState('');
   const [workEmail, setWorkEmail] = useState('');
@@ -28,127 +28,207 @@ export default function TransactionReview() {
       {/* Top Breadcrumb & Header */}
       <div className="space-y-4 border-b border-[var(--border-color)] pb-10">
         <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--brand-cyan)]">
-          <Layers className="w-3 h-3" /> COMMERCIAL ENGAGEMENT // LIVE TRANSACTION REVIEW
+          <Layers className="w-3 h-3" /> COMMERCIAL ENGAGEMENT // LIVE TRANSACTION DESK
         </div>
         <h1 className="text-4xl md:text-6xl font-bold font-heading text-[var(--text-primary)] tracking-tight">
-          The 8-Part Transaction Review Package
+          Institutional Commercial Architecture
         </h1>
         <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-4xl">
-          An institutional-grade forensic audit of transactional leverage, latent contractual liabilities, and unpriced regulatory dependencies delivered with a rapid 60-minute turnaround from SEC filing.
+          An institutional-grade forensic audit of transactional leverage, latent contractual liabilities, and unpriced regulatory dependencies. Select a mandate tier or commission a live evaluation on an active public filing.
         </p>
       </div>
 
-      {/* Pricing & Tier Selection Grid */}
-      <div className="grid md:grid-cols-2 gap-8 items-stretch">
+      {/* Pricing & 3-Tier Selection Grid */}
+      <div className="grid md:grid-cols-3 gap-6 items-stretch">
         
-        {/* Standard Review Card */}
+        {/* Tier I: Complimentary Pilot */}
         <div 
-          onClick={() => setSelectedPlan('standard')}
-          className={`p-8 border cursor-pointer transition-all flex flex-col justify-between space-y-6 ${
-            selectedPlan === 'standard'
-              ? 'border-[var(--brand-cyan)] bg-[var(--brand-cyan)]/5 shadow-lg'
+          onClick={() => setSelectedPlan('pilot')}
+          className={`p-7 border cursor-pointer transition-all flex flex-col justify-between space-y-6 relative ${
+            selectedPlan === 'pilot'
+              ? 'border-[var(--brand-cyan)] bg-[var(--brand-cyan)]/5 shadow-xl'
               : 'border-[var(--border-color)] bg-[var(--bg-secondary)]/20 hover:border-[var(--border-highlight)]'
           }`}
         >
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--text-primary)]">
-                SINGLE FORENSIC DOSSIER
+              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--text-tertiary)]">
+                TIER I // LIVE EVALUATION
               </span>
               <span className="px-2 py-0.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-mono text-[9px] font-bold">
-                60-MINUTE TURNAROUND
+                COMPLIMENTARY
               </span>
             </div>
 
-            <div className="text-4xl font-bold font-heading text-[var(--text-primary)]">
-              $2,499 <span className="text-xs font-mono font-normal text-[var(--text-tertiary)]">/ Transaction</span>
+            <div>
+              <div className="text-3xl font-bold font-heading text-[var(--text-primary)]">
+                $0 <span className="text-xs font-mono font-normal text-[var(--text-tertiary)]">/ Pilot Evaluation</span>
+              </div>
+              <div className="text-[11px] font-mono text-emerald-400 mt-1 font-semibold">
+                48-Hour Forensic Stress Test
+              </div>
             </div>
 
             <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-              Complete forensic risk brief, contractual clause card, and 16-chapter statutory citation registry delivered within 60 minutes.
+              Complimentary stress test on one active public transaction (8-K / S-4 / PREM14A) selected by the Managing Director or Litigation Partner.
             </p>
 
-            <ul className="space-y-2.5 text-xs text-[var(--text-secondary)] font-mono pt-2">
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[var(--brand-cyan)]" /> 2-Page Executive Risk Brief (Board Memo)
+            <ul className="space-y-2 text-xs text-[var(--text-secondary)] font-mono pt-2">
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> 
+                <span>1-Page Contractual Clause Card (top 2 fault lines)</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[var(--brand-cyan)]" /> 1-Page Contractual Clause Card with triggers & amplifiers
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> 
+                <span>Raven 6-Vector Risk Index quantitative baseline</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[var(--brand-cyan)]" /> Complete 16-Chapter Statutory Citation Registry
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> 
+                <span>Exact line-numbered SEC EDGAR coordinates</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[var(--brand-cyan)]" /> Raven 6-Vector Risk Index & stress deltas
-              </li>
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[var(--brand-cyan)]" /> Immutable SHA-256 Commit Layer audit record
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> 
+                <span>Zero financial commitment or payment info required</span>
               </li>
             </ul>
           </div>
 
           <div className="pt-4 border-t border-[var(--border-color)]/60 font-mono text-[10px] text-[var(--brand-cyan)] font-bold uppercase tracking-wider flex items-center justify-between">
-            <span>SELECT SINGLE DOSSIER</span>
-            <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${selectedPlan === 'standard' ? 'border-[var(--brand-cyan)] bg-[var(--brand-cyan)]' : 'border-[var(--border-color)]'}`}>
-              {selectedPlan === 'standard' && <div className="w-1.5 h-1.5 bg-black rounded-full"></div>}
+            <span>SELECT EVALUATION PILOT</span>
+            <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${selectedPlan === 'pilot' ? 'border-[var(--brand-cyan)] bg-[var(--brand-cyan)]' : 'border-[var(--border-color)]'}`}>
+              {selectedPlan === 'pilot' && <div className="w-1.5 h-1.5 bg-[var(--brand-cyan)] rounded-full"></div>}
             </div>
           </div>
         </div>
 
-        {/* Expedited Priority Desk Card */}
+        {/* Tier II: Single Forensic Sprint */}
         <div 
-          onClick={() => setSelectedPlan('expedited')}
-          className={`p-8 border cursor-pointer transition-all flex flex-col justify-between space-y-6 relative ${
-            selectedPlan === 'expedited'
-              ? 'border-[var(--brand-cyan)] bg-[var(--brand-cyan)]/10 shadow-xl'
+          onClick={() => setSelectedPlan('sprint')}
+          className={`p-7 border cursor-pointer transition-all flex flex-col justify-between space-y-6 relative ${
+            selectedPlan === 'sprint'
+              ? 'border-[var(--brand-cyan)] bg-[var(--brand-cyan)]/10 shadow-2xl ring-1 ring-[var(--brand-cyan)]'
               : 'border-[var(--border-color)] bg-[var(--bg-secondary)]/20 hover:border-[var(--border-highlight)]'
           }`}
         >
-          <div className="absolute top-0 right-0 px-3 py-1 bg-[var(--brand-cyan)] text-black font-mono text-[9px] font-bold uppercase tracking-widest">
-            INSTITUTIONAL DESK
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-[var(--brand-cyan)] text-black font-mono text-[9px] font-bold uppercase tracking-widest shadow">
+            MOST POPULAR MANDATE
           </div>
 
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--brand-cyan)]">
-                INSTITUTIONAL DESK RETAINER
+              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--brand-cyan)]">
+                TIER II // FORENSIC SPRINT
               </span>
-              <span className="px-2 py-0.5 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/20 font-mono text-[9px] text-[var(--brand-cyan)] font-bold">
-                UNLIMITED LIVE RUNS
+              <span className="px-2 py-0.5 border border-[var(--brand-cyan)]/30 bg-[var(--brand-cyan)]/20 text-[var(--brand-cyan)] font-mono text-[9px] font-bold">
+                60-MIN RAPID SLA
               </span>
             </div>
 
-            <div className="text-4xl font-bold font-heading text-[var(--text-primary)]">
-              $7,500 <span className="text-xs font-mono font-normal text-[var(--text-tertiary)]">/ Month Retainer</span>
+            <div>
+              <div className="text-3xl font-bold font-heading text-[var(--text-primary)]">
+                $15,000 <span className="text-xs font-mono font-normal text-[var(--text-tertiary)]">/ Deal Mandate</span>
+              </div>
+              <div className="text-[11px] font-mono text-[var(--brand-cyan)] mt-1 font-semibold">
+                $10,000 First-Time Pilot Rate
+              </div>
             </div>
 
             <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-              Full monthly desk coverage for hedge fund merger arb pods, special litigation counsel, and active M&A practices.
+              Rapid 60-minute turnaround from CIK/EDGAR filing. Full 8-part forensic review package with complete adversarial scenario testing.
             </p>
 
-            <ul className="space-y-2.5 text-xs text-[var(--text-secondary)] font-mono pt-2">
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[var(--brand-cyan)]" /> Unlimited live EDGAR deal ingestion runs
+            <ul className="space-y-2 text-xs text-[var(--text-secondary)] font-mono pt-2">
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)] shrink-0 mt-0.5" /> 
+                <span>16-Chapter Statutory Dossier & complete audit registry</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[var(--brand-cyan)]" /> Real-time Schedule 13E-3 & PREM14A delta alerts
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)] shrink-0 mt-0.5" /> 
+                <span>Full Contractual Clause Card Deck (triggers & amplifiers)</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[var(--brand-cyan)]" /> Direct analyst consultation & redline guidance
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)] shrink-0 mt-0.5" /> 
+                <span>Custom Adversarial Directive Testing & scenario modeling</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[var(--brand-cyan)]" /> Custom red-team adversarial scenario modeling
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)] shrink-0 mt-0.5" /> 
+                <span>Page-One Boardroom MD Passthrough Brief</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[var(--brand-cyan)]" /> Priority 60-minute execution guarantee on all deal drops
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)] shrink-0 mt-0.5" /> 
+                <span>Immutable SHA-256 Commit Layer audit record</span>
               </li>
             </ul>
           </div>
 
           <div className="pt-4 border-t border-[var(--border-color)]/60 font-mono text-[10px] text-[var(--brand-cyan)] font-bold uppercase tracking-wider flex items-center justify-between">
+            <span>SELECT FORENSIC SPRINT</span>
+            <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${selectedPlan === 'sprint' ? 'border-[var(--brand-cyan)] bg-[var(--brand-cyan)]' : 'border-[var(--border-color)]'}`}>
+              {selectedPlan === 'sprint' && <div className="w-1.5 h-1.5 bg-black rounded-full"></div>}
+            </div>
+          </div>
+        </div>
+
+        {/* Tier III: Dedicated Desk Retainer */}
+        <div 
+          onClick={() => setSelectedPlan('retainer')}
+          className={`p-7 border cursor-pointer transition-all flex flex-col justify-between space-y-6 relative ${
+            selectedPlan === 'retainer'
+              ? 'border-purple-400 bg-purple-500/10 shadow-xl ring-1 ring-purple-400'
+              : 'border-[var(--border-color)] bg-[var(--bg-secondary)]/20 hover:border-[var(--border-highlight)]'
+          }`}
+        >
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-purple-400">
+                TIER III // DESK RETAINER
+              </span>
+              <span className="px-2 py-0.5 border border-purple-500/30 bg-purple-500/10 text-purple-300 font-mono text-[9px] font-bold">
+                5 ACTIVE DEALS
+              </span>
+            </div>
+
+            <div>
+              <div className="text-3xl font-bold font-heading text-[var(--text-primary)]">
+                $150,000 <span className="text-xs font-mono font-normal text-[var(--text-tertiary)]">/ Year</span>
+              </div>
+              <div className="text-[11px] font-mono text-purple-300 mt-1 font-semibold">
+                $37,500 / Quarter Billed
+              </div>
+            </div>
+
+            <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+              Continuous watch-list coverage across up to 5 concurrent live transactions for hedge funds, litigation desks, and M&A advisory teams.
+            </p>
+
+            <ul className="space-y-2 text-xs text-[var(--text-secondary)] font-mono pt-2">
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-purple-400 shrink-0 mt-0.5" /> 
+                <span>Active coverage on up to 5 concurrent live transactions</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-purple-400 shrink-0 mt-0.5" /> 
+                <span>Real-time filing delta alerts (PREM14A to DEFM14A, 8-K redlines)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-purple-400 shrink-0 mt-0.5" /> 
+                <span>Direct senior analyst redline & litigation consultation</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-purple-400 shrink-0 mt-0.5" /> 
+                <span>Unlimited custom adversarial directive testing runs</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Check className="w-3.5 h-3.5 text-purple-400 shrink-0 mt-0.5" /> 
+                <span>Priority 60-min rapid turnaround guarantee on all drops</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="pt-4 border-t border-[var(--border-color)]/60 font-mono text-[10px] text-purple-400 font-bold uppercase tracking-wider flex items-center justify-between">
             <span>SELECT DESK RETAINER</span>
-            <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${selectedPlan === 'expedited' ? 'border-[var(--brand-cyan)] bg-[var(--brand-cyan)]' : 'border-[var(--border-color)]'}`}>
-              {selectedPlan === 'expedited' && <div className="w-1.5 h-1.5 bg-[var(--brand-cyan)] rounded-full"></div>}
+            <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${selectedPlan === 'retainer' ? 'border-purple-400 bg-purple-400' : 'border-[var(--border-color)]'}`}>
+              {selectedPlan === 'retainer' && <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>}
             </div>
           </div>
         </div>
@@ -201,7 +281,7 @@ export default function TransactionReview() {
           </div>
           <div className="p-3 bg-[var(--bg-primary)] border border-[var(--border-color)]">
             <span className="text-[var(--brand-cyan)] font-bold block mb-1">STEP 2: SCOPE AGREEMENT</span>
-            Confirm focal inquiry priorities. Fixed-fee invoice ($2,499 Single Dossier / $7,500 Retainer) with zero hidden billables.
+            Confirm focal inquiry priorities. Fixed-fee invoice ($15,000 Sprint / $37,500 Quarterly Retainer) with zero hidden billables.
           </div>
           <div className="p-3 bg-[var(--bg-primary)] border border-[var(--border-color)]">
             <span className="text-[var(--brand-cyan)] font-bold block mb-1">STEP 3: 60-MIN RAPID DELIVERY</span>
@@ -342,10 +422,15 @@ export default function TransactionReview() {
               type="submit"
               className="w-full py-4 bg-[var(--text-primary)] text-[var(--bg-primary)] hover:opacity-90 transition-opacity font-mono text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2"
             >
-              Submit for Free Public Feasibility Check ({selectedPlan === 'standard' ? '$2,499 Single Dossier' : '$7,500/mo Desk Retainer'}) <ArrowRight className="w-4 h-4" />
+              {selectedPlan === 'pilot' && 'Submit for Complimentary 48-Hour Live Evaluation Pilot ($0)'}
+              {selectedPlan === 'sprint' && 'Commission Single-Deal Forensic Sprint ($10K Pilot / $15K Standard)'}
+              {selectedPlan === 'retainer' && 'Request Dedicated Desk Retainer ($37,500/Qtr • 5 Concurrent Deals)'}
+              <ArrowRight className="w-4 h-4" />
             </button>
             <div className="text-center font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">
-              Zero payment due now. Formal fixed-fee invoice issued only after mutual scope confirmation.
+              {selectedPlan === 'pilot' 
+                ? 'Zero financial obligation. 48-hour SLA partner delivery. Strictly public SEC filings under zero-MNPI protocols.'
+                : 'Zero payment due now. Formal fixed-fee mandate agreement issued only after mutual scope & conflicts clearance.'}
             </div>
           </form>
         )}

@@ -65,7 +65,7 @@ const METADATA: Record<string, { title: string; description: string }> = {
     description: 'Commission an independent, cryptographically committed forensic transaction review under zero-MNPI protocols within 60 minutes.'
   },
   '/transaction-review': {
-    title: 'Forensic Transaction Dossier ($2,499 Flat Fee) | Raven Adversary',
+    title: 'Forensic Transaction Mandate ($15,000 / $150,000 Retainer) | Raven Adversary',
     description: 'Comprehensive 60-minute forensic transaction intelligence review for active M&A, contested shareholder votes, and bank consolidations.'
   },
   '/evidence-standard': {

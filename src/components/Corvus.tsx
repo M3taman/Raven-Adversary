@@ -131,11 +131,11 @@ export function Corvus() {
       };
     }
 
-    // 13. Pricing / $2,499 Single Dossier & $7,500 Retainer
-    if (lower.includes('2,499') || lower.includes('2499') || lower.includes('7,500') || lower.includes('7500') || lower.includes('cost') || lower.includes('pricing') || lower.includes('what do i get') || lower.includes('deliverable') || lower.includes('package') || lower.includes('price')) {
+    // 13. Pricing / 3-Tier Commercial Architecture
+    if (lower.includes('15,000') || lower.includes('15000') || lower.includes('150,000') || lower.includes('150000') || lower.includes('37,500') || lower.includes('37500') || lower.includes('10,000') || lower.includes('10000') || lower.includes('2,499') || lower.includes('2499') || lower.includes('tier') || lower.includes('cost') || lower.includes('pricing') || lower.includes('what do i get') || lower.includes('deliverable') || lower.includes('package') || lower.includes('price')) {
       return {
-        content: "Raven offers two institutional commercial formats: (1) Single-Transaction Forensic Dossier ($2,499 Flat Fee, 60-Minute Turnaround from target filing), delivering a 2-Page Executive Risk Brief, 1-Page Contractual Clause Card, 6-Vector Risk Index, and 16-Chapter Statutory Citation Registry; and (2) Institutional Desk Retainer ($7,500/Month), delivering unlimited live EDGAR deal ingestion runs, Schedule 13E-3 / PREM14A delta alerts, custom adversarial stress scenarios, and direct analyst hotline.",
-        actionLink: { text: "Inspect Live Deal Teardowns & Pricing", url: "/#live-deals" }
+        content: "Raven operates across three institutional commercial tiers: (1) Tier I // Live-Deal Evaluation Pilot ($0 Complimentary): A 48-hour partner-level forensic stress test on 1 active public transaction (8-K / S-4 / PREM14A) selected by your Managing Director or Litigation Partner, delivering a 1-page clause card and 6-vector risk score; (2) Tier II // Single-Transaction Forensic Sprint ($15,000 standard / $10,000 first-time pilot rate): Rapid 60-minute turnaround from filing, delivering the full 8-part package including the 16-chapter statutory dossier, clause card deck, and custom adversarial directive testing; and (3) Tier III // Dedicated Desk Retainer ($150,000/year or $37,500/quarter): Continuous coverage on up to 5 concurrent live transactions, real-time filing delta alerts (PREM14A to DEFM14A), priority 60-min SLA, and direct senior analyst redline consultation.",
+        actionLink: { text: "Review Commercial Architecture & Tiers", url: "/transaction-review" }
       };
     }
 
@@ -290,7 +290,7 @@ export function Corvus() {
 
     // Default Fallback
     return {
-      content: `Your inquiry regarding "${text.length > 35 ? text.substring(0, 35) + '...' : text}" requires greater institutional specificity. Ask about our live deal audits (BWIN $298M TRA, OPCH Several Liability, ITGR 60-Min Auction, PAG DGCL 144), Delaware Chancery standards (Corwin cleansing, MFW entire fairness, Revlon auctions, MAE/MAC), DGCL § 262 appraisal arbitrage, or our $2,499 Single Dossier (60-minute SLA).`
+      content: `Your inquiry regarding "${text.length > 35 ? text.substring(0, 35) + '...' : text}" requires greater institutional specificity. Ask about our live deal audits (PAG DGCL 144, BWIN $298M TRA, OPCH Several Liability, ITGR 60-Min Auction), Delaware Chancery standards (Corwin cleansing, MFW entire fairness, Revlon auctions, MAE/MAC), DGCL § 262 appraisal arbitrage, or our $15,000 Forensic Sprint & Retainer coverage.`
     };
   };
 
@@ -460,10 +460,10 @@ export function Corvus() {
           DGCL § 262 Appraisal
         </button>
         <button 
-          onClick={() => handlePromptClick('What is the $2,499 Single Dossier deliverable?')} 
+          onClick={() => handlePromptClick('What is the $15,000 Forensic Sprint deliverable?')} 
           className="px-2 py-1 border border-[var(--border-color)] hover:border-[var(--brand-cyan)] shrink-0 bg-[var(--bg-primary)] transition-colors hover:text-[var(--text-primary)]"
         >
-          $2,499 Commercial SLA
+          $15K Sprint / Retainer
         </button>
         <button 
           onClick={() => handlePromptClick('How does Corwin cleansing fail in M&A?')} 

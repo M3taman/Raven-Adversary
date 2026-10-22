@@ -91,8 +91,8 @@ export function InstitutionalDeliverables() {
           </div>
 
           <div className="flex flex-col items-start md:items-end gap-2 font-mono text-xs">
-            <div className="text-[var(--brand-cyan)] font-bold">// SINGLE FORENSIC DOSSIER: $2,499</div>
-            <div className="text-emerald-400 font-semibold">INSTITUTIONAL DESK RETAINER: $7,500 / MO</div>
+            <div className="text-[var(--brand-cyan)] font-bold">// FORENSIC SPRINT: $15,000 MANDATE</div>
+            <div className="text-emerald-400 font-semibold">ANNUAL DESK RETAINER: $150,000 / YR ($37,500/QTR)</div>
           </div>
         </div>
 
@@ -138,24 +138,24 @@ export function InstitutionalDeliverables() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] text-[var(--text-tertiary)] uppercase tracking-widest font-bold">
-                  SINGLE-TRANSACTION FORENSIC DOSSIER
+                  SINGLE FORENSIC SPRINT
                 </span>
                 <span className="px-2 py-0.5 bg-[var(--bg-secondary)] border border-emerald-500/30 text-emerald-400 font-mono text-[9px] font-bold">
-                  60-MINUTE TURNAROUND
+                  SAME-DAY COMPREHENSIVE
                 </span>
               </div>
 
               <div className="text-3xl font-bold font-heading text-[var(--text-primary)]">
-                $2,499 <span className="text-xs font-normal font-mono text-[var(--text-tertiary)]">/ Live Transaction</span>
+                $15,000 <span className="text-xs font-normal font-mono text-[var(--text-tertiary)]">/ Live Mandate</span>
               </div>
 
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Rapid, frictionless forensic audit package for live M&A transactions, proxy contests, or litigation filings. Swipable directly via corporate card.
+                Full-spectrum forensic audit package for contested M&A transactions, proxy battles, and litigation filings. Initial 1-page clause card delivered in 60 minutes.
               </p>
 
               <ul className="space-y-2 text-xs text-[var(--text-secondary)] font-mono">
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> 2-Page Executive Risk Brief (Board Memo)
+                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> 2-Page Executive Risk Brief (Board Decision Memo)
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Contractual Clause Card with triggers & amplifiers
@@ -164,7 +164,7 @@ export function InstitutionalDeliverables() {
                   <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Complete 16-Chapter Statutory Citation Registry
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Raven 6-Vector Risk Index & stress deltas
+                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Raven 6-Vector Risk Index & balance sheet exposure bridge
                 </li>
               </ul>
             </div>
@@ -173,7 +173,7 @@ export function InstitutionalDeliverables() {
               to="/request-assessment"
               className="w-full py-3.5 bg-[var(--text-primary)] text-[var(--bg-primary)] text-center font-mono text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity"
             >
-              Order Single Dossier ($2,499)
+              Commission Forensic Sprint ($15,000)
             </Link>
           </div>
 
@@ -186,7 +186,7 @@ export function InstitutionalDeliverables() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] text-[var(--brand-cyan)] uppercase tracking-widest font-bold">
-                  INSTITUTIONAL DESK RETAINER
+                  ANNUAL DESK RETAINER
                 </span>
                 <span className="px-2 py-0.5 bg-[var(--brand-cyan)]/10 border border-[var(--brand-cyan)]/30 font-mono text-[9px] text-[var(--brand-cyan)] font-bold">
                   UNLIMITED LIVE RUNS
@@ -194,11 +194,11 @@ export function InstitutionalDeliverables() {
               </div>
 
               <div className="text-3xl font-bold font-heading text-[var(--text-primary)]">
-                $7,500 <span className="text-xs font-normal font-mono text-[var(--text-tertiary)]">/ Month Retainer</span>
+                $150,000 <span className="text-xs font-normal font-mono text-[var(--text-tertiary)]">/ Year ($37,500/Qtr)</span>
               </div>
 
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Full-coverage coverage for hedge fund merger arb pods, special litigation teams, and M&A boutiques with ongoing live transaction flow.
+                Dedicated desk coverage for event-driven merger arb pods, special litigation boutiques, and investment banking M&A desks with continuous deal flow.
               </p>
 
               <ul className="space-y-2 text-xs text-[var(--text-secondary)] font-mono">
@@ -212,7 +212,7 @@ export function InstitutionalDeliverables() {
                   <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Custom red-team adversarial scenario directives
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Direct hotline with senior forensic intelligence leads
+                  <Check className="w-3.5 h-3.5 text-[var(--brand-cyan)]" /> Direct analyst hotline & board walkthrough debriefs
                 </li>
               </ul>
             </div>
@@ -221,7 +221,7 @@ export function InstitutionalDeliverables() {
               to="/request-assessment"
               className="w-full py-3.5 bg-[var(--brand-cyan)] text-black text-center font-mono text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity"
             >
-              Engage Desk Retainer ($7,500/mo)
+              Engage Desk Retainer ($37,500/qtr)
             </Link>
           </div>
 

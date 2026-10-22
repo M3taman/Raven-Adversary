@@ -92,10 +92,10 @@ export function LitigationArbitrageDesk() {
               <Gavel className="w-4 h-4" /> 60-Minute Turnaround for Active SEC Filing Drops
             </div>
             <div className="text-lg sm:text-xl font-bold text-[var(--text-primary)] font-heading">
-              Need an Urgent 16-Chapter Forensic Risk Dossier for an Active S-4 or PREM14A?
+              Need an Urgent Forensic Risk Dossier for an Active S-4 or PREM14A?
             </div>
             <p className="text-xs text-[var(--text-secondary)] max-w-2xl font-sans">
-              Transmit target CIK or transaction identifier. The Raven Desk delivers a complete 16-chapter forensic citation register, 2-page executive risk brief, and contractual clause cards for <span className="font-bold text-white">$2,499 Flat Fee</span> within 60 minutes.
+              Transmit target CIK or transaction identifier. Access Tier I Complimentary 48-Hour Live Evaluation, commission a Tier II Forensic Sprint (<span className="font-bold text-white">$10,000 Pilot / $15,000 Standard</span>, 60-min SLA), or activate a dedicated Desk Retainer ($37,500/qtr).
             </p>
           </div>
 
@@ -104,7 +104,7 @@ export function LitigationArbitrageDesk() {
               to="/request-assessment"
               className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-[var(--brand-cyan)] text-white text-xs sm:text-sm font-semibold tracking-wide hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/20"
             >
-              <span>Order $2,499 Single Dossier</span>
+              <span>Request Evaluation / Mandate</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

@@ -97,15 +97,15 @@ const LIVE_DEALS: DealArtifact[] = [
     acquirerName: 'Motown Acquisition Corp. (Roger Penske & Mitsui & Co.)',
     dealSize: '$212.00/sh Controller Buyout',
     dealStructure: 'Controller Going-Private (~72.6% Existing Stake)',
-    auditId: '#RAVEN-AUDIT-PENS-MOTO-20261020-REV1',
-    compositeRisk: 54,
+    auditId: '#RAVEN-AUDIT-PENS-MOTO-20261021-REV1',
+    compositeRisk: 68,
     riskRating: 'ELEVATED',
     primaryRiskSummary: 'Defective MFW cleansing formulation conditioning minority approval on a "majority of votes cast by disinterested stockholders" under DGCL § 144 rather than outstanding shares.',
     operativeClause: 'Merger Agreement Section 1.01 & Form 8-K Item 1.01 (Disinterested Voting Standard)',
     statutoryTrap: 'Low-turnout sensitivity: Under 30% minority turnout, transaction can be approved by affirmative votes representing only 15.0% of the public float (4.1% of common stock).',
-    clauseCardPdf: '/assets/aistudio/Raven_Clause_Cards_AUDIT-PENS-MOTO-20261020-REV1_856fb5ca.pdf',
-    executiveBriefPdf: '/assets/aistudio/Raven_Executive_Brief_AUDIT-PENS-MOTO-20261020-REV1_8a28f6ef.pdf',
-    forensicAuditPdf: '/assets/aistudio/Raven_Forensic_Audit_16Ch_AUDIT-PENS-MOTO-20261020-REV1_a6df9b4a.pdf',
+    clauseCardPdf: '/assets/aistudio/Raven_Clause_Cards_AUDIT-PENS-MOTO-20261021-REV1_6033a715.pdf',
+    executiveBriefPdf: '/assets/aistudio/Raven_Executive_Brief_AUDIT-PENS-MOTO-20261021-REV1_ffb9f337.pdf',
+    forensicAuditPdf: '/assets/aistudio/Raven_Forensic_Audit_16Ch_AUDIT-PENS-MOTO-20261021-REV1_58dce0f9.pdf',
     keyStats: [
       { label: 'Controller Control', value: '72.6% Locked Up' },
       { label: 'Minority Standard', value: 'Votes Cast (DGCL 144)' },
@@ -328,7 +328,7 @@ export function LiveDealShowcase() {
                 <span className="flex items-center gap-1 text-emerald-400 font-semibold">
                   <CheckCircle2 className="w-3.5 h-3.5" /> SHA-256 Verified Ingestion
                 </span>
-                <span>$2,499 RAPID DOSSIER SLA</span>
+                <span>60-MIN CLAUSE CARD // BESPOKE MANDATES</span>
               </div>
 
             </div>

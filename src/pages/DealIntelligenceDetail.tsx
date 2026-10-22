@@ -97,7 +97,7 @@ export default function DealIntelligenceDetail() {
             to="/request-assessment"
             className="bg-[var(--text-primary)] text-[var(--bg-primary)] px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-wider hover:opacity-90 transition-opacity"
           >
-            Commission Live Audit ($2,499)
+            Commission Live Audit ($15,000)
           </Link>
         </div>
       </header>

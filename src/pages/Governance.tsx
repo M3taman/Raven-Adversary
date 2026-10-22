@@ -223,7 +223,7 @@ export default function Governance() {
               </div>
               <div className="space-y-4 text-sm text-[var(--text-secondary)] leading-relaxed font-sans">
                 <p>
-                  Raven maintains strict structural independence from deal outcomes. Because our revenue is derived from flat-fee institutional assessments ($2,499 Single Dossier / $7,500 Monthly Retainer) rather than success-contingent advisory bonuses or closing fees, our analysis remains analytically dispassionate.
+                  Raven maintains strict structural independence from deal outcomes. Because our revenue is derived from flat-fee institutional assessments ($15,000 Single Sprint / $150,000 Annual Retainer) rather than success-contingent advisory bonuses or closing fees, our analysis remains analytically dispassionate.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 font-mono text-xs">
                   <div className="p-4 border border-[var(--border-color)] bg-[var(--bg-primary)] space-y-2">
@@ -550,16 +550,16 @@ export default function Governance() {
               {/* Defined Pilot Structure */}
               <div className="p-6 border border-emerald-500/30 bg-emerald-500/5 space-y-3 font-mono text-xs">
                 <div className="font-bold text-emerald-400 uppercase text-xs flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4" /> Single-Transaction Forensic Dossier ($2,499 Flat Fee)
+                  <CheckCircle2 className="w-4 h-4" /> Single-Deal Forensic Sprint ($15,000 Flat Fee)
                 </div>
                 <p className="text-[var(--text-secondary)] leading-relaxed font-sans text-xs">
-                  We structure initial engagements as a <strong>single-transaction forensic sprint</strong> on an active public filing. The analysis establishes an auditable, point-in-time baseline as of an agreed research cutoff date, allowing your investment committee to evaluate our evidence-linking rigor within 60 minutes, with monthly institutional retainer options at $7,500/mo.
+                  We structure initial engagements as a <strong>single-deal forensic sprint</strong> on an active public filing. The analysis establishes an auditable, point-in-time baseline as of an agreed research cutoff date, allowing your investment committee to evaluate our evidence-linking rigor, with annual institutional desk retainer options at $150,000/yr ($37,500/qtr). Complimentary 1-page clause card delivered within 60 minutes.
                 </p>
                 <div className="pt-2 flex flex-wrap gap-4 text-[10px] uppercase text-[var(--text-tertiary)]">
-                  <span>• Fixed $2,499 fee</span>
-                  <span>• 60-Minute rapid delivery target</span>
+                  <span>• Fixed $15,000 fee</span>
+                  <span>• 60-Minute rapid clause triage</span>
                   <span>• 100% public-evidence substrate</span>
-                  <span>• Instant corporate billing</span>
+                  <span>• Direct institutional billing</span>
                 </div>
               </div>
 
